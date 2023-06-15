@@ -2,23 +2,18 @@ Create Database RestoDB
 GO
 Use RestoDB
 GO
-Create Table Persona(
-	IDPersona int not null primary key identity(1,1),
-	Nombre varchar (50) not null,
-	Apellido varchar (50) not null,
-	Dni int not null
 
-)
-GO
 Create Table Empleados(
 	IDEmpleado int not null primary key identity(1,1), 
-	IDPersona int not null, 
 	Codigo varchar (50) not null,
 	Descripcion	varchar (50) null,
 	Turno int not null,
 	sueldo money not null,
-	Cargo varchar(150) not null
-
+	Cargo varchar(150) not null,
+	Nombre varchar (50) not null,
+	Apellido varchar (50) not null,
+	Dni int not null,
+	Activo BIT not null default (0)
 )
 
 GO
@@ -34,7 +29,7 @@ GO
 
 Create Table Mesa(
 	IdMesa int not null primary key identity(1,1), 
-	TamañoMesa int not null,
+	TamaÃ±oMesa int not null,
 	Descripcion	varchar (100) null
 )
 
@@ -43,29 +38,9 @@ Create Table Menu(
 	IDPlato int not null primary key identity(1,1),
 	TipoPlato varchar (100),
 	Precio money not null,
-	UrlImagen varchar (200) null
-)
-
-GO
-
-Create Table Entrada(
-	IDEntrada int not null primary key identity(1,1),
-	IDPlato int not null,
-	Descripcion	varchar (100) null
-)
-
-GO
-Create Table Principal(
-	IDPrincipal int not null primary key identity(1,1),
-	IDPlato int not null,
-	Descripcion	varchar (100) null
-)
-
-GO
-Create Table Postre(
-	IDPostre int not null primary key identity(1,1),
-	IDPlato int not null,
-	Descripcion	varchar (100) null
+	UrlImagen varchar (200) null,
+	Descripcion	varchar (100) null,
+	Clase varchar(100) not null
 )
 
 GO
@@ -80,17 +55,13 @@ GO
 Create Table Pedidos(
 	IDPedido int not null primary key identity(1,1),
 	IDMesa int not null,
-	IDEntrada int null,
-	IDPrincipal int null,
-	IDPostre int null,
+	IDPlato int NULL,
 	IDBebida int null,
 	Cuenta money null,
 )
 
 -- Restricciones Resto - Empleados
 
-Alter Table Empleados
-Add Constraint FK_Empleados_Personas Foreign Key (IDPersona) References Persona(IDPersona)
 Go
 
 Alter Table Empleados
@@ -114,7 +85,7 @@ go
 -- Restricciones Resto - Mesa
 
 Alter Table Mesa
-Add Constraint CHK_Tamaño_Positivo Check(TamañoMesa > 0)
+Add Constraint CHK_TamaÃ±o_Positivo Check(TamaÃ±oMesa > 0)
 go
 
 -- Restricciones Resto - Menu
@@ -122,24 +93,6 @@ go
 Alter Table Menu
 Add Constraint CHK_Precio_Positivo Check(Precio > 0)
 go
-
--- Restricciones Resto - Entrada
-
-Alter Table Entrada
-Add Constraint FK_Entrada_Menu Foreign Key (IDPlato) References Menu(IDPlato)
-Go
-
--- Restricciones Resto - Principal
-
-Alter Table Principal
-Add Constraint FK_Principal_Menu Foreign Key (IDPlato) References Menu(IDPlato)
-Go
-
--- Restricciones Resto - Entrada
-
-Alter Table Postre
-Add Constraint FK_Postre_Menu Foreign Key (IDPlato) References Menu(IDPlato)
-Go
 
 -- Restricciones Resto - Bebidas
 
@@ -157,17 +110,6 @@ Alter Table Pedidos
 Add Constraint FK_Mesa_Pedidos Foreign Key (IDMesa) References Mesa(IDMesa)
 Go
 
-Alter Table Pedidos
-Add Constraint FK_Entrada_Pedidos Foreign Key (IDEntrada) References Entrada(IDEntrada)
-Go
-
-Alter Table Pedidos
-Add Constraint FK_Principal_Pedidos Foreign Key (IDPrincipal) References Principal(IDPrincipal)
-Go
-
-Alter Table Pedidos
-Add Constraint FK_Postre_Pedidos Foreign Key (IDPostre) References Postre(IDPostre)
-Go
 
 Alter Table Pedidos
 Add Constraint FK_Bebidas_Pedidos Foreign Key (IDBebida) References Bebidas(IDBebida)

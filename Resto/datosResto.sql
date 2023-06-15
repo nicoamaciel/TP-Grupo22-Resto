@@ -12,57 +12,33 @@ INSERT INTO Bebidas (Precio, TipoBebida, Descripcion) VALUES
 (1500, 1000, 'Jara Cerveza 1lts'),
 (2000, 1000, 'Vino 1lts');
 
-INSERT INTO Persona(Nombre, Apellido, Dni) VALUES
-('Miguel','Jefazo' , 16258752),
-('Roberto','Galati' , 18028282),
-('Lucas','Rodriguez' , 25151562),
-('German','Beder' , 98257722),
-('Erica','Sanchez' , 56257722);
-
-INSERT INTO Empleados (IDPersona, Codigo, Descripcion,Turno,sueldo,Cargo) VALUES
-(1,'A001', 'Administrador', 01, 500000,'Gerente'),
-(2,'C001', 'Cocina', 01, 300000,'Cocinero'),
-(3,'M001', 'Mesero', 01, 200000,'MesaGral'),
-(4,'G001', 'Encargado', 01, 300000,'EncargadoMesa'),
-(5,'M002', 'Mesera', 01, 200000,'MesaGral');
+INSERT INTO Empleados ( Codigo, Descripcion,Turno,sueldo,Cargo,Nombre, Apellido, Dni) VALUES
+('A001', 'Administrador', 01, 500000,'Gerente','Miguel','Jefazo' , 16258752),
+('C001', 'Cocina', 01, 300000,'Cocinero','Roberto','Galati' , 18028282),
+('M001', 'Mesero', 01, 200000,'MesaGral','Lucas','Rodriguez' , 25151562),
+('G001', 'Encargado', 01, 300000,'EncargadoMesa','German','Beder' , 98257722),
+('M002', 'Mesera', 01, 200000,'MesaGral','Erica','Sanchez' , 56257722);
 
 
-INSERT INTO Menu (TipoPlato, Precio, UrlImagen) VALUES
-('EntradaFria',2000,''),
-('EntradaFria',2500,''),
-('EntradaCaliente',3000,''),
-('EntradaCaliente',1000,''),
-('PlatoCaliente',4000,''),
-('PlatoCaliente',3000,''),
-('PlatoCaliente',5000,''),
-('PlatoCaliente',7000,''),
-('Postre',1500,''),
-('Postre',1800,''),
-('Postre',500,'');
+INSERT INTO Menu (TipoPlato, Precio, UrlImagen,Descripcion,Clase) VALUES
+('EntradaFria',2000,'https://www.baenegocios.com/__export/1669410756753/sites/cronica/img/2022/11/25/picada_1.jpg_966076397.jpg','Picada 2 personas','Entrada'),
+('EntradaFria',2500,'https://images-ext-2.discordapp.net/external/vfm-u0JrLoZbVlwLS_dm_KlxByo6aiWDeuNHBIjY_iI/https/vitto.com.ar/wp-content/uploads/2022/08/DSC02310-copia-900x900.jpg?width=469&height=469 ','Picada 4 personas','Entrada'),
+('EntradaCaliente',3000,' ','Picada de Mar','Entrada'),
+('EntradaCaliente',1000,' ','Picada vegeterina','Entrada'),
+('PlatoCaliente',4000,' ','Pastel de papas','Principal'),
+('PlatoCaliente',3000,'','Pizza','Principal'),
+('PlatoCaliente',5000,'','Milanesa','Principal'),
+('PlatoCaliente',7000,'','Empanadas','Principal'),
+('Postre',1500,'','Helado','Postre'),
+('Postre',1800,'','Flan','Postre'),
+('Postre',500,'','Panqueques','Postre');
 
-INSERT INTO Mesa(TamañoMesa, Descripcion) VALUES
+INSERT INTO Mesa(TamaÃ±oMesa, Descripcion) VALUES
 (2,'Dos personas ventana'),
 (2,'Dos personas centro'),
 (4,'Cuatro personas'),
 (4,'Cuatro personas ventana'),
 (6,'Seis personas ventana'),
 (8,'Ocho personas centro');
-
-INSERT INTO Entrada(IDPlato,Descripcion) VALUES
-(1,'Picada 2 personas'),
-(2,'Picada 4 personas'),
-(3,'Picada de Mar'),
-(4,'Picada vegeterina');
-
-INSERT INTO Principal(IDPlato,Descripcion) VALUES
-(5,'Pizza'),
-(6,'Milanesa'),
-(7,'Empanadas'),
-(8,'Pastel de papas');
-
-INSERT INTO Postre(IDPlato,Descripcion) VALUES
-(9,'Helado'),
-(10,'Flan'),
-(11,'Panqueques');
 
 

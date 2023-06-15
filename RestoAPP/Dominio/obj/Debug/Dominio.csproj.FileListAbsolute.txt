@@ -1,0 +1,6 @@
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\Dominio\bin\Debug\Dominio.dll
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\Dominio\bin\Debug\Dominio.pdb
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.dll
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.pdb

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestoAPP", "RestoAPP\RestoAPP.csproj", "{9A39DA44-7693-4107-84A7-52EAF11A4356}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{0190DA8A-F9D5-414F-BBF0-0471674AB461}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegocioResto", "NegocioResto\NegocioResto.csproj", "{DCA2DC67-F948-4725-94E9-E8355C062EFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A39DA44-7693-4107-84A7-52EAF11A4356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A39DA44-7693-4107-84A7-52EAF11A4356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A39DA44-7693-4107-84A7-52EAF11A4356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A39DA44-7693-4107-84A7-52EAF11A4356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0190DA8A-F9D5-414F-BBF0-0471674AB461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0190DA8A-F9D5-414F-BBF0-0471674AB461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0190DA8A-F9D5-414F-BBF0-0471674AB461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0190DA8A-F9D5-414F-BBF0-0471674AB461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCA2DC67-F948-4725-94E9-E8355C062EFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA2DC67-F948-4725-94E9-E8355C062EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCA2DC67-F948-4725-94E9-E8355C062EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA2DC67-F948-4725-94E9-E8355C062EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9EE7976C-AD4A-401A-A432-81E9A7894C74}
+	EndGlobalSection
+EndGlobal

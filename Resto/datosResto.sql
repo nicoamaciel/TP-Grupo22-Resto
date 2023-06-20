@@ -40,5 +40,11 @@ INSERT INTO Mesa(TamañoMesa, Descripcion) VALUES
 (4,'Cuatro personas ventana'),
 (6,'Seis personas ventana'),
 (8,'Ocho personas centro');
-
+go
+INSERT into LOGIN(Usuario,Contraseña,NivelAcceso) VALUES
+(16258752,16258752,1),
+(18028282,18028282,2),
+(25151562,25151562,3),
+(98257722,98257722,1),
+(56257722,56257722,3);
 

@@ -12,8 +12,8 @@ namespace Dominio
         public int IDEmpleado { get; set; }
 	    public string Codigo { get; set; }
 	    public string Descripcion { get; set; }
-        public int Turno { get; set; }
-        public int sueldo { get; set; }
+        public DateTime Turno { get; set; }
+        public decimal sueldo { get; set; }
         public string Cargo  { get; set; }
         public string Nombre  { get; set; }
         public string Apellido{ get; set; }

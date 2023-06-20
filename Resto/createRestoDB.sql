@@ -15,7 +15,12 @@ Create Table Empleados(
 	Dni int not null,
 	Activo BIT not null default (0)
 )
-
+GO
+CREATE TABLE LOGIN(
+	Usuario VARCHAR(150) not NULL,
+	Contraseña VARCHAR(50) not NULL,
+	NivelAcceso INT not NULL
+)
 GO
 Create Table Reserva(
 	IDReserva int not null primary key identity(1,1), 

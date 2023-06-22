@@ -16,7 +16,7 @@ namespace NegocioResto
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT IDPlato,Descripcion,Precio,TipoPlato,UrlImagen,Clase from Menu");
+                datos.setearConsulta("SELECT IDPlato,Descripcion,Precio,TipoPlato,UrlImagen,Clase from Menu where Clase = 'Entrada'");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())

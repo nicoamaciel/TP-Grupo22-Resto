@@ -7,22 +7,25 @@ GO
 --url bebidas
 
 ALTER TABLE dbo.Bebidas
-ADD Urlbebida VARCHAR(200) NULL;
+ADD UrlImagen VARCHAR(200) NULL;
 
 select * from Bebidas
 
 --Agua600
-Update Bebidas set Urlbebida = 'https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3040004_f.jpg' where IDBebida=1
+Update Bebidas set UrlImagen = 'https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3040004_f.jpg' where IDBebida=1
 --Soda600
-Update Bebidas set Urlbebida = 'https://vixark.b-cdn.net/lp-i-i-g/agua-con-gas-cristal-600ml.jpg' where IDBebida=2
+Update Bebidas set UrlImagen = 'https://vixark.b-cdn.net/lp-i-i-g/agua-con-gas-cristal-600ml.jpg' where IDBebida=2
 --Gaseosa600
-Update Bebidas set Urlbebida = 'https://images.ssstatic.com/coca-cola-600cm3-x-12u-precio-por-pallet-12-16398310.jpg' where IDBebida=3
+Update Bebidas set UrlImagen = 'https://images.ssstatic.com/coca-cola-600cm3-x-12u-precio-por-pallet-12-16398310.jpg' where IDBebida=3
 --AguaSaborizada600
-Update Bebidas set Urlbebida = 'https://jrdistribution.com.ar/wp-content/uploads/2018/10/levite-600-justo.jpg' where IDBebida=4
+Update Bebidas set UrlImagen = 'https://jrdistribution.com.ar/wp-content/uploads/2018/10/levite-600-justo.jpg' where IDBebida=4
 --JaraJugo
-Update Bebidas set Urlbebida = 'https://www.rebanando.com/uploads/media/dieta-de-la-limonada-4.jpg?1391967904' where IDBebida=5
+Update Bebidas set UrlImagen = 'https://www.rebanando.com/uploads/media/dieta-de-la-limonada-4.jpg?1391967904' where IDBebida=5
 --JaraCerveza
-Update Bebidas set Urlbebida = 'https://www.beersandtrips.com/wp-content/uploads/2018/08/historia_cerveza.jpg' where IDBebida=6
+Update Bebidas set UrlImagen = 'https://www.beersandtrips.com/wp-content/uploads/2018/08/historia_cerveza.jpg' where IDBebida=6
 --JaraVino
-Update Bebidas set Urlbebida = 'https://img.freepik.com/fotos-premium/arreglo-copas-jarra-vino-vista-frontal_23-2148401046.jpg' where IDBebida=7
+Update Bebidas set UrlImagen = 'https://img.freepik.com/fotos-premium/arreglo-copas-jarra-vino-vista-frontal_23-2148401046.jpg' where IDBebida=7
+
+select IDBebida, Precio, Descripcion, Urlbebida from Bebidas
+
 

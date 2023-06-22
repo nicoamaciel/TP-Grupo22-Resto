@@ -9,9 +9,9 @@ namespace Dominio
     public class Bebidas
     {
         public int IDBebida {get; set;}
-	    public int Precio {get; set;}
+	    public decimal Precio {get; set;}
         public int TipoBebida{get; set;}
         public string Descripcion {get; set;}
-        public string UrlBebida { get; set; }
+        public string UrlImagen { get; set; }
     }
 }

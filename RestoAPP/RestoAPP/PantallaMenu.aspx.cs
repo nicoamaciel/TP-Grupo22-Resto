@@ -13,8 +13,13 @@ namespace RestoAPP
         public List<Dominio.Menu> MostrarMenu { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListaMenu aux = new ListaMenu();
+            
+            
+        }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            ListaMenu aux = new ListaMenu();
             MostrarMenu = aux.listarSP();
             repRepetidor.DataSource = MostrarMenu;
             repRepetidor.DataBind();

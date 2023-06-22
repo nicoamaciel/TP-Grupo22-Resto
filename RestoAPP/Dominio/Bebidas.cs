@@ -12,5 +12,6 @@ namespace Dominio
 	    public int Precio {get; set;}
         public int TipoBebida{get; set;}
         public string Descripcion {get; set;}
+        public string UrlBebida { get; set; }
     }
 }

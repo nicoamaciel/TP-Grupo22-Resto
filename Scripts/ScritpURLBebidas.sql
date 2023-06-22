@@ -9,7 +9,7 @@ GO
 ALTER TABLE dbo.Bebidas
 ADD UrlImagen VARCHAR(200) NULL;
 
-select * from Bebidas
+
 
 --Agua600
 Update Bebidas set UrlImagen = 'https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3040004_f.jpg' where IDBebida=1
@@ -26,6 +26,22 @@ Update Bebidas set UrlImagen = 'https://www.beersandtrips.com/wp-content/uploads
 --JaraVino
 Update Bebidas set UrlImagen = 'https://img.freepik.com/fotos-premium/arreglo-copas-jarra-vino-vista-frontal_23-2148401046.jpg' where IDBebida=7
 
-select IDBebida, Precio, Descripcion, Urlbebida from Bebidas
+
+-------------------Urls platos principales
+Update Menu set UrlImagen = 'https://www.recetasnatura.com.ar/sites/default/files/styles/receta_cuerpo/public/pastel_de_papa_y_soja.jpg?itok=aEABz-M3' where IDPlato=5
+Update Menu set UrlImagen = 'https://hazlovegan.com/wp-content/uploads/2021/01/pizza-napoletana-vegana-3.jpg' where IDPlato = 6
+Update Menu set UrlImagen = 'https://cdn0.recetasgratis.net/es/posts/5/0/1/milanesa_napolitana_con_pure_76105_orig.jpg' where IDPlato = 7
+Update Menu set UrlImagen = 'https://i.blogs.es/58e525/como-hacer-masa-para-empanadas-fritas-1-/1366_2000.jpg' where IDPlato = 8
+
+------------------Update jarra falta de ortografia
+Update Bebidas set Descripcion = 'JarraJugo 1lts' where IDBebida=5
+Update Bebidas set Descripcion = 'JarraCerveza 1lts' where IDBebida=6
+Update Bebidas set Descripcion = 'JarraVino 1lts' where IDBebida=7
+select * from Bebidas
+
+-------------------Urls postre
+
+
+select * from Menu
 
 

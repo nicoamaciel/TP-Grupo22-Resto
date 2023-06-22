@@ -40,7 +40,11 @@ Update Bebidas set Descripcion = 'JarraVino 1lts' where IDBebida=7
 select * from Bebidas
 
 -------------------Urls postre
+Update Menu set UrlImagen = 'https://glassandservice.com/media/catalog/product/cache/be7bf90a371cf13c97562dc8f140e142/c/o/copa-helado-primavera.jpg' where IDPlato = 9
 
+Update Menu set UrlImagen = 'https://www.recetasnestle.com.mx/sites/default/files/styles/recipe_detail_desktop/public/srh_recipes/54c6cbcbc6d611e056122d64560cd9c1.jpg?itok=Ekj0Kgv-' where IDPlato = 10
+
+Update Menu set UrlImagen = 'https://img-global.cpcdn.com/recipes/8189667259ba87b9/400x400cq70/photo.jpg' where IDPlato = 11
 
 select * from Menu
 

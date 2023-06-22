@@ -14,6 +14,7 @@ namespace RestoAPP
         public List<Dominio.Menu> MostrarMenu { get; set; }
         public List<Dominio.Bebidas> MostraBebidas { get; set; }
         public List<Dominio.Menu> MostrarPrincipal { get; set; }
+        public List<Dominio.Menu> MostrarPostre { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -43,6 +44,14 @@ namespace RestoAPP
             repRepetidor.DataSource = MostrarPrincipal;
             repRepetidor.DataBind();
 
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            ListaPostre aux = new ListaPostre();
+            MostrarPostre = aux.listarPostre();
+            repRepetidor.DataSource = MostrarPostre;
+            repRepetidor.DataBind();
         }
     }
 }

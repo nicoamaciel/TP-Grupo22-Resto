@@ -14,7 +14,7 @@
         <div class="btn-group " role="group" aria-label="Basic outlined example">
             <asp:Button ID="Button1" class="btn btn-outline-primary" OnClick="Button1_Click" runat="server" Text="Entrada" />
             <asp:Button ID="Button3" class="btn btn-outline-primary" OnClick="Button3_Click" runat="server" Text="Principal" />
-            <asp:Button ID="Button4" class="btn btn-outline-primary" runat="server" Text="Postre" />
+            <asp:Button ID="Button4" class="btn btn-outline-primary" OnClick="Button4_Click" runat="server" Text="Postre" />
             <asp:Button ID="Button5" class="btn btn-outline-primary" OnClick="Button5_Click" runat="server" Text="Bebidas" />
         </div>
 

@@ -15,7 +15,7 @@ namespace NegocioResto
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("select IDBebida, Precio, Descripcion, UrlImagen from Bebidas");
+                datos.setearProcedimiento("SP_BebidasMostrar");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -43,7 +43,68 @@ namespace NegocioResto
             }
         }
 
+        public void Agregar(Bebidas nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("SP_MesasNueva");
+                datos.setearParametro("@Precio", nuevo.Precio);
+                datos.setearParametro("@TipoBebida", nuevo.TipoBebida);
+                datos.setearParametro("@descripcion", nuevo.Descripcion);
+                datos.setearParametro("@url", nuevo.UrlImagen);
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
+        public void eliminar(string id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearProcedimiento("SP_EliminarBebida");
+                datos.setearParametro("@id", int.Parse(id));
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void Modificar(Bebidas nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("SP_BebidasModificar");
+                datos.setearParametro("@Id", nuevo.IDBebida);
+                datos.setearParametro("@Precio", nuevo.Precio);
+                datos.setearParametro("@TipoBebida", nuevo.TipoBebida);
+                datos.setearParametro("@descripcion", nuevo.Descripcion);
+                datos.setearParametro("@url", nuevo.UrlImagen);
+
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
 
     }
 }

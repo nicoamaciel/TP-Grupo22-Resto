@@ -45,9 +45,8 @@
     <Compile Include="ListaBebidas.cs" />
     <Compile Include="LecturaUsuario.cs" />
     <Compile Include="ListaMenu.cs" />
-    <Compile Include="ListaPostre.cs" />
-    <Compile Include="ListaPrincipal.cs" />
     <Compile Include="NegocioEmpleados.cs" />
+    <Compile Include="NegocioMesas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

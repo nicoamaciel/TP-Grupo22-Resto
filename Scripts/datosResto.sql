@@ -12,12 +12,12 @@ INSERT INTO Bebidas (Precio, TipoBebida, Descripcion) VALUES
 (1500, 1000, 'Jara Cerveza 1lts'),
 (2000, 1000, 'Vino 1lts');
 
-INSERT INTO Empleados ( Codigo, Descripcion,Turno,sueldo,Cargo,Nombre, Apellido, Dni) VALUES
-('A001', 'Administrador', 01, 500000,'Gerente','Miguel','Jefazo' , 16258752),
-('C001', 'Cocina', 01, 300000,'Cocinero','Roberto','Galati' , 18028282),
-('M001', 'Mesero', 01, 200000,'MesaGral','Lucas','Rodriguez' , 25151562),
-('G001', 'Encargado', 01, 300000,'EncargadoMesa','German','Beder' , 98257722),
-('M002', 'Mesera', 01, 200000,'MesaGral','Erica','Sanchez' , 56257722);
+INSERT INTO Empleados ( Codigo, Cargo,Turno,sueldo,Nombre, Apellido, Dni) VALUES
+('A001', 'Administrador', 01, 500000,'Miguel','Jefazo' , 16258752),
+('C001', 'Cocina', 01, 300000,'Roberto','Galati' , 18028282),
+('M001', 'Mesero', 01, 200000,'Lucas','Rodriguez' , 25151562),
+('G001', 'Encargado', 01, 300000,'German','Beder' , 98257722),
+('M002', 'Mesero', 01, 200000,'Erica','Sanchez' , 56257722);
 
 
 INSERT INTO Menu (TipoPlato, Precio, UrlImagen,Descripcion,Clase) VALUES
@@ -41,10 +41,9 @@ INSERT INTO Mesa(TamañoMesa, Descripcion) VALUES
 (6,'Seis personas ventana'),
 (8,'Ocho personas centro');
 go
-INSERT into LOGIN(Usuario,Contraseña,NivelAcceso) VALUES
-(16258752,16258752,1),
-(18028282,18028282,2),
-(25151562,25151562,3),
-(98257722,98257722,1),
-(56257722,56257722,3);
-
+INSERT into [LOGIN](Usuario,Contraseña,NivelAcceso,IDuser)VALUES
+            (16258752,16258752,1,1),
+            (18028282,18028282,2,2),
+            (25151562,25151562,3,3),
+            (98257722,98257722,1,4),
+            (56257722,56257722,3,5)

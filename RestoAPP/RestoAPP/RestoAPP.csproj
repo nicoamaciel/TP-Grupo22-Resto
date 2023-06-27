@@ -69,8 +69,13 @@
   <ItemGroup>
     <Content Include="AccesoEmpleados.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="MesasUser.aspx" />
     <Content Include="MiPerfil.aspx" />
+    <Content Include="PantallaCargaEmpleados.aspx" />
+    <Content Include="PantallaEmpleados.aspx" />
     <Content Include="PantallaMenu.aspx" />
+    <Content Include="PantallaModMenu.aspx" />
+    <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +100,13 @@
     <Compile Include="MasterResto.Master.designer.cs">
       <DependentUpon>MasterResto.Master</DependentUpon>
     </Compile>
+    <Compile Include="MesasUser.aspx.cs">
+      <DependentUpon>MesasUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MesasUser.aspx.designer.cs">
+      <DependentUpon>MesasUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MiPerfil.aspx.cs">
       <DependentUpon>MiPerfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -102,12 +114,33 @@
     <Compile Include="MiPerfil.aspx.designer.cs">
       <DependentUpon>MiPerfil.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PantallaCargaEmpleados.aspx.cs">
+      <DependentUpon>PantallaCargaEmpleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantallaCargaEmpleados.aspx.designer.cs">
+      <DependentUpon>PantallaCargaEmpleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaEmpleados.aspx.cs">
+      <DependentUpon>PantallaEmpleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantallaEmpleados.aspx.designer.cs">
+      <DependentUpon>PantallaEmpleados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PantallaMenu.aspx.cs">
       <DependentUpon>PantallaMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PantallaMenu.aspx.designer.cs">
       <DependentUpon>PantallaMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaModMenu.aspx.cs">
+      <DependentUpon>PantallaModMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantallaModMenu.aspx.designer.cs">
+      <DependentUpon>PantallaModMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

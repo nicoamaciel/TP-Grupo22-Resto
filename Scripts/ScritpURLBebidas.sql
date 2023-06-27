@@ -1,3 +1,9 @@
+use RestoDB
+go
+ALTER DATABASE RestoDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
+DROP DATABASE RestoDB;
+GO
 --Url faltantes entradas
 GO
 Update Menu set UrlImagen = 'https://live.staticflickr.com/3401/3307181757_687fa55f2f_b.jpg' where IDPlato=3
@@ -5,12 +11,15 @@ update Menu set UrlImagen = 'https://latablita.com.ar/wp-content/uploads/2020/09
 GO
 
 --url bebidas
-
 ALTER TABLE dbo.Bebidas
 ADD UrlImagen VARCHAR(200) NULL;
-
-
-
+--nuevos datos mesas
+Update Mesa set IdMesero = 3 where IdMesa=1
+Update Mesa set idmesero = 3 where IdMesa=2
+Update Mesa set IdMesero = 3 where IdMesa=3
+Update Mesa set idmesero = 5 where IdMesa=4
+Update Mesa set IdMesero = 5 where IdMesa=5
+Update Mesa set idmesero = 5 where IdMesa=6
 --Agua600
 Update Bebidas set UrlImagen = 'https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3040004_f.jpg' where IDBebida=1
 --Soda600
@@ -47,5 +56,51 @@ Update Menu set UrlImagen = 'https://www.recetasnestle.com.mx/sites/default/file
 Update Menu set UrlImagen = 'https://img-global.cpcdn.com/recipes/8189667259ba87b9/400x400cq70/photo.jpg' where IDPlato = 11
 
 select * from Menu
+go
+SELECT *FROM Empleados
+go
 
+-- Triggers EMPLEADOS
 
+create TRIGGER TRG_CrearLogin
+ON Empleados
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @Dni INT, @Cargo VARCHAR(50), @NivelAcceso INT,@id INT
+
+    SELECT @Dni = Dni, @Cargo = Cargo, @id=IDEmpleado
+    FROM inserted
+
+    IF @Cargo IN ('Administrador', 'Encargado')
+        SET @NivelAcceso = 1
+    ELSE IF @Cargo = 'Cocina'
+        SET @NivelAcceso = 2
+    ELSE IF @Cargo = 'Mesero'
+        SET @NivelAcceso = 3
+    INSERT INTO LOGIN (Usuario, Contraseña, NivelAcceso, IDuser)
+    VALUES (CAST(@Dni AS VARCHAR(150)), CAST(@Dni AS VARCHAR(50)), @NivelAcceso,@id)
+END
+go
+create TRIGGER TRG_ELIMINAR
+ON Empleados
+INSTEAD  of DELETE
+As
+BEGIN 
+    DECLARE @IDEmpleado int
+    DECLARE @dni VARCHAR(150)
+    select @IDEmpleado=IDEmpleado, @dni=Dni FROM deleted
+    IF EXISTS(select 1 from Empleados where IDEmpleado=IDEmpleado AND Activo=1)
+        BEGIN
+            UPDATE Mesa set IDMesero=null WHERE IDMesero=@IDEmpleado
+            delete from LOGIN WHERE Usuario=@dni 
+            DELETE from Empleados WHERE IDEmpleado=@IDEmpleado
+            end
+    ELSE
+    BEGIN
+        update Empleados SET Activo=1 WHERE IDEmpleado=@IDEmpleado 
+        END
+end
+GO

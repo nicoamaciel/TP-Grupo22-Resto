@@ -1,3 +1,7 @@
+USE master
+GO
+DROP DATABASE RestoDB;
+GO
 Create Database RestoDB
 GO
 Use RestoDB
@@ -6,7 +10,6 @@ GO
 Create Table Empleados(
 	IDEmpleado int not null primary key identity(1,1), 
 	Codigo varchar (50) not null,
-	Descripcion	varchar (50) null,
 	Turno int not null,
 	sueldo money not null,
 	Cargo varchar(150) not null,
@@ -19,7 +22,8 @@ GO
 CREATE TABLE LOGIN(
 	Usuario VARCHAR(150) not NULL,
 	Contraseña VARCHAR(50) not NULL,
-	NivelAcceso INT not NULL
+	NivelAcceso INT not NULL,
+	IDuser int not NULL
 )
 GO
 Create Table Reserva(
@@ -37,7 +41,6 @@ Create Table Mesa(
 	TamañoMesa int not null,
 	Descripcion	varchar (100) null
 )
-
 GO
 Create Table Menu(
 	IDPlato int not null primary key identity(1,1),
@@ -92,7 +95,9 @@ go
 Alter Table Mesa
 Add Constraint CHK_Tamaño_Positivo Check(TamañoMesa > 0)
 go
-
+ALTER TABLE Mesa
+ADD IDMesero int NULL,
+	Activo BIT not null default (0);
 -- Restricciones Resto - Menu
 
 Alter Table Menu
@@ -123,4 +128,5 @@ Go
 Alter Table Pedidos
 Add Constraint CHK_Cuenta_Positiva Check(Cuenta > 0)
 go
-
+ALTER TABLE Pedidos
+ADD Activo BIT NOT NULL DEFAULT (0);

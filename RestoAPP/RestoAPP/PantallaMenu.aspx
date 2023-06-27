@@ -33,7 +33,6 @@
                     <div class="card-body">
                         <h5 class="card-title"><%#Eval("Descripcion") %></h5>
                         <p class="card-text">Precio $ <%#Eval("Precio") %></p>
-
                     </div>
                     <div class="card-body">
                         <a href="#" class="card-link">Modificar</a>

@@ -22,37 +22,33 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="/Default.aspx">Resto</a>
+                    <a class="navbar-brand" href="/PantallaMenu.aspx">Resto</a>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                             <li class="nav-item">
                                 <a class="nav-link" href="/PantallaMenu.aspx">Ver Menus</a>
                             </li>
-                            <%if (Session["Usuario"]!=null&&((Dominio.Login)Session["Usuario"]).NivelAcceso>=1) {%>
+                            
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Limpiar mesas</a>
                             </li>
-                            <% }%>
 
-                            <%if (Session["Usuario"] != null && ((Dominio.Login)Session["Usuario"]).NivelAcceso == 3)
-                                {%>
+                            
                             <li class="nav-item">
-                                <a class="nav-link" href="/PantallaMenu.aspx">Ver mis Mesas</a>
+                                <a class="nav-link" href="/MesasUser.aspx">Ver mis Mesas</a>
                             </li>
-                            <%} %>
+                            
 
-                            <%if (Session["Usuario"]!=null&&((Dominio.Login)Session["Usuario"]).NivelAcceso==2) {%>
+                           
                             <li class="nav-item">
                                 <a class="nav-link" href="/PantallaMenu.aspx">Modificar Menus</a>
                             </li>
-                            <% }%>
 
-                            <%if (Session["Usuario"]!=null&&((Dominio.Login)Session["Usuario"]).NivelAcceso==1) {%>
+                            
                             <li class="nav-item">
-                                <a class="nav-link" href="/PantallaMenu.aspx">Ver Empleados</a>
+                                <a class="nav-link" href="/PantallaEmpleados.aspx">Ver Empleados</a>
                             </li>
-                            <% }%>
                         </ul>
                         <form class="d-flex" role="search">
                             <%--<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">--%>
@@ -68,7 +64,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
             <footer>
-                <div class="container text-center">
+                <div class="container text-center position-absolute top-100 start-50 translate-middle">
                     <hr />
                     <p>MesaResto G22 - Copyrigth &copy; 2023</p>
                 </div>

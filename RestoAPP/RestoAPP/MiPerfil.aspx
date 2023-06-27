@@ -3,19 +3,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
+    <div class="position-absolute top-50 start-50 translate-middle">
+    <%if(ListaEmpleados.Count>0 ) {%>
+<div class="card text-center mb-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%=ListaEmpleados[0].Nombre +" "+ ListaEmpleados[0].Apellido%></h5>
+    <p class="card-text">Dni: <%=ListaEmpleados[0].Dni%></p>
+    <p class="card-text">Cargo: <%=ListaEmpleados[0].Descripcion%></p>
+    <p class="card-text">Sueldo: <%=ListaEmpleados[0].sueldo%></p>
+    <p class="card-text">Turno: <%=ListaEmpleados[0].Turno%></p>
+    <p class="card-text">Codigo: <%=ListaEmpleados[0].Codigo%></p>   
   </div>
 </div>
+    <% }%>
+
+ </div>
 
 </asp:Content>

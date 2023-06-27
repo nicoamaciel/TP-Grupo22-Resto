@@ -11,7 +11,7 @@ namespace Dominio
         public string Usuario { get; set; }
         public string Contraseña { get; set; }
         public int NivelAcceso { get; set; }
-
+        public int IdUser { get; set; }
         public Login(String user, string pass)
         {
             Usuario = user;

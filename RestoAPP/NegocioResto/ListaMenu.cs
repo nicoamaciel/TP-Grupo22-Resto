@@ -53,7 +53,7 @@ namespace NegocioResto
             try
             {
                 datos.setearProcedimiento("SP_MenuMostrarClase");
-                datos.setearParametro("@tipo", tipo);
+                datos.setearParametro("@clase", tipo);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())

@@ -1,6 +1,7 @@
 use RestoDB
 --Procedimientos MESA
-EXEC SPMesasMesero @Dni='25151562';
+SELECT *from Menu
+EXEC SP_MenuMostrarClase @clase='Entrada';
 go
 --buscar las meseas del mesero
 create PROCEDURE SP_MesasMesero(
@@ -39,11 +40,11 @@ as BEGIN
 END
 go
 --Modificar mesa
-CREATE PROCEDURE SP_ModificarMesa(
+alter PROCEDURE SP_ModificarMesa(
     @id INT,
-	@TamañoMesa VARCHAR,
+	@TamañoMesa int,
 	@Descripcion	Decimal,
-	@IDMesero	Varchar,
+	@IDMesero	int,
     @activo BIT
 )
 as BEGIN
@@ -97,11 +98,11 @@ as BEGIN
 END
 go
 --crear BEBIDAS
-CREATE PROCEDURE SP_BebidasNueva(
+alter PROCEDURE SP_BebidasNueva(
 	@Precio money,
 	@TipoBebida	Decimal,
-	@Descripcion	Varchar,
-    @url VARCHAR
+	@Descripcion	Varchar(150),
+    @url VARCHAR(200)
 )
 as BEGIN
     INSERT INTO Bebidas (Precio, TipoBebida, Descripcion,UrlImagen) VALUES
@@ -117,11 +118,11 @@ as BEGIN
 END
 go
 --Modificar BEBIDAS
-CREATE PROCEDURE SP_BebidasModificar(
+ALTER PROCEDURE SP_BebidasModificar(
     @id INT,
 	@Precio money,
 	@TipoBebida	Decimal,
-	@Descripcion	Varchar,
+	@Descripcion	Varchar(150),
     @url VARCHAR
 )
 as BEGIN
@@ -135,7 +136,7 @@ CREATE PROCEDURE SP_ReservaNueva(
 	@IDMesa int,
 	@HoraReserva datetime,
 	@CodigoReserva int,
-	@Comentario varchar,
+	@Comentario varchar(200),
 	@CantidadClientes int
     )
     as BEGIN
@@ -152,11 +153,11 @@ CREATE PROCEDURE SP_ReservaCancelar(
 END
 --MODIFICAR Reserva
 GO
-CREATE PROCEDURE SP_ReservarModificar(
+ALTER PROCEDURE SP_ReservarModificar(
     @IDMesa int,
 	@HoraReserva datetime,
 	@CodigoReserva int,
-	@Comentario varchar,
+	@Comentario varchar(200),
 	@CantidadClientes int
     )
     as BEGIN
@@ -174,10 +175,10 @@ END
 GO
 
 ----Procedimientos Login
-CREATE PROCEDURE SP_LoginModificar(
+ALTER PROCEDURE SP_LoginModificar(
     @id int,
-    @user VARCHAR,
-    @Contraseña VARCHAR,
+    @user VARCHAR(150),
+    @Contraseña VARCHAR(150),
     @NivelAcceso INT
 )
 as BEGIN
@@ -185,9 +186,9 @@ as BEGIN
 END
 GO
 --MOSTRAR
-CREATE PROCEDURE SP_LoginMostrar(
-    @user VARCHAR,
-    @Contraseña VARCHAR
+ALTER PROCEDURE SP_LoginMostrar(
+    @user VARCHAR(150),
+    @Contraseña VARCHAR(150)
 )
 as BEGIN
  select *from [LOGIN] L
@@ -198,12 +199,12 @@ GO
 
 ----Procedimientos Menu
 --CREAR MENU
-CREATE PROCEDURE SP_MenuNuevo(
-    	@TipoPlato varchar ,
+ALTER PROCEDURE SP_MenuNuevo(
+    	@TipoPlato varchar(150) ,
 	@Precio money ,
-	@UrlImagen varchar,
-	@Descripcion	varchar,
-	@Clase varchar
+	@UrlImagen varchar(200),
+	@Descripcion	varchar(150),
+	@Clase varchar(150)
     )
     as BEGIN
     insert into Menu (TipoPlato,Precio,UrlImagen,Descripcion,Clase)
@@ -211,13 +212,13 @@ CREATE PROCEDURE SP_MenuNuevo(
 END
 go
 --MODIFICAR MENU
-CREATE PROCEDURE SP_MenuModificar(
+ALTER PROCEDURE SP_MenuModificar(
     @id INT,
-    @TipoPlato varchar ,
+    @TipoPlato varchar(150) ,
 	@Precio money ,
-	@UrlImagen varchar,
-	@Descripcion	varchar,
-	@Clase varchar
+	@UrlImagen varchar(150),
+	@Descripcion	varchar(150),
+	@Clase varchar(150)
     )
     as BEGIN
     update  Menu set TipoPlato=@TipoPlato,Precio=@Precio,UrlImagen=@UrlImagen,Descripcion=@Descripcion,Clase=@Clase WHERE IDPlato=@id
@@ -238,12 +239,14 @@ as BEGIN
 END
 go
 --MOSTRAR POR CLASE DE COMIDA
-CREATE PROCEDURE SP_MenuMostrarClase(
-    @clase VARCHAR
+create PROCEDURE SP_MenuMostrarClase(
+    @clase VARCHAR(150)
 )
 as BEGIN
     SELECT *FROM Menu WHERE Clase=@clase
 END
+GO
+SELECT *FROM Menu WHERE Clase='Entrada'
 GO
 --PORCEDIMIENTOS DE EMPLEADO
 --MOSTRAR EMPLEADO
@@ -269,9 +272,9 @@ as BEGIN
 END
 go
 --MOSTRAR EMPLEADO
-CREATE PROCEDURE SP_EmpleadosModificar(
+ALTER PROCEDURE SP_EmpleadosModificar(
     @id INT,
-    @cargo varchar,
+    @cargo varchar(150),
     @sueldo money,
     @Turno INT
 )
@@ -280,14 +283,14 @@ as BEGIN
 END
 GO
 --NUEVO EMPLEADO
-CREATE PROCEDURE SP_EmpleadosNuevo(
+ALTER PROCEDURE SP_EmpleadosNuevo(
     @id INT,
-    @cargo varchar,
+    @cargo varchar(150),
     @sueldo money,
     @Turno INT,
-    @nombre VARCHAR,
-    @apellido VARCHAR,
-    @codigo VARCHAR,
+    @nombre VARCHAR(150),
+    @apellido VARCHAR(150),
+    @codigo VARCHAR(150),
     @dni INT
 )
 as BEGIN

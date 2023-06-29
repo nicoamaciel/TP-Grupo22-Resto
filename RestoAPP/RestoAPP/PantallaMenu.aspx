@@ -24,7 +24,7 @@
     <hr />
 
     <div id="cajas" class="row row-cols-1 row-cols-md-3 g-4">
-        <asp:Repeater runat="server" ID="repRepetidor">
+        <asp:Repeater runat="server" ID="repRepetidor" >
             <ItemTemplate>
                 <div class="card" style="width: 18rem;">
                     <img src="<%#Eval("UrlImagen") %>" class="card-img-top" alt="..." style="width: 100%; height: 100%;">
@@ -35,8 +35,8 @@
                         <p class="card-text">Precio $ <%#Eval("Precio") %></p>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="card-link">Modificar</a>
-                        <a href="#" class="card-link">Borrar</a>
+                        <asp:Button ID="btnModificar" runat="server" CssClass="card-link" Text="Modificar" OnClick="btnModificar_Click" CommandArgument='<%#Eval("ID") %>'/>
+                        <asp:Button ID="btnBorrar" runat="server" CssClass="card-link" Text="Borrar" OnClick="btnBorrar_Click" CommandArgument='<%#Eval("ID")%>'/>
                     </div>
                 </div>
             </ItemTemplate>

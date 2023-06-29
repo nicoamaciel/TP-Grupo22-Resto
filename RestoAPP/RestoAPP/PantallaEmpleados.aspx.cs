@@ -26,7 +26,12 @@ namespace RestoAPP
         protected void dgvEmpleados_SelectedIndexChanged(object sender, EventArgs e)
         {
             var id = dgvEmpleados.SelectedDataKey.Value.ToString();
+            Response.Redirect("PantallaCargaEmpleados.aspx?id="+id);
+        }
 
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PantallaCargaEmpleados.aspx");
         }
     }
 }

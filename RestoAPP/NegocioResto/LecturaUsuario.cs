@@ -14,16 +14,16 @@ namespace NegocioResto
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SP_LoginMostrar");
-                datos.setearParametro("@Usuario", login.Usuario);
-                datos.setearParametro("@Contraseña", login.Contraseña);
+                datos.setearProcedimiento("SP_LoginMostrar");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
+                    if ((string)datos.Lector["usuario"] == login.Usuario && (string)datos.Lector["Contraseña"] ==login.Contraseña) { 
                    login.NivelAcceso=(int)datos.Lector["NivelAcceso"];
-                    login.IdUser=(int)datos.Lector["iduser"];
+                   login.IdUser=(int)datos.Lector["iduser"];
                     return true;
+                    }
                 }
                 return false;
             }

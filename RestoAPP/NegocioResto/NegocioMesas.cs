@@ -9,9 +9,9 @@ namespace NegocioResto
 {
     public class NegocioMesas
     {
-        public List<MesasMesero> listarMesas(string id)
+        public List<Mesa> listarMesas(int id)
         {
-            List<MesasMesero> lista = new List<MesasMesero>();
+            List<Mesa> lista = new List<Mesa>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
@@ -21,17 +21,16 @@ namespace NegocioResto
 
                 while (datos.Lector.Read())
                 {
-                    MesasMesero aux = new MesasMesero();
-                    aux.id = (int)datos.Lector["IDMesa"];
-                    aux.activo = (bool)datos.Lector["Activo"];
-                    aux.Mesero = new Empleados();
-                    aux.Mesero.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Mesero.Apellido = (string)datos.Lector["Apellido"];
-                    aux.Mesero.Cargo = (string)datos.Lector["Cargo"];
-                    aux.Tipo = new Mesa();
-                    aux.Tipo.TamañoMesa = (int)datos.Lector["TamañoMesa"];
-                    aux.Tipo.IdMesa = (int)datos.Lector["IdMesa"];
-                    aux.Tipo.Descripcion = (string)datos.Lector["Descripcion"];
+                    Mesa aux = new Mesa();
+                    aux.IdMesa = (int)datos.Lector["IDMesa"];
+                    aux.Activo = (bool)datos.Lector["Activo"];
+                    aux.TamañoMesa = (int)datos.Lector["TamañoMesa"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Empleado = new Empleados();
+                    aux.Empleado.IDEmpleado = (int)datos.Lector["idmesero"];
+                    aux.Empleado.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Empleado.Apellido = (string)datos.Lector["Apellido"];
+                    aux.Empleado.Cargo = (string)datos.Lector["Cargo"];
                     lista.Add(aux);
 
                 }
@@ -50,9 +49,9 @@ namespace NegocioResto
             }
         }
 
-        public List<MesasMesero> listarMesasAdmin()
+        public List<Mesa> listarMesasAdmin()
         {
-            List<MesasMesero> lista = new List<MesasMesero>();
+            List<Mesa> lista = new List<Mesa>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
@@ -61,17 +60,16 @@ namespace NegocioResto
 
                 while (datos.Lector.Read())
                 {
-                    MesasMesero aux = new MesasMesero();
-                    aux.id = (int)datos.Lector["IDMesasMesero"];
-                    aux.activo = (bool)datos.Lector["Activo"];
-                    aux.Mesero = new Empleados();
-                    aux.Mesero.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Mesero.Apellido = (string)datos.Lector["Apellido"];
-                    aux.Mesero.Cargo = (string)datos.Lector["Cargo"];
-                    aux.Tipo = new Mesa();
-                    aux.Tipo.TamañoMesa = (int)datos.Lector["TamañoMesa"];
-                    aux.Tipo.IdMesa = (int)datos.Lector["IdMesa"];
-                    aux.Tipo.Descripcion = (string)datos.Lector["Descripcion"];
+                    Mesa aux = new Mesa();
+                    aux.IdMesa = (int)datos.Lector["IDMesasMesero"];
+                    aux.Activo = (bool)datos.Lector["Activo"];
+                    aux.Empleado = new Empleados();
+                    aux.Empleado.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Empleado.Apellido = (string)datos.Lector["Apellido"];
+                    aux.Empleado.Cargo = (string)datos.Lector["Cargo"];
+                    aux.Empleado.Dni = (int)datos.Lector["dni"];
+                    aux.TamañoMesa = (int)datos.Lector["TamañoMesa"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
                     lista.Add(aux);
 
                 }
@@ -98,8 +96,7 @@ namespace NegocioResto
                 datos.setearProcedimiento("SP_MesasNueva");
                 datos.setearParametro("@TamañoMesa", nuevo.TamañoMesa);
                 datos.setearParametro("@Descripcion", nuevo.Descripcion);
-                datos.setearParametro("@IDMesero", nuevo.IdMesero);
-                datos.setearParametro("@activo", nuevo.Activo);
+                datos.setearParametro("@IDMesero", nuevo.Empleado.IDEmpleado);
                 datos.ejecutarLectura();
             }
             catch (Exception ex)
@@ -136,8 +133,8 @@ namespace NegocioResto
                 datos.setearParametro("@Id", nuevo.IdMesa);
                 datos.setearParametro("@TamañoMesa", nuevo.TamañoMesa);
                 datos.setearParametro("@Descripcion", nuevo.Descripcion);
-                datos.setearParametro("@IDMesero", nuevo.IdMesero);
-
+                datos.setearParametro("@IDMesero", nuevo.Empleado.IDEmpleado);
+                datos.setearParametro("@IDMesero", nuevo.Activo);
                 datos.ejecutarLectura();
             }
             catch (Exception ex)

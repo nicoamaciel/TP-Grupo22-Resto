@@ -69,12 +69,14 @@
   <ItemGroup>
     <Content Include="AccesoEmpleados.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="MesasUser.aspx" />
     <Content Include="MiPerfil.aspx" />
     <Content Include="PantallaCargaEmpleados.aspx" />
     <Content Include="PantallaEmpleados.aspx" />
     <Content Include="PantallaMenu.aspx" />
     <Content Include="PantallaModMenu.aspx" />
+    <Content Include="PantModBebidas.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -92,6 +94,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterResto.Master.cs">
       <DependentUpon>MasterResto.Master</DependentUpon>
@@ -141,6 +150,13 @@
     </Compile>
     <Compile Include="PantallaModMenu.aspx.designer.cs">
       <DependentUpon>PantallaModMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PantModBebidas.aspx.cs">
+      <DependentUpon>PantModBebidas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantModBebidas.aspx.designer.cs">
+      <DependentUpon>PantModBebidas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

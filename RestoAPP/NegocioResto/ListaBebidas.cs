@@ -21,7 +21,7 @@ namespace NegocioResto
                 while (datos.Lector.Read())
                 {
                     Bebidas aux = new Bebidas();
-                    aux.IDBebida = (int)datos.Lector["IDBebida"];
+                    aux.ID = (int)datos.Lector["IDBebida"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.UrlImagen = (string)datos.Lector["UrlImagen"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
@@ -42,7 +42,40 @@ namespace NegocioResto
 
             }
         }
+        public List<Bebidas> listaBebida(string id)
+        {
+            List<Bebidas> lista = new List<Bebidas>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("SP_BebidaMostrar");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
 
+                while (datos.Lector.Read())
+                {
+                    Bebidas aux = new Bebidas();
+                    aux.ID = (int)datos.Lector["IDBebida"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.UrlImagen = (string)datos.Lector["UrlImagen"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    lista.Add(aux);
+
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
         public void Agregar(Bebidas nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -86,7 +119,7 @@ namespace NegocioResto
             try
             {
                 datos.setearProcedimiento("SP_BebidasModificar");
-                datos.setearParametro("@Id", nuevo.IDBebida);
+                datos.setearParametro("@Id", nuevo.ID);
                 datos.setearParametro("@Precio", nuevo.Precio);
                 datos.setearParametro("@TipoBebida", nuevo.TipoBebida);
                 datos.setearParametro("@descripcion", nuevo.Descripcion);

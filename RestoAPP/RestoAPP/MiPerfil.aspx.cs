@@ -25,8 +25,20 @@ namespace RestoAPP
             if(!IsPostBack)
             {
                 NegocioEmpleados empleado = new NegocioEmpleados();
-                ListaEmpleados = empleado.listarEmpleado(login.Usuario);
+                ListaEmpleados = empleado.listarEmpleado(login.IdUser);
+
             }
+        }
+
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Session.Contents.Remove("Usuario");
+            Response.Redirect("/AccesoEmpleados.aspx");
+        }
+
+        protected void btnSession_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

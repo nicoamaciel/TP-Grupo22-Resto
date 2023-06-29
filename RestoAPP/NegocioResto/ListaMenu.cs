@@ -22,7 +22,7 @@ namespace NegocioResto
                 while (datos.Lector.Read())
                 {
                     Menu aux = new Menu();
-                    aux.IDPlato = (int)datos.Lector["IDPlato"];
+                    aux.ID = (int)datos.Lector["IDPlato"];
                     aux.TipoPlato = (string)datos.Lector["TipoPlato"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Clase = (string)datos.Lector["Clase"];
@@ -59,7 +59,43 @@ namespace NegocioResto
                 while (datos.Lector.Read())
                 {
                     Menu aux = new Menu();
-                    aux.IDPlato = (int)datos.Lector["IDPlato"];
+                    aux.ID = (int)datos.Lector["IDPlato"];
+                    aux.TipoPlato = (string)datos.Lector["TipoPlato"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Clase = (string)datos.Lector["Clase"];
+                    aux.UrlImagen = (string)datos.Lector["UrlImagen"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    lista.Add(aux);
+
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
+        public List<Menu> listar1(string id)
+        {
+            List<Menu> lista = new List<Menu>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("SP_MenuID");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Menu aux = new Menu();
+                    aux.ID = (int)datos.Lector["IDPlato"];
                     aux.TipoPlato = (string)datos.Lector["TipoPlato"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Clase = (string)datos.Lector["Clase"];
@@ -127,7 +163,7 @@ namespace NegocioResto
             try
             {
                 datos.setearProcedimiento("SP_MenuModificar");
-                datos.setearParametro("@IDPlato", nuevo.IDPlato);
+                datos.setearParametro("@IDPlato", nuevo.ID);
                 datos.setearParametro("@TipoPlato", nuevo.TipoPlato);
                 datos.setearParametro("@Precio", nuevo.Precio);
                 datos.setearParametro("@UrlImagen", nuevo.UrlImagen);

@@ -14,16 +14,26 @@ namespace RestoAPP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["Usuario"] != null)
+                {
+                    Response.Redirect("MiPerfil.aspx");
+                }
+            }
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            Dominio.Login login;
             LecturaUsuario usuario= new LecturaUsuario();
             try
             {
-                login = new Dominio.Login(TextUser.Text, TextPass.Text);
+                if (TextUser.Text==null || TextPass.Text==null)
+                {
+                    Session.Add("error", "Debes completar ambos campos...");
+                    Response.Redirect("Error.aspx");
+                }
+                Dominio.Login login = new Dominio.Login(TextUser.Text, TextPass.Text);
                 if (usuario.login(login))
                 {
                     Session.Add("Usuario", login);                    
@@ -36,9 +46,11 @@ namespace RestoAPP
                 }
 
             }
+            catch (System.Threading.ThreadAbortException ex) { }
             catch (Exception ex)
             {
-                Session.Add("Error", ex.ToString());
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
 
         }

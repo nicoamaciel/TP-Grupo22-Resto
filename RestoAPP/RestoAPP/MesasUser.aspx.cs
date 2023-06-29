@@ -11,21 +11,23 @@ namespace RestoAPP
 {
     public partial class MesasUser : System.Web.UI.Page
     {
-        public List<MesasMesero> mesasMeseros { get; set; }
+        public List<Mesa> mesasMeseros { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-          //  Dominio.Login login = Session["Usuario"] != null ? (Dominio.Login)Session["Usuario"] : null;
-         //   if (!(login != null && login.Usuario != null))
-        //    {
-         //       Response.Redirect("AccesoEmpleados.aspx");
-        //    }
-            if (!IsPostBack)
-            {
-                NegocioMesas mesas = new NegocioMesas();
-                mesasMeseros = mesas.listarMesas("3");
-                repRepetidor.DataSource = mesasMeseros;
-                repRepetidor.DataBind();
-            }
+           
+                Dominio.Login login = Session["Usuario"] != null ? (Dominio.Login)Session["Usuario"] : null;
+                if (!(login != null && login.Usuario != null))
+                {
+                    Response.Redirect("AccesoEmpleados.aspx");
+                }
+                if (!IsPostBack)
+                {
+                    NegocioMesas mesas = new NegocioMesas();
+                    mesasMeseros = mesas.listarMesas(login.IdUser);
+                    repRepetidor.DataSource = mesasMeseros;
+                    repRepetidor.DataBind();
+                }
+            
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Dominio
         public int IdMesa  {get; set;}
         public int TamañoMesa { get; set; }
         public string Descripcion { get; set; }
-        public int IdMesero { get; set; }
+        public Empleados Empleado { get; set; }
         public bool Activo { get; set; }
 
     }

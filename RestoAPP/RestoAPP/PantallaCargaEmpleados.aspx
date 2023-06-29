@@ -4,8 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <hr />
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="row ">
-        <div class="col-6 vstack gap-2 col-md-5 mx-auto">
+    <div class="column center wrap">
+        <div class="col-6  ">
             <div class="mb-3">
                 <label for="txtId" class="form-label">Id</label>
                 <asp:TextBox runat="server" ID="txtId" CssClass="form-control" />
@@ -42,7 +42,6 @@
             <div class="mb-3">
                 <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
                 <a href="/PantallaEmpleados.aspx">Cancelar</a>
-                <asp:Button Text="Inactivar" ID="btnInactivar" OnClick="btnInactivar_Click" CssClass="btn btn-warning" runat="server" />
             </div>
             
         </div>

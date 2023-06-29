@@ -8,7 +8,7 @@ namespace Dominio
 {
     public class Menu
     {
-        public int IDPlato { get; set; }
+        public int ID { get; set; }
 	    public string TipoPlato { get; set; }
 	    public decimal Precio { get; set; }
 	    public string UrlImagen { get; set; }

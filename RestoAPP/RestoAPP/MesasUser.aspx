@@ -9,10 +9,12 @@
             <div class="container text-center">
                 <div class="row">
                     <div class="col mx-auto p-2 align-middle">
+                        <pre>
                             <button type="button" class="btn btn-primary btn-lg "><%# Eval("ID") %></button>
                             <h4>Mesero a cargo</h4>
                             <h4><%#Eval("Mesero.Nombre") %> <%#Eval("Mesero.Apellido") %></h4>
-                            <h4 class="estado" style="display: none;"><%# Eval("Activo") %></h4>                        
+                            <h4 class="estado" style="display: none;"><%# Eval("Activo") %></h4>
+                        </pre>
                     </div>
                 </div>
             </div>

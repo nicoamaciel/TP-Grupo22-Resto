@@ -54,11 +54,13 @@ go
 
 --Procedimientos Pedido
 --Procedimientos Pedido nuevo
-CREATE PROCEDURE SP_PedidoMostar(
+ALTER PROCEDURE SP_PedidoMostar(
 @idmesa int
 )
 as BEGIN
-    SELECT IDPedido,IDMesa,IDPlato,IDBebida,Cuenta, activo from Pedidos P 
+    SELECT IDPedido,IDMesa,P.IDPlato,M.Clase,M.Descripcion as 'Descripcion Comida',M.Precio AS 'Precio Comida',p.IDBebida,b.TipoBebida,B.Descripcion as'Descripcion Bebidas',B.Precio as 'Precio Bebidas',Cuenta, activo from Pedidos P 
+    INNER JOIN Bebidas B on b.IDBebida=p.IDBebida
+    INNER JOIN Menu M ON M.IDPlato=P.IDPlato
     where Activo=0 AND IDMesa=@idmesa
 END
 go
@@ -78,6 +80,17 @@ AS BEGIN
     update Pedidos set Activo=1 WHERE IDMesa=@idmesa AND Activo=0
 END
 go
+--pedidos Modificar
+CREATE PROCEDURE SP_PedidoModificar(
+    @idpedido INT,
+    @IDBebida int,
+    @IDPlato INT,
+    @cuenta money
+)
+AS BEGIN
+    update Pedidos set IDBebida=@IDBebida,IDPlato=@IDPlato,Cuenta=@cuenta WHERE IDPedido=@idpedido
+END
+go
 --Procedimientos Pedido nuevo
 create PROCEDURE SP_PedidoNuevo(
 @idmesa int,
@@ -95,6 +108,13 @@ go
 CREATE PROCEDURE SP_BebidasMostrar
 as BEGIN
     SELECT *FROM Bebidas
+END
+go
+CREATE PROCEDURE SP_BebidaMostrar(
+    @id INT
+)
+as BEGIN
+    SELECT *FROM Bebidas WHERE IDBebida=@id
 END
 go
 --crear BEBIDAS
@@ -186,14 +206,9 @@ as BEGIN
 END
 GO
 --MOSTRAR
-ALTER PROCEDURE SP_LoginMostrar(
-    @user VARCHAR(150),
-    @Contraseña VARCHAR(150)
-)
+ALTER PROCEDURE SP_LoginMostrar
 as BEGIN
  select *from [LOGIN] L
- INNER JOIN Empleados E on E.IDEmpleado=L.IDuser
- WHERE L.Usuario=@user AND L.Contraseña=@Contraseña
 END
 GO
 
@@ -238,6 +253,13 @@ as BEGIN
     SELECT *FROM Menu
 END
 go
+CREATE PROCEDURE SP_MenuID(
+    @id INT
+)
+as BEGIN
+    SELECT *FROM Menu WHERE IDPlato=@id
+END
+go
 --MOSTRAR POR CLASE DE COMIDA
 create PROCEDURE SP_MenuMostrarClase(
     @clase VARCHAR(150)
@@ -245,6 +267,8 @@ create PROCEDURE SP_MenuMostrarClase(
 as BEGIN
     SELECT *FROM Menu WHERE Clase=@clase
 END
+GO
+
 GO
 SELECT *FROM Menu WHERE Clase='Entrada'
 GO

@@ -47,6 +47,8 @@
     <Compile Include="ListaMenu.cs" />
     <Compile Include="NegocioEmpleados.cs" />
     <Compile Include="NegocioMesas.cs" />
+    <Compile Include="NegocioPedido.cs" />
+    <Compile Include="NegocioReserva.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +56,9 @@
       <Project>{0190da8a-f9d5-414f-bbf0-0471674ab461}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Script_DB\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

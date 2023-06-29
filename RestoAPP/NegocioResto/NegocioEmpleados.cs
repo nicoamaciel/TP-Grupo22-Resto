@@ -49,7 +49,7 @@ namespace NegocioResto
 
             }
         }
-        public List<Empleados> listarEmpleado(string id)
+        public List<Empleados> listarEmpleado(int id)
         {
             List<Empleados> lista = new List<Empleados>();
             AccesoDatos datos = new AccesoDatos();

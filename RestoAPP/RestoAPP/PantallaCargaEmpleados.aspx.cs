@@ -34,7 +34,7 @@ namespace RestoAPP
                 if (id != "" && !IsPostBack)
                 {
                     NegocioEmpleados negocio = new NegocioEmpleados();
-                    Empleados seleccionado = (negocio.listarEmpleado(id))[0];
+                    Empleados seleccionado = (negocio.listarEmpleado(int.Parse(id)))[0];
 
                     
                     Session.Add("EmpleadoSeleccionado", seleccionado);
@@ -49,9 +49,6 @@ namespace RestoAPP
                     TxtCodigo.Text = seleccionado.Codigo;
                     ddlCargo.SelectedValue = seleccionado.Cargo;
 
-                    //configurar acciones
-                    if (!seleccionado.Activo)
-                        btnInactivar.Text = "Reactivar";
                 }
 
             }
@@ -64,13 +61,29 @@ namespace RestoAPP
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-
+            Empleados nuevo = new Empleados();
+            NegocioEmpleados empleados = new NegocioEmpleados();
+            
+            
+            nuevo.Nombre=txtNombre.Text ;
+            nuevo.Apellido =txtApellido.Text;
+            nuevo.Dni=int.Parse(txtDNI.Text) ;
+            nuevo.Turno=int.Parse(TxtTurno.Text)  ;
+            nuevo.sueldo=decimal.Parse(txtSueldo.Text);
+            nuevo.Codigo=TxtCodigo.Text;
+            nuevo.Cargo = ddlCargo.SelectedValue;
+            if (txtId.Text != null)
+            {
+                nuevo.IDEmpleado = int.Parse(txtId.Text);
+                empleados.Modificar(nuevo);
+            }
+            else
+            {
+                empleados.Agregar(nuevo);
+            }
+            
         }
 
-        protected void btnInactivar_Click(object sender, EventArgs e)
-        {
-
-        }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {

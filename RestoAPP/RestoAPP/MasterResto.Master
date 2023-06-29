@@ -64,7 +64,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
             <footer>
-                <div class="container text-center position-absolute top-100 start-50 translate-middle">
+                <div class="container text-center align-items: flex-end; justify-content: center;">
                     <hr />
                     <p>MesaResto G22 - Copyrigth &copy; 2023</p>
                 </div>

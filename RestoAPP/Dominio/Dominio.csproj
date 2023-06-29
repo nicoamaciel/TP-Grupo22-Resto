@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Bebidas.cs" />
     <Compile Include="Login.cs" />
-    <Compile Include="MesasMesero.cs" />
     <Compile Include="Pedidos.cs" />
     <Compile Include="Empleados.cs" />
     <Compile Include="Menu.cs" />

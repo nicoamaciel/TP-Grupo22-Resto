@@ -76,6 +76,7 @@
     <Content Include="PantallaEmpleados.aspx" />
     <Content Include="PantallaMenu.aspx" />
     <Content Include="PantallaModMenu.aspx" />
+    <Content Include="PantallaPedidos.aspx" />
     <Content Include="PantModBebidas.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
@@ -150,6 +151,13 @@
     </Compile>
     <Compile Include="PantallaModMenu.aspx.designer.cs">
       <DependentUpon>PantallaModMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaPedidos.aspx.cs">
+      <DependentUpon>PantallaPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantallaPedidos.aspx.designer.cs">
+      <DependentUpon>PantallaPedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="PantModBebidas.aspx.cs">
       <DependentUpon>PantModBebidas.aspx</DependentUpon>

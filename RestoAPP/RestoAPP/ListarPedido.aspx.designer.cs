@@ -11,25 +11,16 @@ namespace RestoAPP
 {
 
 
-    public partial class PantallaPedidos
+    public partial class ListarPedido
     {
 
         /// <summary>
-        /// BtnPedido control.
+        /// repRepetidor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnPedido;
-
-        /// <summary>
-        /// ButtonListar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonListar;
+        protected global::System.Web.UI.WebControls.Repeater repRepetidor;
     }
 }

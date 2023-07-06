@@ -13,5 +13,15 @@ namespace RestoAPP
         {
 
         }
+
+        protected void BtnPedido_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ButtonListar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ListarPedido.aspx");
+        }
     }
 }

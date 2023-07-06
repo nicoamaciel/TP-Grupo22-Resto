@@ -70,6 +70,7 @@
     <Content Include="AccesoEmpleados.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="ListarPedido.aspx" />
     <Content Include="MesasUser.aspx" />
     <Content Include="MiPerfil.aspx" />
     <Content Include="PantallaCargaEmpleados.aspx" />
@@ -102,6 +103,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPedido.aspx.cs">
+      <DependentUpon>ListarPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarPedido.aspx.designer.cs">
+      <DependentUpon>ListarPedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterResto.Master.cs">
       <DependentUpon>MasterResto.Master</DependentUpon>

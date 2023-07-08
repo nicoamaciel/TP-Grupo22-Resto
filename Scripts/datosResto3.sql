@@ -1,6 +1,4 @@
 use RestoDB
-go
-ALTER DATABASE RestoDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
 GO
 DROP DATABASE RestoDB;
 GO
@@ -80,6 +78,7 @@ BEGIN
         SET @NivelAcceso = 2
     ELSE IF @Cargo = 'Mesero'
         SET @NivelAcceso = 3
+        ELSE 
     INSERT INTO LOGIN (Usuario, Contraseña, NivelAcceso, IDuser)
     VALUES (CAST(@Dni AS VARCHAR(150)), CAST(@Dni AS VARCHAR(50)), @NivelAcceso,@id)
 END

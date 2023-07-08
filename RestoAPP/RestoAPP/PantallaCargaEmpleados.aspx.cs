@@ -87,7 +87,11 @@ namespace RestoAPP
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            if (txtId.Text != null)
+            {
+                NegocioEmpleados negocio = new NegocioEmpleados();
+                negocio.eliminar(txtId.Text);
+            }
         }
 
         protected void btnConfirmaEliminar_Click(object sender, EventArgs e)

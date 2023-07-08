@@ -24,7 +24,7 @@
     <hr />
 
     <div id="cajas" class="row row-cols-1 row-cols-md-3 g-4">
-        <asp:Repeater runat="server" ID="repRepetidor" >
+        <asp:Repeater runat="server" ID="repRepetidor">
             <ItemTemplate>
                 <div class="card" style="width: 18rem;">
                     <img src="<%#Eval("UrlImagen") %>" class="card-img-top" alt="..." style="width: 100%; height: 100%;">
@@ -34,10 +34,15 @@
                         <h5 class="card-title"><%#Eval("Descripcion") %></h5>
                         <p class="card-text">Precio $ <%#Eval("Precio") %></p>
                     </div>
+                    <%if (Session["Usuario"] != null)
+                            if (((Dominio.Login)Session["Usuario"]).NivelAcceso <= 3)
+                            {
+                    %>
                     <div class="card-body">
-                        <asp:Button ID="btnModificar" runat="server" CssClass="card-link" Text="Modificar" OnClick="btnModificar_Click" CommandArgument='<%#Eval("ID") %>'/>
-                        <asp:Button ID="btnBorrar" runat="server" CssClass="card-link" Text="Borrar" OnClick="btnBorrar_Click" CommandArgument='<%#Eval("ID")%>'/>
+                        <asp:Button ID="btnModificar" runat="server" CssClass="card-link" Text="Modificar" OnClick="btnModificar_Click" CommandArgument='<%#Eval("ID") %>' />
+                        <asp:Button ID="btnBorrar" runat="server" CssClass="card-link" Text="Borrar" OnClick="btnBorrar_Click" CommandArgument='<%#Eval("ID")%>' />
                     </div>
+                    <%} %>
                 </div>
             </ItemTemplate>
         </asp:Repeater>

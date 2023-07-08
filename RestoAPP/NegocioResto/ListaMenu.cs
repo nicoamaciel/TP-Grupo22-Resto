@@ -118,6 +118,72 @@ namespace NegocioResto
 
             }
         }
+        public List<Menu> BusquedaAvanzada(string criterio,string tipo,string filtro)
+        {
+            List<Menu> lista = new List<Menu>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "Select IDPlato,TipoPlato,Descripcion,Clase,UrlImagen,Precio from menu ";
+                if(criterio== "Precio")
+                {
+                    switch(tipo)
+                    {
+                        case "Mayor a":
+                            consulta += "where precio>"+ filtro;
+                            break;
+                        case "Menor a":
+                            consulta += "where Precio < " + filtro;
+                            break;
+                        default:
+                            consulta += "where Precio = " + filtro;
+                            break;
+                    }
+                }
+                else if (criterio == "Tipo")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "where TipoPlato like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "where TipoPlato like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "where TipoPlato like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Menu aux = new Menu();
+                    aux.ID = (int)datos.Lector["IDPlato"];
+                    aux.TipoPlato = (string)datos.Lector["TipoPlato"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Clase = (string)datos.Lector["Clase"];
+                    aux.UrlImagen = (string)datos.Lector["UrlImagen"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    lista.Add(aux);
+
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
         public void Agregar(Menu nuevo)
         {
             AccesoDatos datos = new AccesoDatos();

@@ -20,8 +20,8 @@ namespace NegocioResto
         public AccesoDatos()
         {
             //Constructor de acceso -> Se puede centralizar en un archivo de configuracion
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; DataBase=RestoDB; integrated security=true;");
-            //conexion = new SqlConnection("server=localhost; DataBase=RestoDB; integrated security=true;");
+           // conexion = new SqlConnection("server=.\\SQLEXPRESS; DataBase=RestoDB; integrated security=true;");
+            conexion = new SqlConnection("server=localhost; DataBase=RestoDB; integrated security=true;");
             comando = new SqlCommand();
         }
 

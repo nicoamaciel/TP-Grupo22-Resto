@@ -1,7 +1,8 @@
 use RestoDB
 --Procedimientos MESA
 SELECT *from Menu
-EXEC SP_MenuMostrarClase @clase='Entrada';
+go
+EXEC SP_MenuMostrarClase 'Entrada';
 go
 --buscar las meseas del mesero
 create PROCEDURE SP_MesasMesero(
@@ -40,7 +41,7 @@ as BEGIN
 END
 go
 --Modificar mesa
-alter PROCEDURE SP_ModificarMesa(
+CREATE PROCEDURE SP_ModificarMesa(
     @id INT,
 	@TamañoMesa int,
 	@Descripcion	Decimal,
@@ -54,7 +55,7 @@ go
 
 --Procedimientos Pedido
 --Procedimientos Pedido nuevo
-ALTER PROCEDURE SP_PedidoMostar(
+CREATE PROCEDURE SP_PedidoMostar(
 @idmesa int
 )
 as BEGIN
@@ -118,7 +119,7 @@ as BEGIN
 END
 go
 --crear BEBIDAS
-alter PROCEDURE SP_BebidasNueva(
+create PROCEDURE SP_BebidasNueva(
 	@Precio money,
 	@TipoBebida	Decimal,
 	@Descripcion	Varchar(150),
@@ -138,7 +139,7 @@ as BEGIN
 END
 go
 --Modificar BEBIDAS
-ALTER PROCEDURE SP_BebidasModificar(
+create PROCEDURE SP_BebidasModificar(
     @id INT,
 	@Precio money,
 	@TipoBebida	Decimal,
@@ -173,7 +174,7 @@ CREATE PROCEDURE SP_ReservaCancelar(
 END
 --MODIFICAR Reserva
 GO
-ALTER PROCEDURE SP_ReservarModificar(
+CREATE PROCEDURE SP_ReservarModificar(
     @IDMesa int,
 	@HoraReserva datetime,
 	@CodigoReserva int,
@@ -195,7 +196,7 @@ END
 GO
 
 ----Procedimientos Login
-ALTER PROCEDURE SP_LoginModificar(
+create PROCEDURE SP_LoginModificar(
     @id int,
     @user VARCHAR(150),
     @Contraseña VARCHAR(150),
@@ -206,7 +207,7 @@ as BEGIN
 END
 GO
 --MOSTRAR
-ALTER PROCEDURE SP_LoginMostrar
+create PROCEDURE SP_LoginMostrar
 as BEGIN
  select *from [LOGIN] L
 END
@@ -214,7 +215,7 @@ GO
 
 ----Procedimientos Menu
 --CREAR MENU
-ALTER PROCEDURE SP_MenuNuevo(
+create PROCEDURE SP_MenuNuevo(
     	@TipoPlato varchar(150) ,
 	@Precio money ,
 	@UrlImagen varchar(200),
@@ -227,7 +228,7 @@ ALTER PROCEDURE SP_MenuNuevo(
 END
 go
 --MODIFICAR MENU
-ALTER PROCEDURE SP_MenuModificar(
+create PROCEDURE SP_MenuModificar(
     @id INT,
     @TipoPlato varchar(150) ,
 	@Precio money ,
@@ -296,7 +297,7 @@ as BEGIN
 END
 go
 --MOSTRAR EMPLEADO
-ALTER PROCEDURE SP_EmpleadosModificar(
+CREATE PROCEDURE SP_EmpleadosModificar(
     @id INT,
     @cargo varchar(150),
     @sueldo money,
@@ -307,7 +308,7 @@ as BEGIN
 END
 GO
 --NUEVO EMPLEADO
-ALTER PROCEDURE SP_EmpleadosNuevo(
+CREATE PROCEDURE SP_EmpleadosNuevo(
     @id INT,
     @cargo varchar(150),
     @sueldo money,

@@ -12,7 +12,8 @@ namespace Dominio
 	    public int IDMesa {get; set;}
         public Menu Plato { get; set; }
         public Bebidas Bebida { get; set; }
-        public int Cuenta { get; set; }
+        public decimal Cuenta { get; set; }
         public bool Estado { get; set; }
+        public DateTime fecha { get; set; }
     }
 }

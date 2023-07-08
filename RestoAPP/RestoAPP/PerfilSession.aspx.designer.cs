@@ -11,7 +11,7 @@ namespace RestoAPP
 {
 
 
-    public partial class MiPerfil
+    public partial class PerfilSession
     {
 
         /// <summary>
@@ -22,14 +22,5 @@ namespace RestoAPP
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCerrar;
-
-        /// <summary>
-        /// Control btnSession.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSession;
     }
 }

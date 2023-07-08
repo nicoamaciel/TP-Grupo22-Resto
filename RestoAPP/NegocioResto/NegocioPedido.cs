@@ -96,6 +96,20 @@ namespace NegocioResto
                 throw ex;
             }
         }
+        public void CancelarTodo(string id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearProcedimiento("SP_PedidoCancelarTodo");
+                datos.setearParametro("@id", int.Parse(id));
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void Pagar(string id)
         {
             try

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Dominio
 {
     public class Login
@@ -17,6 +19,7 @@ namespace Dominio
             Usuario = user;
             Contraseña=pass;
         }
+
     }
 
     

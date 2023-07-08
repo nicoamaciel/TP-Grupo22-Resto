@@ -18,7 +18,7 @@ namespace RestoAPP
             {
                 if (Session["Usuario"] != null)
                 {
-                    Response.Redirect("MiPerfil.aspx");
+                    Response.Redirect("PerfilSession.aspx");
                 }
             }
         }
@@ -37,7 +37,7 @@ namespace RestoAPP
                 if (usuario.login(login))
                 {
                     Session.Add("Usuario", login);                    
-                    Response.Redirect("/MiPerfil.aspx");
+                    Response.Redirect("PerfilSession.aspx");
                 }
                 else
                 {

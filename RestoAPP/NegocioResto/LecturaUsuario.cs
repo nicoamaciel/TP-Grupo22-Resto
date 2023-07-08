@@ -19,10 +19,10 @@ namespace NegocioResto
 
                 while (datos.Lector.Read())
                 {
-                    if ((string)datos.Lector["usuario"] == login.Usuario && (string)datos.Lector["Contraseña"] ==login.Contraseña) { 
-                   login.NivelAcceso=(int)datos.Lector["NivelAcceso"];
-                   login.IdUser=(int)datos.Lector["iduser"];
-                    return true;
+                    if ((string)datos.Lector["usuario"] == login.Usuario && (string)datos.Lector["Contraseña"] == login.Contraseña) {
+                        login.NivelAcceso = (int)datos.Lector["NivelAcceso"];
+                        login.IdUser = (int)datos.Lector["iduser"];
+                        return true;
                     }
                 }
                 return false;
@@ -47,7 +47,7 @@ namespace NegocioResto
                 datos.setearParametro("@iduser", nuevo.IdUser);
                 datos.setearParametro("@user", nuevo.Usuario);
                 datos.setearParametro("@pass", nuevo.Contraseña);
-                datos.setearParametro("@nivel",nuevo.NivelAcceso);
+                datos.setearParametro("@nivel", nuevo.NivelAcceso);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -55,7 +55,20 @@ namespace NegocioResto
                 throw ex;
             }
         }
+
+        public static bool SesionActiva(object sesion)
+            {
+                Login login = sesion != null ? (Login)sesion : null;
+                if (login!=null && login.Usuario!=null)
+                {
+                    return true;
+                }
+                else { 
+                    return false; 
+                }
+            }
         
+
     }
 }
 

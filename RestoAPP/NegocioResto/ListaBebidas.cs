@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
@@ -22,6 +23,7 @@ namespace NegocioResto
                 {
                     Bebidas aux = new Bebidas();
                     aux.ID = (int)datos.Lector["IDBebida"];
+                    aux.TipoBebida = (decimal)datos.Lector["TipoBebida"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.UrlImagen = (string)datos.Lector["UrlImagen"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
@@ -56,6 +58,72 @@ namespace NegocioResto
                 {
                     Bebidas aux = new Bebidas();
                     aux.ID = (int)datos.Lector["IDBebida"];
+                    aux.TipoBebida = (decimal)datos.Lector["TipoBebida"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.UrlImagen = (string)datos.Lector["UrlImagen"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    lista.Add(aux);
+
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
+        public List<Bebidas> BusquedaAvanzada(string criterio, string tipo, string filtro)
+        {
+            List<Bebidas> lista = new List<Bebidas>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "Select IDBebida,Precio,TipoBebida,Descripcion,UrlImagen from Bebidas ";
+                if (criterio == "Precio")
+                {
+                    switch (tipo)
+                    {
+                        case "Mayor a":
+                            consulta += "where Precio >" + filtro;
+                            break;
+                        case "Menor a":
+                            consulta += "where Precio < " + filtro;
+                            break;
+                        default:
+                            consulta += "where Precio = " + filtro;
+                            break;
+                    }
+                }
+                else if (criterio == "Descripcion")
+                {
+                    switch (tipo)
+                    {
+                        case "Comienza con":
+                            consulta += "where Descripcion like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "where Descripcion like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "where Descripcion like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Bebidas aux = new Bebidas();
+                    aux.ID = (int)datos.Lector["IDBebida"];
+                    aux.TipoBebida = (decimal)datos.Lector["TipoBebida"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.UrlImagen = (string)datos.Lector["UrlImagen"];
                     aux.Precio = (decimal)datos.Lector["Precio"];

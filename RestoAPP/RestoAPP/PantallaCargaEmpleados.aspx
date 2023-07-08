@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterResto.Master" AutoEventWireup="true" CodeBehind="PantallaCargaEmpleados.aspx.cs" Inherits="RestoAPP.PantallaCargaEmpleados" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -6,9 +7,9 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="column center wrap">
         <div class="col-6  ">
-            <div class="mb-3">
+            <div class="mb-3 oculto">
                 <label for="txtId" class="form-label">Id</label>
-                <asp:TextBox runat="server" ID="txtId" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="txtId" CssClass="form-control" Enabled="false" />
             </div>
             <div class="mb-3">
                 <label for="txtNombre" class="form-label">Nombre: </label>
@@ -43,7 +44,7 @@
                 <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
                 <a href="/PantallaEmpleados.aspx">Cancelar</a>
             </div>
-            
+
         </div>
     </div>
     <div class="row">
@@ -56,10 +57,10 @@
 
                     <%if (ConfirmaEliminacion)
                         { %>
-                        <div class="mb-3">
-                            <asp:CheckBox Text="Confirmar Eliminación" ID="chkConfirmaEliminacion" runat="server" />
-                            <asp:Button Text="Eliminar" ID="btnConfirmaEliminar" OnClick="btnConfirmaEliminar_Click" CssClass="btn btn-outline-danger" runat="server" />
-                        </div>
+                    <div class="mb-3">
+                        <asp:CheckBox Text="Confirmar Eliminación" ID="chkConfirmaEliminacion" runat="server" />
+                        <asp:Button Text="Eliminar" ID="btnConfirmaEliminar" OnClick="btnConfirmaEliminar_Click" CssClass="btn btn-outline-danger" runat="server" />
+                    </div>
                     <%} %>
                 </ContentTemplate>
             </asp:UpdatePanel>

@@ -55,6 +55,7 @@ namespace NegocioResto
             AccesoDatos datos = new AccesoDatos();
             try
             {
+                
                 datos.setearProcedimiento("SP_EmpleadosMostrarID");
                 datos.setearParametro("@id", id);
                 datos.ejecutarLectura();
@@ -89,7 +90,46 @@ namespace NegocioResto
 
             }
         }
-        
+        public List<Empleados> listarMeseros()
+        {
+            List<Empleados> lista = new List<Empleados>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                
+                datos.setearProcedimiento("SP_EmpleadosMeseros");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Empleados aux = new Empleados();
+                    aux.IDEmpleado = (int)datos.Lector["IDEmpleado"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Apellido = (string)datos.Lector["Apellido"];
+                    aux.Cargo = (string)datos.Lector["Cargo"];
+                    aux.Turno = (int)datos.Lector["Turno"];
+                    aux.sueldo = (decimal)datos.Lector["sueldo"];
+                    aux.Dni = (int)datos.Lector["Dni"];
+                    aux.Activo = (bool)datos.Lector["Activo"];
+
+                    lista.Add(aux);
+
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
         public void Agregar(Empleados nuevo)
         {
             List<Empleados> lista = new List<Empleados>();

@@ -13,35 +13,5 @@ namespace RestoAPP
         {
 
         }
-
-        protected void ButtonM1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("PantallaPedidos.aspx");
-        }
-
-        protected void ButtonM2_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("PantallaPedidos.aspx");
-        }
-
-        protected void ButtonM3_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("PantallaPedidos.aspx");
-        }
-
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("PantallaPedidos.aspx");
-        }
-
-        protected void Button5_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("PantallaPedidos.aspx");
-        }
-
-        protected void Button6_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("PantallaPedidos.aspx");
-        }
     }
 }

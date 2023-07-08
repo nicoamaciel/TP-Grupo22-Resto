@@ -61,7 +61,7 @@ namespace NegocioResto
                 while (datos.Lector.Read())
                 {
                     Mesa aux = new Mesa();
-                    aux.IdMesa = (int)datos.Lector["IDMesasMesero"];
+                    aux.IdMesa = (int)datos.Lector["IDMesa"];
                     aux.Activo = (bool)datos.Lector["Activo"];
                     aux.Empleado = new Empleados();
                     aux.Empleado.Nombre = (string)datos.Lector["Nombre"];

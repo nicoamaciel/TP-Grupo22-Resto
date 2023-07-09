@@ -6,6 +6,8 @@ Create Database RestoDB
 GO
 Use RestoDB
 GO
+set dateformat dmy;
+go
 
 Create Table Empleados(
 	IDEmpleado int not null primary key identity(1,1), 
@@ -62,10 +64,13 @@ Create Table Bebidas(
 GO
 Create Table Pedidos(
 	IDPedido int not null primary key identity(1,1),
+	IDEmpleado int not null,
 	IDMesa int not null,
 	IDPlato int NULL,
 	IDBebida int null,
 	Cuenta money null,
+	Activo BIT not NULL default(0),
+	fecha DATETIME DEFAULT(GETDATE())
 )
 
 -- Restricciones Resto - Empleados

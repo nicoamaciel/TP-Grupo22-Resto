@@ -10,6 +10,7 @@ namespace Dominio
     {
         public int IDPedido {get; set;}
 	    public int IDMesa {get; set;}
+        public int IDEmpleado {get; set;}
         public Menu Plato { get; set; }
         public Bebidas Bebida { get; set; }
         public decimal Cuenta { get; set; }

@@ -73,7 +73,7 @@
             <div class="col-3">
                 <div class="mb-3">
                     <asp:Label Text="Mostrar por:" ID="Label1" runat="server" />
-                    <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-control" ID="DdlCamposBebidas" OnSelectedIndexChanged="DdlCamposBebidas_SelectedIndexChanged">
+                    <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-select" ID="DdlCamposBebidas" OnSelectedIndexChanged="DdlCamposBebidas_SelectedIndexChanged">
                         <asp:ListItem Text="Todos" />
                         <asp:ListItem Text="Precio" />
                         <asp:ListItem Text="Descripcion" />
@@ -83,13 +83,13 @@
             <div class="col-3">
                 <div class="mb-3">
                     <asp:Label Text="Criterio" runat="server" />
-                    <asp:DropDownList runat="server" AutoPostBack="true" ID="DdlCriterioBebida" CssClass="form-control"></asp:DropDownList>
+                    <asp:DropDownList runat="server" AutoPostBack="true" ID="DdlCriterioBebida" CssClass="form-select"></asp:DropDownList>
                 </div>
             </div>
             <div class="col-3">
                 <div class="mb-3">
                     <asp:Label Text="Criterio" runat="server" />
-                    <asp:TextBox runat="server" ID="TxtBebida" CssClass="form-select" />
+                    <asp:TextBox runat="server" ID="TxtBebida" CssClass="form-control" />
                 </div>
             </div>
             <div class="col-3">

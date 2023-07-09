@@ -77,6 +77,7 @@
     <Content Include="PantallaModMenu.aspx" />
     <Content Include="PantallaPedidos.aspx" />
     <Content Include="PantModBebidas.aspx" />
+    <Content Include="PantRecaudacion.aspx" />
     <Content Include="PerfilSession.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
@@ -158,6 +159,13 @@
     </Compile>
     <Compile Include="PantModBebidas.aspx.designer.cs">
       <DependentUpon>PantModBebidas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PantRecaudacion.aspx.cs">
+      <DependentUpon>PantRecaudacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantRecaudacion.aspx.designer.cs">
+      <DependentUpon>PantRecaudacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="PerfilSession.aspx.cs">
       <DependentUpon>PerfilSession.aspx</DependentUpon>

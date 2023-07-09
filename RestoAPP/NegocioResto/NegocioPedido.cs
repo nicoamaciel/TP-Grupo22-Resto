@@ -25,10 +25,12 @@ namespace NegocioResto
                     Pedidos aux = new Pedidos();
                     aux.Bebida=new Bebidas();
                     aux.Plato = new Menu();
-                    aux.IDMesa = (int)datos.Lector["dni"];
-                    aux.IDPedido = (int)datos.Lector["IDMesasMesero"]; 
+                    aux.IDMesa = (int)datos.Lector["IDMesa"];
+                    aux.IDPedido = (int)datos.Lector["IDPedido"]; 
                     aux.Estado = (bool)datos.Lector["activo"];
-
+                    aux.fecha = (DateTime)datos.Lector["fecha"];
+                    aux.Cuenta = (int)datos.Lector["Cuenta"];
+                    aux.IDEmpleado = (int)datos.Lector["IDEmpleado"];
                     aux.Bebida.ID = (int)datos.Lector["Activo"];
                     aux.Bebida.Descripcion = (string)datos.Lector["Descripcion"]; 
                     aux.Bebida.TipoBebida = (decimal)datos.Lector["TipoBebida"];
@@ -38,8 +40,7 @@ namespace NegocioResto
                     aux.Plato.TipoPlato = (string)datos.Lector["TipoPlato"];
                     aux.Plato.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Plato.Precio = (decimal)datos.Lector["Precio"];
-
-                    aux.Cuenta = (int)datos.Lector["Cuenta"];
+                    
 
                     lista.Add(aux);
 
@@ -136,6 +137,91 @@ namespace NegocioResto
                 datos.setearParametro("@Cuenta", nuevo.Cuenta);
                 datos.ejecutarLectura();
             }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
+        public List<Pedidos> ListarTiempo(DateTime fecha,string IDEmpleado,string caso,string criterio)
+        {
+            List<Pedidos> lista = new List<Pedidos>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "SELECT  SUM(Z.Cuenta) AS Cuenta, P.fecha,E.Nombre,E.Apellido FROM Pedidos P, Pedidos Z,Empleados E WHERE E.IDEmpleado=P.IDEmpleado AND ";
+                
+                if (IDEmpleado!=null){ 
+                consulta += "P.IDEmpleado="+IDEmpleado +" and";
+                }
+                if (caso != "DEL DIA")
+                {
+                    switch (criterio)
+                    {
+                        case "Mayor a":
+                            consulta += "  CONVERT(date, P.fecha) >= CONVERT(date, " + fecha + ")";
+                            break;
+                        case "Menor a":
+                            consulta += " CONVERT(date, P.fecha) < CONVERT(date, " + fecha + ")";
+                            break;
+                        default:
+                            consulta += " CONVERT(date, P.fecha) = CONVERT(date, " + fecha + ")";
+                            break;
+                    }
+                }
+                else
+                {
+                    if (caso != "DEL año")
+                    {
+                        switch (criterio)
+                        {
+                            case "Mayor a":
+                                consulta += " YEAR(P.fecha) >= YEAR(" + fecha + ")";
+                                break;
+                            case "Menor a":
+                                consulta += " YEAR(P.fecha) < YEAR(" + fecha + ")";
+                                break;
+                            default:
+                                consulta += " YEAR(P.fecha) = YEAR(" + fecha + ")";
+                                break;
+                        }
+                        if (caso != "DEL Mes")
+                        {
+                            switch (criterio)
+                            {
+                                case "Mayor a":
+                                    consulta += " YEAR(P.fecha) = YEAR(" + fecha + ") AND MONTH(P.fecha) >= MONTH(" + fecha + ")";
+                                    break;
+                                case "Menor a":
+                                    consulta += " YEAR(P.fecha) = YEAR(" + fecha + ") AND MONTH(P.fecha) < MONTH(" + fecha + ")";
+                                    break;
+                                default:
+                                    consulta += " YEAR(P.fecha) = YEAR(" + fecha + ") AND MONTH(P.fecha) = MONTH(" + fecha + ")";
+                                    break;
+                            }
+                        }
+                    }
+                }
+                consulta+=("GROUP BY  P.fecha,E.Nombre,E.Apellido;");
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Pedidos aux = new Pedidos();
+                    aux.Estado = (bool)datos.Lector["activo"];
+                    aux.fecha = (DateTime)datos.Lector["fecha"];
+                    aux.Cuenta = (int)datos.Lector["Cuenta"];
+                    lista.Add(aux);
+                }
+
+                return lista;
+                }
             catch (Exception ex)
             {
 

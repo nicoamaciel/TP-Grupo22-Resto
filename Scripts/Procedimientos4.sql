@@ -1,15 +1,15 @@
 use RestoDB
 --Procedimientos MESA
 SELECT *from Menu
-go
 EXEC SP_MenuMostrarClase 'Entrada';
+EXEC SP_MesasMesero 3
 go
 --buscar las meseas del mesero
-create PROCEDURE SP_MesasMesero(
+ALTER PROCEDURE SP_MesasMesero(
 @id int
 )
 as BEGIN
-    SELECT M.idmesa,M.Activo,M.Descripcion,TamañoMesa,E.Dni,E.Nombre,E.Cargo,E.Apellido FROM Mesa M
+    SELECT M.idmesa,M.Activo,M.Descripcion,TamañoMesa,M.IDMesero,E.Dni,E.Nombre,E.Cargo,E.Apellido FROM Mesa M
 LEFT JOIN Empleados E ON E.IDEmpleado = M.IDMesero AND E.Activo = 0
 WHERE (M.IDMesero = @id OR M.IDMesero IS NULL) AND M.Activo = 0
 END
@@ -51,15 +51,14 @@ CREATE PROCEDURE SP_ModificarMesa(
 as BEGIN
     update Mesa set TamañoMesa=@TamañoMesa, Descripcion=@Descripcion,IDMesero=@IDMesero,Activo=@activo WHERE IdMesa=@id
 END
-go
-
+GO
 --Procedimientos Pedido
 --Procedimientos Pedido nuevo
-CREATE PROCEDURE SP_PedidoMostar(
+ALTER PROCEDURE SP_PedidoMostar(
 @idmesa int
 )
 as BEGIN
-    SELECT IDPedido,IDMesa,P.IDPlato,M.Clase,M.Descripcion as 'Descripcion Comida',M.Precio AS 'Precio Comida',p.IDBebida,b.TipoBebida,B.Descripcion as'Descripcion Bebidas',B.Precio as 'Precio Bebidas',Cuenta, activo from Pedidos P 
+    SELECT IDPedido,IDMesa,P.IDPlato,M.Clase,M.Descripcion as 'Descripcion Comida',M.Precio AS 'Precio Comida',p.IDBebida,b.TipoBebida,B.Descripcion as'Descripcion Bebidas',B.Precio as 'Precio Bebidas',Cuenta,fecha , activo from Pedidos P 
     INNER JOIN Bebidas B on b.IDBebida=p.IDBebida
     INNER JOIN Menu M ON M.IDPlato=P.IDPlato
     where Activo=0 AND IDMesa=@idmesa
@@ -71,6 +70,13 @@ CREATE PROCEDURE SP_PedidoCancelar(
 )
 AS BEGIN
     DELETE from Pedidos WHERE IDPedido=@idpedido
+END
+go
+CREATE PROCEDURE SP_PedidoCancelarTodo(
+    @idmesa INT
+)
+AS BEGIN
+    DELETE from Pedidos WHERE IdMesa=@idmesa
 END
 go
 --pedidos pagados
@@ -119,7 +125,7 @@ as BEGIN
 END
 go
 --crear BEBIDAS
-create PROCEDURE SP_BebidasNueva(
+CREATE PROCEDURE SP_BebidasNueva(
 	@Precio money,
 	@TipoBebida	Decimal,
 	@Descripcion	Varchar(150),
@@ -139,7 +145,7 @@ as BEGIN
 END
 go
 --Modificar BEBIDAS
-create PROCEDURE SP_BebidasModificar(
+CREATE PROCEDURE SP_BebidasModificar(
     @id INT,
 	@Precio money,
 	@TipoBebida	Decimal,
@@ -196,7 +202,7 @@ END
 GO
 
 ----Procedimientos Login
-create PROCEDURE SP_LoginModificar(
+CREATE PROCEDURE SP_LoginModificar(
     @id int,
     @user VARCHAR(150),
     @Contraseña VARCHAR(150),
@@ -207,7 +213,7 @@ as BEGIN
 END
 GO
 --MOSTRAR
-create PROCEDURE SP_LoginMostrar
+ALTER PROCEDURE SP_LoginMostrar
 as BEGIN
  select *from [LOGIN] L
 END
@@ -215,7 +221,7 @@ GO
 
 ----Procedimientos Menu
 --CREAR MENU
-create PROCEDURE SP_MenuNuevo(
+CREATE PROCEDURE SP_MenuNuevo(
     	@TipoPlato varchar(150) ,
 	@Precio money ,
 	@UrlImagen varchar(200),
@@ -228,7 +234,7 @@ create PROCEDURE SP_MenuNuevo(
 END
 go
 --MODIFICAR MENU
-create PROCEDURE SP_MenuModificar(
+CREATE PROCEDURE SP_MenuModificar(
     @id INT,
     @TipoPlato varchar(150) ,
 	@Precio money ,
@@ -297,7 +303,7 @@ as BEGIN
 END
 go
 --MOSTRAR EMPLEADO
-CREATE PROCEDURE SP_EmpleadosModificar(
+ALTER PROCEDURE SP_EmpleadosModificar(
     @id INT,
     @cargo varchar(150),
     @sueldo money,
@@ -308,7 +314,7 @@ as BEGIN
 END
 GO
 --NUEVO EMPLEADO
-CREATE PROCEDURE SP_EmpleadosNuevo(
+ALTER PROCEDURE SP_EmpleadosNuevo(
     @id INT,
     @cargo varchar(150),
     @sueldo money,
@@ -322,3 +328,10 @@ as BEGIN
     insert into Empleados (Cargo ,sueldo ,Turno ,Nombre ,Apellido ,Codigo ,Dni)
                 VALUES(@cargo ,@sueldo ,@Turno ,@nombre ,@apellido ,@codigo ,@dni )
 END
+GO
+CREATE PROCEDURE SP_EmpleadosMeseros
+as BEGIN
+    SELECT *FROM Empleados WHERE Cargo='Mesero'
+END
+
+Select IDPlato,TipoPlato,Descripcion,Clase,UrlImagen,Precio FROM MENU

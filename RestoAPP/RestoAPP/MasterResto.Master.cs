@@ -17,7 +17,7 @@ namespace RestoAPP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!(Page is PantallaMenu || Page is AccesoEmpleados))
+            if(!(Page is PantallaMenu || Page is AccesoEmpleados || Page is Error))
             {
                 if (!LecturaUsuario.SesionActiva(Session["usuario"]))
                 {
@@ -26,7 +26,7 @@ namespace RestoAPP
                 else
                 {
                     Dominio.Login login = (Dominio.Login)Session["Usuario"];
-                    if((Page is PantallaEmpleados || Page is PantallaCargaEmpleados)&&!(login.NivelAcceso ==1) ){
+                    if((Page is PantallaEmpleados || Page is PantallaCargaEmpleados || Page is PantRecaudacion) &&!(login.NivelAcceso ==1) ){
                         Session.Add("error", "No tiene el Cargo Necesario para acceder");
                         Response.Redirect("Error.aspx");
                     }

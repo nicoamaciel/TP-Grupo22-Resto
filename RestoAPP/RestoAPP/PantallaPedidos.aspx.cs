@@ -195,6 +195,7 @@ namespace RestoAPP
 
                 Pedidos pedidos = new Pedidos();
                 pedidos.Bebida = new Bebidas();
+                pedidos.IDEmpleado = ((Dominio.Login)Session["Usuario"]).IdUser;
                 pedidos.Plato = new Dominio.Menu();
                 pedidos.Plato.ID = reg[0].ID;
                 pedidos.Bebida.ID = aux[0].ID;

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AccesoEmpleados.aspx" />
+    <Content Include="CSS\StyleSheet1.css" />
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="MesasUser.aspx" />

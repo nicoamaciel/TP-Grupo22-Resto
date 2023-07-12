@@ -21,7 +21,7 @@ Create Table Empleados(
 	Activo BIT not null default (0)
 )
 GO
-CREATE TABLE LOGIN(
+alter TABLE LOGIN(
 	Usuario VARCHAR(150) not NULL,
 	Contraseña VARCHAR(50) not NULL,
 	NivelAcceso INT not NULL,

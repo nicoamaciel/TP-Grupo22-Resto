@@ -22,7 +22,7 @@ as BEGIN
 END
 GO
 --crear mesas
-CREATE PROCEDURE SP_MesasNueva(
+create PROCEDURE SP_MesasNueva(
 	@TamañoMesa int,
     @Descripcion VARCHAR,
     @IDMesero INT
@@ -33,7 +33,7 @@ as BEGIN
 END
 go
 --suspender mesa 
-CREATE PROCEDURE SP_EliminarMesa(
+create PROCEDURE SP_EliminarMesa(
     @id int
 )
 as BEGIN
@@ -41,7 +41,7 @@ as BEGIN
 END
 go
 --Modificar mesa
-CREATE PROCEDURE SP_ModificarMesa(
+create PROCEDURE SP_ModificarMesa(
     @id INT,
 	@TamañoMesa int,
 	@Descripcion	Decimal,
@@ -54,25 +54,25 @@ END
 GO
 --Procedimientos Pedido
 --Procedimientos Pedido nuevo
-ALTER PROCEDURE SP_PedidoMostar(
-@idmesa int
+create PROCEDURE SP_PedidoMostar(
+    @idmesa int
 )
 as BEGIN
-    SELECT IDPedido,IDMesa,P.IDPlato,M.Clase,M.Descripcion as 'Descripcion Comida',M.Precio AS 'Precio Comida',p.IDBebida,b.TipoBebida,B.Descripcion as'Descripcion Bebidas',B.Precio as 'Precio Bebidas',Cuenta,fecha , activo from Pedidos P 
+    SELECT IDPedido,IDMesa,P.IDPlato,M.Clase,M.Descripcion as 'Descripcion Comida',M.Precio AS 'Precio Comida',p.IDBebida,b.TipoBebida,B.Descripcion as'Descripcion Bebidas',B.Precio as 'Precio Bebidas',Cuenta, activo from Pedidos P 
     INNER JOIN Bebidas B on b.IDBebida=p.IDBebida
     INNER JOIN Menu M ON M.IDPlato=P.IDPlato
     where Activo=0 AND IDMesa=@idmesa
 END
 go
 --pedido cancelar
-CREATE PROCEDURE SP_PedidoCancelar(
+create PROCEDURE SP_PedidoCancelar(
     @idpedido INT
 )
 AS BEGIN
     DELETE from Pedidos WHERE IDPedido=@idpedido
 END
 go
-CREATE PROCEDURE SP_PedidoCancelarTodo(
+create PROCEDURE SP_PedidoCancelarTodo(
     @idmesa INT
 )
 AS BEGIN
@@ -80,7 +80,7 @@ AS BEGIN
 END
 go
 --pedidos pagados
-CREATE PROCEDURE SP_PedidoPagado(
+create PROCEDURE SP_PedidoPagado(
     @idmesa INT
 )
 AS BEGIN
@@ -88,7 +88,7 @@ AS BEGIN
 END
 go
 --pedidos Modificar
-CREATE PROCEDURE SP_PedidoModificar(
+create PROCEDURE SP_PedidoModificar(
     @idpedido INT,
     @IDBebida int,
     @IDPlato INT,
@@ -112,12 +112,12 @@ END
 go
 --Procedimientos BEBIDAS
 --mostrar BEBIDAS
-CREATE PROCEDURE SP_BebidasMostrar
+create PROCEDURE SP_BebidasMostrar
 as BEGIN
     SELECT *FROM Bebidas
 END
 go
-CREATE PROCEDURE SP_BebidaMostrar(
+create PROCEDURE SP_BebidaMostrar(
     @id INT
 )
 as BEGIN
@@ -125,7 +125,7 @@ as BEGIN
 END
 go
 --crear BEBIDAS
-CREATE PROCEDURE SP_BebidasNueva(
+create PROCEDURE SP_BebidasNueva(
 	@Precio money,
 	@TipoBebida	Decimal,
 	@Descripcion	Varchar(150),
@@ -137,7 +137,7 @@ as BEGIN
 END
 go 
 --borrar BEBIDAS
-CREATE PROCEDURE SP_EliminarBebida(
+create PROCEDURE SP_EliminarBebida(
     @id int
 )
 as BEGIN
@@ -145,7 +145,7 @@ as BEGIN
 END
 go
 --Modificar BEBIDAS
-CREATE PROCEDURE SP_BebidasModificar(
+create PROCEDURE SP_BebidasModificar(
     @id INT,
 	@Precio money,
 	@TipoBebida	Decimal,
@@ -159,7 +159,7 @@ go
 
 --Procedimientos Reserva
 --crear Reserva
-CREATE PROCEDURE SP_ReservaNueva(
+create PROCEDURE SP_ReservaNueva(
 	@IDMesa int,
 	@HoraReserva datetime,
 	@CodigoReserva int,
@@ -172,15 +172,16 @@ insert into Reserva (IDMesa,HoraReserva,CodigoReserva,Comentario,CantidadCliente
 END
 GO
 --BORRAR Reserva
-CREATE PROCEDURE SP_ReservaCancelar(
+create PROCEDURE SP_ReservaCancelar(
     @CodigoReserva INT
 )
     as BEGIN
     delete from Reserva WHERE CodigoReserva=@CodigoReserva
 END
+
 --MODIFICAR Reserva
 GO
-CREATE PROCEDURE SP_ReservarModificar(
+create PROCEDURE SP_ReservarModificar(
     @IDMesa int,
 	@HoraReserva datetime,
 	@CodigoReserva int,
@@ -191,8 +192,9 @@ CREATE PROCEDURE SP_ReservarModificar(
 update Reserva set IDMesa=@IDMesa,HoraReserva=@HoraReserva,Comentario=@Comentario,CantidadClientes=@CantidadClientes WHERE CodigoReserva=@CodigoReserva
 END
 GO
+
 --MOSTRAR
-CREATE PROCEDURE SP_ReservaMostrar(
+create PROCEDURE SP_ReservaMostrar(
     @idmesa INT,
     @hora DATETIME
 )
@@ -202,7 +204,7 @@ END
 GO
 
 ----Procedimientos Login
-CREATE PROCEDURE SP_LoginModificar(
+create PROCEDURE SP_LoginModificar(
     @id int,
     @user VARCHAR(150),
     @Contraseña VARCHAR(150),
@@ -221,7 +223,7 @@ GO
 
 ----Procedimientos Menu
 --CREAR MENU
-CREATE PROCEDURE SP_MenuNuevo(
+create PROCEDURE SP_MenuNuevo(
     	@TipoPlato varchar(150) ,
 	@Precio money ,
 	@UrlImagen varchar(200),
@@ -233,8 +235,9 @@ CREATE PROCEDURE SP_MenuNuevo(
         VALUES(@TipoPlato, @Precio,@UrlImagen,@Descripcion,@Clase)
 END
 go
+
 --MODIFICAR MENU
-CREATE PROCEDURE SP_MenuModificar(
+create PROCEDURE SP_MenuModificar(
     @id INT,
     @TipoPlato varchar(150) ,
 	@Precio money ,
@@ -246,8 +249,9 @@ CREATE PROCEDURE SP_MenuModificar(
     update  Menu set TipoPlato=@TipoPlato,Precio=@Precio,UrlImagen=@UrlImagen,Descripcion=@Descripcion,Clase=@Clase WHERE IDPlato=@id
 END
 go
+
 --ELIMIANR MENU
-CREATE PROCEDURE SP_MenuEliminar(
+create PROCEDURE SP_MenuEliminar(
     @id INT
 )
     as BEGIN
@@ -255,12 +259,13 @@ CREATE PROCEDURE SP_MenuEliminar(
 END
 GO
 --MOSTRAR TODO
-CREATE PROCEDURE SP_MenuMostrar
+alter PROCEDURE SP_MenuMostrar
 as BEGIN
     SELECT *FROM Menu
 END
 go
-CREATE PROCEDURE SP_MenuID(
+
+create PROCEDURE SP_MenuID(
     @id INT
 )
 as BEGIN
@@ -281,13 +286,13 @@ SELECT *FROM Menu WHERE Clase='Entrada'
 GO
 --PORCEDIMIENTOS DE EMPLEADO
 --MOSTRAR EMPLEADO
-CREATE PROCEDURE SP_EmpleadosMostrar
+create PROCEDURE SP_EmpleadosMostrar
 as BEGIN
 SELECT *from Empleados
 END
 GO
 --
-CREATE PROCEDURE SP_EmpleadosMostrarID(
+create PROCEDURE SP_EmpleadosMostrarID(
     @ID INT
 )
 as BEGIN
@@ -295,7 +300,7 @@ SELECT *from Empleados WHERE IDEmpleado=@ID
 END
 GO
 --Eliminar EMPLEADO
-CREATE PROCEDURE SP_EmpleadosEliminar(
+create PROCEDURE SP_EmpleadosEliminar(
     @id INT
 )
 as BEGIN
@@ -303,7 +308,7 @@ as BEGIN
 END
 go
 --MOSTRAR EMPLEADO
-ALTER PROCEDURE SP_EmpleadosModificar(
+create PROCEDURE SP_EmpleadosModificar(
     @id INT,
     @cargo varchar(150),
     @sueldo money,
@@ -314,7 +319,7 @@ as BEGIN
 END
 GO
 --NUEVO EMPLEADO
-ALTER PROCEDURE SP_EmpleadosNuevo(
+create PROCEDURE SP_EmpleadosNuevo(
     @id INT,
     @cargo varchar(150),
     @sueldo money,
@@ -329,7 +334,7 @@ as BEGIN
                 VALUES(@cargo ,@sueldo ,@Turno ,@nombre ,@apellido ,@codigo ,@dni )
 END
 GO
-CREATE PROCEDURE SP_EmpleadosMeseros
+create PROCEDURE SP_EmpleadosMeseros
 as BEGIN
     SELECT *FROM Empleados WHERE Cargo='Mesero'
 END

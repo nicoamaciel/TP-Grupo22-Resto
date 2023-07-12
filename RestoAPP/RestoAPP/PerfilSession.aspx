@@ -15,9 +15,9 @@
                         <p class="card-text">Turno: <%# Eval("Turno") %></p>
                         <p class="card-text">Codigo: <%# Eval("Codigo") %></p>
                     </div>
-                    <div class="tones-ingreso">
-                        <asp:Button runat="server" Text="Cerrar Sesión" ID="btnCerrar" CssClass="btn btn-primary" OnClick="btnCerrar_Click" />
-                        <asp:Button runat="server" Text="Cambiar Datos de la Sesión" ID="BtnCambiar" CssClass="btn btn-primary" OnClick="BtnCambiar_Click" />
+                    <div>   
+                        <asp:Button runat="server" Text="Cerrar Sesión" ID="btnCerrar" OnClick="btnCerrar_Click" />
+                        <asp:Button runat="server" Text="Cambiar Datos de la Sesión" ID="BtnCambiar" OnClick="BtnCambiar_Click" />
                     </div>
                 </div>
             </ItemTemplate>

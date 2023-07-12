@@ -20,14 +20,10 @@
             <asp:Repeater runat="server" ID="repRepetidor">
                 <ItemTemplate>
 
-                    <div class="col mx-auto p-2 align-middle">
-                        <pre>
-                            <asp:button ID="btnMesa" runat="server" class="btn btn-primary btn-lg " Text='<%# Eval("IDmesa") %>' OnClick="btnMesa_Click" CommandArgument='<%# Eval("IDmesa") %>'/>
-                        </pre>
-                        <div class="mb-3">
-                            <asp:Button ID="btnPagar" runat="server" Text="Pagar" OnClick="btnPagar_Click" CommandArgument='<%# Eval("IDmesa") %>'></asp:Button>
-                            <asp:Button ID="BtnCancelarPedido" runat="server" Text="Cancelar" OnClick="BtnCancelarPedido_Click" CommandArgument='<%# Eval("IDmesa") %>'></asp:Button>
-                        </div>
+                    <div>
+                        <asp:Button ID="btnMesa" runat="server" Text='<%# Eval("IDmesa") %>' OnClick="btnMesa_Click" CommandArgument='<%# Eval("IDmesa") %>' />
+                        <asp:Button ID="btnPagar" runat="server" Text="Pagar" OnClick="btnPagar_Click" CommandArgument='<%# Eval("IDmesa") %>'></asp:Button>
+                        <asp:Button ID="BtnCancelarPedido" runat="server" Text="Cancelar" OnClick="BtnCancelarPedido_Click" CommandArgument='<%# Eval("IDmesa") %>'></asp:Button>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>

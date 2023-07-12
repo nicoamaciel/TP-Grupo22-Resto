@@ -22,6 +22,7 @@
 
                     <div>
                         <asp:Button ID="btnMesa" runat="server" Text='<%# Eval("IDmesa") %>' OnClick="btnMesa_Click" CommandArgument='<%# Eval("IDmesa") %>' />
+                        </br>
                         <asp:Button ID="btnPagar" runat="server" Text="Pagar" OnClick="btnPagar_Click" CommandArgument='<%# Eval("IDmesa") %>'></asp:Button>
                         <asp:Button ID="BtnCancelarPedido" runat="server" Text="Cancelar" OnClick="BtnCancelarPedido_Click" CommandArgument='<%# Eval("IDmesa") %>'></asp:Button>
                     </div>

@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="AccesoEmpleados.aspx" />
     <Content Include="CSS\StyleSheet1.css" />
-    <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="MesasUser.aspx" />
     <Content Include="PantallaCargaEmpleados.aspx" />
@@ -79,6 +78,7 @@
     <Content Include="PantallaPedidos.aspx" />
     <Content Include="PantModBebidas.aspx" />
     <Content Include="PantRecaudacion.aspx" />
+    <Content Include="PantReserva.aspx" />
     <Content Include="PerfilSession.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
@@ -90,13 +90,6 @@
     </Compile>
     <Compile Include="AccesoEmpleados.aspx.designer.cs">
       <DependentUpon>AccesoEmpleados.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
@@ -167,6 +160,13 @@
     </Compile>
     <Compile Include="PantRecaudacion.aspx.designer.cs">
       <DependentUpon>PantRecaudacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PantReserva.aspx.cs">
+      <DependentUpon>PantReserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantReserva.aspx.designer.cs">
+      <DependentUpon>PantReserva.aspx</DependentUpon>
     </Compile>
     <Compile Include="PerfilSession.aspx.cs">
       <DependentUpon>PerfilSession.aspx</DependentUpon>

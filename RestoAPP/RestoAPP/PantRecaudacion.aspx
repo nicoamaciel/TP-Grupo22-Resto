@@ -9,7 +9,7 @@
             <div class="col-3">
                 <div class="mb-3">
                     <asp:Label Text="Campo" ID="lblCampo" runat="server" />
-                    <asp:DropDownList runat="server"  ID="ddlCampo" AutoPostBack="true" CssClass="form-select">
+                    <asp:DropDownList runat="server" ID="ddlCampo" AutoPostBack="true" CssClass="form-select">
                         <asp:ListItem Text="del dia" />
                         <asp:ListItem Text="del Año" />
                         <asp:ListItem Text="del mes" />
@@ -28,12 +28,12 @@
             </div>
             <div class="col-3">
                 <div class="mb-3">
-                    <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+                    <asp:TextBox ID="txtFecha" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
                 </div>
             </div>
             <div class="col-3">
                 <div class="mb-3">
-                    <asp:Label text="(Opcional)N° de DNI del vendedor" runat="server"/>
+                    <asp:Label Text="(Opcional)N° de DNI del vendedor" runat="server" />
                     <asp:TextBox ID="TxtMesero" runat="server" CssClass="form-control" />
                 </div>
             </div>
@@ -48,7 +48,7 @@
     </div>
     <hr />
     <div id="cajas1" class="row row-cols-1 row-cols-md-3 g-4">
-        <asp:Repeater runat="server" ID="Rpt_Pedidos" >
+        <asp:Repeater runat="server" ID="Rpt_Pedidos">
             <ItemTemplate>
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
@@ -59,4 +59,16 @@
         </asp:Repeater>
     </div>
     <hr />
+    <script>
+        var textBox = document.getElementById('<%= txtFecha.ClientID %>');
+        var fechaActual = new Date();
+        var fechaMinima = new Date();
+        fechaMinima.setDate(fechaActual.getDate() + 1);
+        fechaMinima.setHours(0, 0, 0, 0);
+        var fechaMaxima = new Date();
+        fechaMaxima.setDate(fechaActual.getDate() + 15);
+        fechaMaxima.setHours(23, 0, 0, 0);
+        textBox.min = fechaMinima.toISOString().slice(0, -8);
+        textBox.max = fechaMaxima.toISOString().slice(0, -8);
+    </script>
 </asp:Content>

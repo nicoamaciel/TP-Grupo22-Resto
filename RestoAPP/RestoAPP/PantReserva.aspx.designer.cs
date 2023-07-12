@@ -11,70 +11,61 @@ namespace RestoAPP
 {
 
 
-    public partial class PantRecaudacion
+    public partial class PantReserva
     {
 
         /// <summary>
-        /// Control lblCampo.
+        /// Control DdlMesa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCampo;
+        protected global::System.Web.UI.WebControls.DropDownList DdlMesa;
 
         /// <summary>
-        /// Control ddlCampo.
+        /// Control TxtCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCampo;
+        protected global::System.Web.UI.WebControls.TextBox TxtCodigo;
 
         /// <summary>
-        /// Control ddlCriterio.
+        /// Control txthora.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCriterio;
+        protected global::System.Web.UI.WebControls.TextBox txthora;
 
         /// <summary>
-        /// Control txtFecha.
+        /// Control TxtCantidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecha;
+        protected global::System.Web.UI.WebControls.TextBox TxtCantidad;
 
         /// <summary>
-        /// Control TxtMesero.
+        /// Control txtComentario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtMesero;
+        protected global::System.Web.UI.WebControls.TextBox txtComentario;
 
         /// <summary>
-        /// Control BtnFiltrar.
+        /// Control btnAceptar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnFiltrar;
-
-        /// <summary>
-        /// Control Rpt_Pedidos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Rpt_Pedidos;
+        protected global::System.Web.UI.WebControls.Button btnAceptar;
     }
 }

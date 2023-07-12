@@ -17,7 +17,7 @@ namespace RestoAPP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!(Page is PantallaMenu || Page is AccesoEmpleados || Page is Error))
+            if(!(Page is PantallaMenu || Page is AccesoEmpleados || Page is Error || Page is PantReserva))
             {
                 if (!LecturaUsuario.SesionActiva(Session["usuario"]))
                 {

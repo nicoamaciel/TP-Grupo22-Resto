@@ -111,5 +111,43 @@ namespace NegocioResto
 
             }
         }
+        public bool Comprobar(Reserva reserva)
+        {
+            List<Reserva> lista = new List<Reserva>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT *from Reserva");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    if (reserva.CodigoReserva == (int)datos.Lector["CodigoReserva"])
+                    {
+                        Reserva aux = new Reserva();
+                        aux.IDReserva = (int)datos.Lector["IDReserva"];
+                        aux.IDMesa = (int)datos.Lector["IDMesa"];
+                        aux.CodigoReserva = (int)datos.Lector["CodigoReserva"];
+                        aux.HoraReserva = (DateTime)datos.Lector["HoraReserva"];
+                        aux.Comentario = (string)datos.Lector["Comentario"];
+                        aux.CantidadClientes = (int)datos.Lector["CantidadClientes"];
+                        lista.Add(aux);
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
+
     }
 }

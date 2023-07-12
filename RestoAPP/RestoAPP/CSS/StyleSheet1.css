@@ -23,3 +23,14 @@ footer {
     height: 60px;
 }
 
+/*Botones */
+
+input#ContentPlaceHolder1_btnIngresar {
+    background-color: #24282b;
+    width: 285px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+}

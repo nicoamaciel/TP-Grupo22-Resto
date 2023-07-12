@@ -4,7 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Para Ingresar debes loguearte</h1>
+    
     <div class="position-absolute top-50 start-50 translate-middle">
         <div class="card text-center mb-3" style="width: 18rem;">
             <div class="card-body">

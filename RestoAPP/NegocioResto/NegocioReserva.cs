@@ -117,23 +117,18 @@ namespace NegocioResto
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT *from Reserva");
+                datos.setearConsulta("SELECT *from Reserva where CodigoReserva="+reserva.CodigoReserva);
                 datos.ejecutarLectura();
-
-                while (datos.Lector.Read())
+                if (datos.Lector.Read())
                 {
-                    if (reserva.CodigoReserva == (int)datos.Lector["CodigoReserva"])
-                    {
-                        Reserva aux = new Reserva();
-                        aux.IDReserva = (int)datos.Lector["IDReserva"];
-                        aux.IDMesa = (int)datos.Lector["IDMesa"];
-                        aux.CodigoReserva = (int)datos.Lector["CodigoReserva"];
-                        aux.HoraReserva = (DateTime)datos.Lector["HoraReserva"];
-                        aux.Comentario = (string)datos.Lector["Comentario"];
-                        aux.CantidadClientes = (int)datos.Lector["CantidadClientes"];
-                        lista.Add(aux);
+                    reserva.IDReserva = (int)datos.Lector["IDReserva"];
+                    reserva.IDMesa = (int)datos.Lector["IDMesa"];
+                    reserva.CodigoReserva = (int)datos.Lector["CodigoReserva"];
+                    reserva.HoraReserva = (DateTime)datos.Lector["HoraReserva"];
+                    reserva.Comentario = (string)datos.Lector["Comentario"];
+                    reserva.CantidadClientes = (int)datos.Lector["CantidadClientes"];
                         return true;
-                    }
+                    
                 }
                 return false;
             }
@@ -149,5 +144,67 @@ namespace NegocioResto
             }
         }
 
+        public bool buscar(Reserva reserva)
+        {
+            List<Reserva> lista = new List<Reserva>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT *FROM Reserva WHERE CodigoReserva="+reserva.CodigoReserva +
+                    "and DATEPART(DAY, HoraReserva) = DATEPART(DAY, GETDATE()) AND DATEPART(MONTH, HoraReserva) = DATEPART(MONTH, GETDATE()) " +
+                    "AND HoraReserva >= DATEADD(MINUTE, -30, GETDATE()) AND HoraReserva <= DATEADD(MINUTE, 30, GETDATE())");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    reserva.IDReserva = (int)datos.Lector["IDReserva"];
+                    reserva.IDMesa = (int)datos.Lector["IDMesa"];
+                    reserva.CodigoReserva = (int)datos.Lector["CodigoReserva"];
+                    reserva.HoraReserva = (DateTime)datos.Lector["HoraReserva"];
+                    reserva.Comentario = (string)datos.Lector["Comentario"];
+                    reserva.CantidadClientes = (int)datos.Lector["CantidadClientes"];
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
+        public bool buscar(int idmesa)
+        {
+            List<Reserva> lista = new List<Reserva>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT *FROM Reserva WHERE idmesa=" + idmesa +" and "+
+                    "DATEPART(DAY, HoraReserva) = DATEPART(DAY, GETDATE()) AND DATEPART(MONTH, HoraReserva) = DATEPART(MONTH, GETDATE()) " +
+                    "AND HoraReserva >= DATEADD(MINUTE, -30, GETDATE()) AND HoraReserva <= DATEADD(MINUTE, 30, GETDATE())");
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
     }
 }

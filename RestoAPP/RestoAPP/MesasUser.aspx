@@ -14,14 +14,19 @@
             <asp:Button ID="btnBuscar" runat="server" CssClass="btn-primary" OnClick="btnBuscar_Click" Text="Buscar" />
         </div>
     </div>
-    <%} %>
+    <%}%>
+    <div class="row mb-3">
+        <asp:Button ID="BtnReserva" runat="server" CssClass="btn-" Text="ingrese codigo de reserva" OnClick="BtnReserva_Click"/>
+        <asp:TextBox ID="TxtReserva" runat="server" ></asp:TextBox>
+
+    </div>
+
     <div id="cajas" class="container text-center">
         <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center ">
             <asp:Repeater runat="server" ID="repRepetidor">
                 <ItemTemplate>
-
                     <div>
-                        <asp:Button ID="btnMesa" runat="server" Text='<%#Eval("IDmesa") %>' OnClick="btnMesa_Click" CommandArgument='<%# Eval("IDmesa") %>' />
+                        <asp:Button ID="btnMesa" runat="server" Text='<%#Eval("descripcion") %>' OnClick="btnMesa_Click" CommandArgument='<%# Eval("IDmesa") %>' />
                         </br>
                         <asp:Button ID="btnPagar" runat="server" Text="Pagar" OnClick="btnPagar_Click" CommandArgument='<%# Eval("IDmesa") %>'></asp:Button>
                         <asp:Button ID="BtnCancelarPedido" runat="server" Text="Cancelar" OnClick="BtnCancelarPedido_Click" CommandArgument='<%# Eval("IDmesa") %>'></asp:Button>

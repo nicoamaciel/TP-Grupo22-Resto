@@ -30,7 +30,7 @@
                                 <a class="nav-link" href="/PantallaMenu.aspx">Ver Menus</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/PantReserva.aspx">Hacer una Reserva</a>
+                                <a class="nav-link" href="/PantReserva.aspx">Reservar</a>
                             </li>
                             <%if (Session["Usuario"] != null && (((Dominio.Login)Session["Usuario"]).NivelAcceso == 3||((Dominio.Login)Session["Usuario"]).NivelAcceso==1))
                                 {%>
@@ -41,7 +41,7 @@
                             <%if (Session["Usuario"] != null &&  (((Dominio.Login)Session["Usuario"]).NivelAcceso == 3||((Dominio.Login)Session["Usuario"]).NivelAcceso==1))
                                 {%>
                             <li class="nav-item">
-                                <a class="nav-link" href="/MesasUser.aspx">Ver mis Mesas</a>
+                                <a class="nav-link" href="/MesasUser.aspx">Ver Mesas</a>
                             </li>
                             <%} %>
                             <%if (Session["Usuario"] != null && ((Dominio.Login)Session["Usuario"]).NivelAcceso == 1)

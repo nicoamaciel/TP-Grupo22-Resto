@@ -239,3 +239,7 @@ input#ContentPlaceHolder1_repRepetidor_BtnCancelarPedido_5 {
     text-decoration: none;
     border-radius: 8px;
 }
+
+.oculto {
+    display: none;
+}

@@ -80,7 +80,6 @@
     <Content Include="PantRecaudacion.aspx" />
     <Content Include="PantReserva.aspx" />
     <Content Include="PerfilSession.aspx" />
-    <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

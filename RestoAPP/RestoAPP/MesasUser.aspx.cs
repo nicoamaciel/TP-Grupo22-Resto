@@ -12,6 +12,7 @@ namespace RestoAPP
     public partial class MesasUser : System.Web.UI.Page
     {
         public List<Mesa> mesasMeseros { get; set; }
+        public bool Reserv { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
                 if (!IsPostBack)
@@ -37,6 +38,7 @@ namespace RestoAPP
                     repRepetidor.DataSource = mesasMeseros;
                     repRepetidor.DataBind();
                     }
+                    NegocioReserva reserva = new NegocioReserva();
                 }
                 else
                 {
@@ -56,8 +58,16 @@ namespace RestoAPP
         }
 
         protected void btnMesa_Click(object sender, EventArgs e)
-        { 
-            Response.Redirect("PantallaPedidos.aspx?ID="+ ((Button)sender).CommandArgument);
+        {
+            NegocioReserva reserva = new NegocioReserva();
+            if (reserva.buscar(int.Parse(((Button)sender).CommandArgument))==false){
+                Response.Redirect("PantallaPedidos.aspx?ID=" + ((Button)sender).CommandArgument);
+            }
+            else
+            {
+                string mensaje = "Esta Mesa tiene una reserva Pendiente cerca de este horario";
+                ScriptManager.RegisterStartupScript(this, GetType(), "MensajeEmergente", $"alert('{mensaje}');", true);
+            }
         }
 
         protected void btnPagar_Click(object sender, EventArgs e)
@@ -77,6 +87,23 @@ namespace RestoAPP
                 NegocioPedido pedido = new NegocioPedido();
                 pedido.CancelarTodo(((Button)sender).CommandArgument);
                 Session.Remove(((Button)sender).CommandArgument);
+            }
+        }
+
+        protected void BtnReserva_Click(object sender, EventArgs e)
+        {
+            Reserva reserva = new Reserva();
+            NegocioReserva negocioReserva = new NegocioReserva();
+            reserva.CodigoReserva=int.Parse(TxtReserva.Text);
+            if (negocioReserva.buscar(reserva)!=false)
+            {
+                Response.Redirect("PantallaPedidos.aspx?ID=" + reserva.IDMesa);
+
+            }
+            else
+            {
+                string mensaje = "El código de reserva no existe. Caso contrario por favor, revise su horario.";
+                ScriptManager.RegisterStartupScript(this, GetType(), "MensajeEmergente", $"alert('{mensaje}');", true);
             }
         }
     }

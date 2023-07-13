@@ -68,6 +68,8 @@ namespace RestoAPP
                 ScriptManager.RegisterStartupScript(this, GetType(), "MensajeEmergente", script, true);
             }
             Modificar.Modificar(login);
+            Session.Contents.Remove("Usuario");
+            Session.Add("Usuario", login);
             Cambiar = false;
         }
 

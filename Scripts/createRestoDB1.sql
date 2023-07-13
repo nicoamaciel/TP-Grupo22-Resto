@@ -135,3 +135,5 @@ Add Constraint CHK_Cuenta_Positiva Check(Cuenta > 0)
 go
 ALTER TABLE Pedidos
 ADD Activo BIT NOT NULL DEFAULT (0);
+
+

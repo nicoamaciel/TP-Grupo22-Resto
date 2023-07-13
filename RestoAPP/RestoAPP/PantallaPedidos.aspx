@@ -20,36 +20,33 @@
     </div>
     <hr />
     <div class="row">
-        <div class="row">
-            <div class="col-3">
-                <div class="mb-3">
-                    <asp:Label Text="Campo" ID="lblCampo" runat="server" />
-                    <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-select" ID="ddlCampo" OnSelectedIndexChanged="ddlCampo_SelectedIndexChanged">
-                        <asp:ListItem Text="Todos" />
-                        <asp:ListItem Text="Tipo" />
-                        <asp:ListItem Text="Precio" />
-                    </asp:DropDownList>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="mb-3">
-                    <asp:Label Text="Criterio" runat="server" />
-                    <asp:DropDownList runat="server" ID="ddlCriterio" AutoPostBack="true" CssClass="form-select"></asp:DropDownList>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="mb-3">
-                    <asp:Label Text="criterio" runat="server" />
-                    <asp:TextBox runat="server" ID="txtComida" CssClass="form-control" />
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="mb-3">
-                    <asp:Button ID="BtnFiltrarComida" runat="server" Text="Aceptar" OnClick="BtnFiltrarComida_Click" />
-                </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Label Text="Campo" ID="lblCampo" runat="server" />
+                <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-select" ID="ddlCampo" OnSelectedIndexChanged="ddlCampo_SelectedIndexChanged">
+                    <asp:ListItem Text="Todos" />
+                    <asp:ListItem Text="Tipo" />
+                    <asp:ListItem Text="Precio" />
+                </asp:DropDownList>
             </div>
         </div>
-
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Label Text="Criterio" runat="server" />
+                <asp:DropDownList runat="server" ID="ddlCriterio" AutoPostBack="true" CssClass="form-select"></asp:DropDownList>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Label Text="criterio" runat="server" />
+                <asp:TextBox runat="server" ID="txtComida" CssClass="form-control" />
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Button ID="BtnFiltrarComida" runat="server" Text="Aceptar" OnClick="BtnFiltrarComida_Click" />
+            </div>
+        </div>
     </div>
     <hr />
     <div id="cajas1" class="row row-cols-1 row-cols-md-3 g-4">
@@ -69,33 +66,31 @@
     <hr />
 
     <div class="row">
-        <div class="row">
-            <div class="col-3">
-                <div class="mb-3">
-                    <asp:Label Text="Mostrar por:" ID="Label1" runat="server" />
-                    <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-select" ID="DdlCamposBebidas" OnSelectedIndexChanged="DdlCamposBebidas_SelectedIndexChanged">
-                        <asp:ListItem Text="Todos" />
-                        <asp:ListItem Text="Precio" />
-                        <asp:ListItem Text="Descripcion" />
-                    </asp:DropDownList>
-                </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Label Text="Mostrar por:" ID="Label1" runat="server" />
+                <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-select" ID="DdlCamposBebidas" OnSelectedIndexChanged="DdlCamposBebidas_SelectedIndexChanged">
+                    <asp:ListItem Text="Todos" />
+                    <asp:ListItem Text="Precio" />
+                    <asp:ListItem Text="Descripcion" />
+                </asp:DropDownList>
             </div>
-            <div class="col-3">
-                <div class="mb-3">
-                    <asp:Label Text="Criterio" runat="server" />
-                    <asp:DropDownList runat="server" AutoPostBack="true" ID="DdlCriterioBebida" CssClass="form-select"></asp:DropDownList>
-                </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Label Text="Criterio" runat="server" />
+                <asp:DropDownList runat="server" AutoPostBack="true" ID="DdlCriterioBebida" CssClass="form-select"></asp:DropDownList>
             </div>
-            <div class="col-3">
-                <div class="mb-3">
-                    <asp:Label Text="Criterio" runat="server" />
-                    <asp:TextBox runat="server" ID="TxtBebida" CssClass="form-control" />
-                </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Label Text="Criterio" runat="server" />
+                <asp:TextBox runat="server" ID="TxtBebida" CssClass="form-control" />
             </div>
-            <div class="col-3">
-                <div class="mb-3">
-                    <asp:Button ID="btnBuscarBebida" runat="server" Text="Aceptar" OnClick="btnBuscarBebida_Click" />
-                </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Button ID="btnBuscarBebida" runat="server" Text="Aceptar" OnClick="btnBuscarBebida_Click" />
             </div>
         </div>
     </div>

@@ -38,30 +38,16 @@
         </div>
         <div class="col-3">
             <div class="mb-3">
-                <asp:Label Text="criterio" runat="server" />
                 <asp:TextBox runat="server" ID="txtComida" CssClass="form-control" />
             </div>
         </div>
         <div class="col-3">
             <div class="mb-3">
-                <asp:Button ID="BtnFiltrarComida" runat="server" Text="Aceptar" OnClick="BtnFiltrarComida_Click" />
+                <asp:Button ID="BtnFiltrarComida" runat="server" Text="Filtrar Menu" OnClick="BtnFiltrarComida_Click" />
+
+                <asp:DropDownList runat="server" ID="DdlComida" CssClass="form-select"></asp:DropDownList>
             </div>
         </div>
-    </div>
-    <hr />
-    <div id="cajas1" class="row row-cols-1 row-cols-md-3 g-4">
-        <asp:Repeater runat="server" ID="Rpt_Comida" OnItemDataBound="Rpt_Comida_ItemDataBound">
-            <ItemTemplate>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <p class="card-text"><%#Eval("descripcion") %> Precio $ <%#Eval("Precio") %></p>
-                    </div>
-                    <div class="card-body">
-                        <asp:CheckBox ID="CbxComida" runat="server" />
-                    </div>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
     </div>
     <hr />
 
@@ -84,30 +70,15 @@
         </div>
         <div class="col-3">
             <div class="mb-3">
-                <asp:Label Text="Criterio" runat="server" />
                 <asp:TextBox runat="server" ID="TxtBebida" CssClass="form-control" />
             </div>
         </div>
         <div class="col-3">
             <div class="mb-3">
-                <asp:Button ID="btnBuscarBebida" runat="server" Text="Aceptar" OnClick="btnBuscarBebida_Click" />
+                <asp:Button ID="btnBuscarBebida" runat="server" Text="Filtrar Bebidas" OnClick="btnBuscarBebida_Click" />
+                <asp:DropDownList ID="DdlBebida" runat="server"></asp:DropDownList>
             </div>
         </div>
-    </div>
-    <hr />
-    <div id="cajas" class="row row-cols-1 row-cols-md-3 g-4">
-        <asp:Repeater runat="server" ID="Rpt_Bebida" OnItemDataBound="Rpt_Bebida_ItemDataBound">
-            <ItemTemplate>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <p class="card-text"><%#Eval("descripcion") %> Precio $ <%#Eval("Precio") %></p>
-                    </div>
-                    <div class="card-body">
-                        <asp:CheckBox ID="CbxBebida" runat="server" />
-                    </div>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
     </div>
     <hr />
     <asp:GridView ID="dgvPedidos" runat="server" DataKeyNames="IDPedido" OnSelectedIndexChanged="dgvPedidos_SelectedIndexChanged"
@@ -123,25 +94,7 @@
         </Columns>
     </asp:GridView>
 
-    <script>
-        function selectOnlyOne(checkbox) {
-            var checkboxes = document.querySelectorAll('#<%= Rpt_Comida.ClientID %> input[type="checkbox"]');
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i] !== checkbox) {
-                    checkboxes[i].checked = false;
-                }
-            }
-        }
 
-        function selectOnlyOneBebida(checkbox) {
-            var checkboxes = document.querySelectorAll('#<%= Rpt_Bebida.ClientID %> input[type="checkbox"]');
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i] !== checkbox) {
-                    checkboxes[i].checked = false;
-                }
-            }
-        }
-    </script>
     <script type="text/javascript">
         function validarComida() {
             var comida = document.getElementById('<%= txtComida.ClientID %>').value;

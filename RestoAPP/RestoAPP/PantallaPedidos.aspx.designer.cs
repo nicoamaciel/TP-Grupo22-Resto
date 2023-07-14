@@ -87,13 +87,13 @@ namespace RestoAPP
         protected global::System.Web.UI.WebControls.Button BtnFiltrarComida;
 
         /// <summary>
-        /// Control Rpt_Comida.
+        /// Control DdlComida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Rpt_Comida;
+        protected global::System.Web.UI.WebControls.DropDownList DdlComida;
 
         /// <summary>
         /// Control Label1.
@@ -141,13 +141,13 @@ namespace RestoAPP
         protected global::System.Web.UI.WebControls.Button btnBuscarBebida;
 
         /// <summary>
-        /// Control Rpt_Bebida.
+        /// Control DdlBebida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Rpt_Bebida;
+        protected global::System.Web.UI.WebControls.DropDownList DdlBebida;
 
         /// <summary>
         /// Control dgvPedidos.

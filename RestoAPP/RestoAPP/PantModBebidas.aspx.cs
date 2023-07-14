@@ -18,7 +18,7 @@ namespace RestoAPP
             if (id != "" && !IsPostBack)
             {
                 ListaBebidas negocio = new ListaBebidas();
-                Bebidas seleccionado = (negocio.listaBebida(id))[0];
+                Bebidas seleccionado = negocio.listaBebida(id);
                 txtId.Text = id;
                 txtDescripcion.Text = seleccionado.Descripcion;
                 txtImagenUrl.Text = seleccionado.UrlImagen;

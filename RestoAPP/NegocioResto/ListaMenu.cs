@@ -82,9 +82,9 @@ namespace NegocioResto
 
             }
         }
-        public List<Menu> listar1(string id)
+        public Menu listar1(string id)
         {
-            List<Menu> lista = new List<Menu>();
+            Menu lista = new Menu();
             AccesoDatos datos = new AccesoDatos();
             try
             {
@@ -101,7 +101,6 @@ namespace NegocioResto
                     aux.Clase = (string)datos.Lector["Clase"];
                     aux.UrlImagen = (string)datos.Lector["UrlImagen"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
-                    lista.Add(aux);
 
                 }
 
@@ -142,18 +141,8 @@ namespace NegocioResto
                 }
                 else if (criterio == "Tipo")
                 {
-                    switch (criterio)
-                    {
-                        case "Comienza con":
-                            consulta += "where TipoPlato like '" + filtro + "%' ";
-                            break;
-                        case "Termina con":
-                            consulta += "where TipoPlato like '%" + filtro + "'";
-                            break;
-                        default:
-                            consulta += "where TipoPlato like '%" + filtro + "%'";
-                            break;
-                    }
+                            consulta += "where clase like '%" + tipo + "%'";
+                    
                 }
                 datos.setearConsulta(consulta);
                 datos.ejecutarLectura();

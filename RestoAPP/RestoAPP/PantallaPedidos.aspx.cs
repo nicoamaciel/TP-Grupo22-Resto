@@ -22,17 +22,26 @@ namespace RestoAPP
                 if (!string.IsNullOrEmpty(id))
                 {
                     TxtIDMesa.Text = id;
+                    txtComida.Text = "0";
+                    TxtBebida.Text = "0";   
                     NegocioPedido negocioPedido = new NegocioPedido();
                     dgvPedidos.DataSource = negocioPedido.Listar(int.Parse(id));
                     dgvPedidos.DataBind();
                     ListaMenu menu = new ListaMenu();
-                    Rpt_Comida.DataSource = menu.listarSP();
-                    Rpt_Comida.DataBind();
                     ListaBebidas bebidas = new ListaBebidas();
-                    Rpt_Bebida.DataSource = bebidas.listarBebidas();
-                    Rpt_Bebida.DataBind();
+
+                    DdlBebida.DataSource = bebidas.listarBebidas();
+                    DdlBebida.DataValueField = "id";
+                    DdlBebida.DataTextField = "Descripcion";
+                    DdlBebida.DataBind();
+
                     ddlCampo.Text = "Todos";
                     DdlCamposBebidas.Text = "Todos";
+
+                    DdlComida.DataSource = menu.listarSP();
+                    DdlComida.DataValueField = "ID";
+                    DdlComida.DataTextField = "Descripcion";
+                    DdlComida.DataBind();
                 }
                 else
                 {
@@ -82,6 +91,7 @@ namespace RestoAPP
                     ddlCriterio.Items.Add("Entrada");
                 }
             }
+
         }
         protected void DdlCamposBebidas_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -102,56 +112,45 @@ namespace RestoAPP
                 }
             }
 
-        }
-        protected void Rpt_Bebida_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                int id = (int)DataBinder.Eval(e.Item.DataItem, "id");
-                CheckBox checkBox = (CheckBox)e.Item.FindControl("CbxBebida");
-                checkBox.Attributes.Add("data-id", id.ToString());
-                checkBox.Attributes.Add("onclick", "selectOnlyOneBebida(this);");
-            }
-        }
-        protected void Rpt_Comida_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                int id = (int)DataBinder.Eval(e.Item.DataItem, "id");
-                CheckBox checkBox = (CheckBox)e.Item.FindControl("CbxComida");
-                checkBox.Attributes.Add("data-id", id.ToString());
-                checkBox.Attributes.Add("onclick", "selectOnlyOne(this);");
-            }
-        }
+        }        
         protected void btnBuscarBebida_Click(object sender, EventArgs e)
         {
             ListaBebidas bebidas = new ListaBebidas();
-            if (ddlCampo.Text == "todo")
+            DdlBebida.Items.Clear();
+            if (DdlCamposBebidas.Text == "todo")
             {
 
-                Rpt_Bebida.DataSource = bebidas.listarBebidas();
-                Rpt_Bebida.DataBind();
+                DdlBebida.DataSource = bebidas.listarBebidas();
+                DdlBebida.DataValueField = "id";
+                DdlBebida.DataTextField = "Descripcion";
+                DdlBebida.DataBind();
             }
             else
             {
-                Rpt_Bebida.DataSource = bebidas.BusquedaAvanzada(ddlCampo.Text, ddlCriterio.Text, TxtBebida.Text);
-                Rpt_Bebida.DataBind();
+                DdlBebida.DataSource = bebidas.BusquedaAvanzada(DdlCamposBebidas.Text, DdlCriterioBebida.Text, TxtBebida.Text);
+                DdlBebida.DataValueField = "id";
+                DdlBebida.DataTextField = "Descripcion";
+                DdlBebida.DataBind();
 
             }
         }
         protected void BtnFiltrarComida_Click(object sender, EventArgs e)
         {
             ListaMenu menu = new ListaMenu();
+            DdlComida.Items.Clear();
             if (ddlCampo.Text == "todo")
             {
-
-                Rpt_Comida.DataSource = menu.listarSP();
-                Rpt_Comida.DataBind();
+                DdlComida.DataSource = menu.listarSP();
+                DdlComida.DataValueField = "ID";
+                DdlComida.DataTextField = "Descripcion";
+                DdlComida.DataBind();
             }
             else
             {
-                Rpt_Comida.DataSource = menu.BusquedaAvanzada(ddlCampo.Text, ddlCriterio.Text, txtComida.Text);
-                Rpt_Comida.DataBind();
+                DdlComida.DataSource = menu.BusquedaAvanzada(ddlCampo.Text, ddlCriterio.Text, txtComida.Text);
+                DdlComida.DataValueField = "id";
+                DdlComida.DataTextField = "Descripcion";
+                DdlComida.DataBind();
             }
         }
 
@@ -161,17 +160,19 @@ namespace RestoAPP
             NegocioPedido pedido = new NegocioPedido();
             if (row.Cells[0].Text == "Modificar")
             {
+                Dominio.Menu menuAux = new Dominio.Menu();
                 ListaMenu menu = new ListaMenu();
-                List<Dominio.Menu> reg = menu.listar1(Request.Form["<%= Rpt_Comida.ClientID %>"].ToString());
-
+                menuAux = menu.listar1(DdlComida.DataValueField);
+                        
+                Bebidas bebiAux = new Bebidas();
                 ListaBebidas bebidas = new ListaBebidas();
-                List<Bebidas> bebiAux = bebidas.listaBebida(Request.Form["<%= Rpt_Bebida.ClientID %>"].ToString());
+                bebiAux = bebidas.listaBebida(DdlBebida.DataValueField);
                 string pedidoId = row.Cells[1].Text;
                 Pedidos aux = new Pedidos();
                 aux.IDPedido = int.Parse(pedidoId);
-                aux.Plato.ID = reg[0].ID;
-                aux.Bebida.ID = bebiAux[1].ID;
-                aux.Cuenta = reg[0].Precio+bebiAux[0].Precio;
+                aux.Plato.ID = menuAux.ID;
+                aux.Bebida.ID = bebiAux.ID;
+                aux.Cuenta = menuAux.Precio+bebiAux.Precio;
                 pedido.Modificar(aux);
 
             }
@@ -187,22 +188,27 @@ namespace RestoAPP
         {
             try
             {
-                ListaMenu menu = new ListaMenu();
-                List<Dominio.Menu> reg = menu.listar1(Request.Form["<%= Rpt_Comida.ClientID %>"].ToString());
-
+                ListaMenu menu= new ListaMenu();
+                Dominio.Menu reg = menu.listar1(DdlComida.DataValueField);
+                Bebidas aux = new Bebidas();
                 ListaBebidas bebidas = new ListaBebidas();
-                List<Bebidas> aux = bebidas.listaBebida(Request.Form["<%= Rpt_Bebida.ClientID %>"].ToString());
+                aux = bebidas.listaBebida(DdlBebida.DataValueField);
 
                 Pedidos pedidos = new Pedidos();
                 pedidos.Bebida = new Bebidas();
                 pedidos.IDEmpleado = ((Dominio.Login)Session["Usuario"]).IdUser;
+
                 pedidos.Plato = new Dominio.Menu();
-                pedidos.Plato.ID = reg[0].ID;
-                pedidos.Bebida.ID = aux[0].ID;
+                pedidos.Plato.ID = reg.ID;
+
+                pedidos.Bebida= new Bebidas();
+                pedidos.Bebida.ID =aux.ID;
+
                 pedidos.IDMesa = int.Parse(TxtIDMesa.Text);
-                pedidos.Cuenta = aux[0].Precio + reg[0].Precio;
+                pedidos.Cuenta = aux.Precio + reg.Precio;
                 NegocioPedido negocioPedido = new NegocioPedido();
                 negocioPedido.Agregar(pedidos);
+
                 if (Session[TxtIDMesa.Text] == null)
                 {
                     Session.Add(TxtIDMesa.Text, true);
@@ -214,5 +220,8 @@ namespace RestoAPP
                 Response.Redirect("Error.aspx");
             }
         }
+
+        
+
     }
 }

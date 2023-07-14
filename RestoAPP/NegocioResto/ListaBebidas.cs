@@ -44,9 +44,9 @@ namespace NegocioResto
 
             }
         }
-        public List<Bebidas> listaBebida(string id)
+        public Bebidas listaBebida(string id)
         {
-            List<Bebidas> lista = new List<Bebidas>();
+            Bebidas lista = new Bebidas();
             AccesoDatos datos = new AccesoDatos();
             try
             {
@@ -62,8 +62,6 @@ namespace NegocioResto
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.UrlImagen = (string)datos.Lector["UrlImagen"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
-                    lista.Add(aux);
-
                 }
 
                 return lista;

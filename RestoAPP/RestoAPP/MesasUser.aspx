@@ -14,7 +14,8 @@
             <asp:Button ID="btnBuscar" runat="server" CssClass="btn-primary" OnClick="btnBuscar_Click" Text="Buscar" />
         </div>
     </div>
-    <%}%>
+    <%}
+%>
     <div class="row mb-3">
         <asp:Button ID="BtnReserva" runat="server" CssClass="btn-" Text="ingrese codigo de reserva" OnClick="BtnReserva_Click"/>
         <asp:TextBox ID="TxtReserva" runat="server" ></asp:TextBox>

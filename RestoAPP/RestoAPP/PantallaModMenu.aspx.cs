@@ -27,7 +27,7 @@ namespace RestoAPP
                 if (id != "" && !IsPostBack)
                 {
                     ListaMenu negocio = new ListaMenu();
-                    Dominio.Menu seleccionado = (negocio.listar1(id))[0];
+                    Dominio.Menu seleccionado = negocio.listar1(id);
                     txtId.Text = id;
                     txtDescripcion.Text = seleccionado.Descripcion;
                     txtImagenUrl.Text = seleccionado.UrlImagen;

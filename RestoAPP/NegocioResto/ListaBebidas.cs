@@ -46,7 +46,7 @@ namespace NegocioResto
         }
         public Bebidas listaBebida(string id)
         {
-            Bebidas lista = new Bebidas();
+            Bebidas aux = new Bebidas();
             AccesoDatos datos = new AccesoDatos();
             try
             {
@@ -56,7 +56,6 @@ namespace NegocioResto
 
                 while (datos.Lector.Read())
                 {
-                    Bebidas aux = new Bebidas();
                     aux.ID = (int)datos.Lector["IDBebida"];
                     aux.TipoBebida = (decimal)datos.Lector["TipoBebida"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
@@ -64,7 +63,7 @@ namespace NegocioResto
                     aux.Precio = (decimal)datos.Lector["Precio"];
                 }
 
-                return lista;
+                return aux;
             }
             catch (Exception ex)
             {

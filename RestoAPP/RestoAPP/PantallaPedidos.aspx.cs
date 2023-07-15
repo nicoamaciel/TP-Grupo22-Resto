@@ -12,6 +12,7 @@ namespace RestoAPP
     public partial class PantallaPedidos : System.Web.UI.Page
     {
         public string id { get;set; }
+        public decimal TotalCuentas { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
@@ -25,7 +26,7 @@ namespace RestoAPP
                     txtComida.Text = "0";
                     TxtBebida.Text = "0";   
                     NegocioPedido negocioPedido = new NegocioPedido();
-                    dgvPedidos.DataSource = negocioPedido.Listar(int.Parse(id));
+                    dgvPedidos.DataSource = negocioPedido.Listar(id);
                     dgvPedidos.DataBind();
                     ListaMenu menu = new ListaMenu();
                     ListaBebidas bebidas = new ListaBebidas();
@@ -70,7 +71,7 @@ namespace RestoAPP
         protected void ButtonListar_Click(object sender, EventArgs e)
         {
             NegocioPedido negocioPedido = new NegocioPedido();
-            dgvPedidos.DataSource = negocioPedido.Listar(int.Parse(TxtIDMesa.Text));
+            dgvPedidos.DataSource = negocioPedido.Listar(TxtIDMesa.Text);
             dgvPedidos.DataBind();
         }
         protected void ddlCampo_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,30 +159,23 @@ namespace RestoAPP
         {
             GridViewRow row = dgvPedidos.SelectedRow;
             NegocioPedido pedido = new NegocioPedido();
-            if (row.Cells[0].Text == "Modificar")
-            {
-                Dominio.Menu menuAux = new Dominio.Menu();
-                ListaMenu menu = new ListaMenu();
-                menuAux = menu.listar1(DdlComida.DataValueField);
-                        
-                Bebidas bebiAux = new Bebidas();
-                ListaBebidas bebidas = new ListaBebidas();
-                bebiAux = bebidas.listaBebida(DdlBebida.DataValueField);
-                string pedidoId = row.Cells[1].Text;
-                Pedidos aux = new Pedidos();
-                aux.IDPedido = int.Parse(pedidoId);
-                aux.Plato.ID = menuAux.ID;
-                aux.Bebida.ID = bebiAux.ID;
-                aux.Cuenta = menuAux.Precio+bebiAux.Precio;
-                pedido.Modificar(aux);
+             
+            ListaMenu menu = new ListaMenu();
+            Dominio.Menu menuAux = menu.listar1(DdlComida.SelectedValue);
+              
+            ListaBebidas bebidas = new ListaBebidas();
+            Bebidas bebiAux = bebidas.listaBebida(DdlBebida.SelectedValue);
 
-            }
-            else if (row.Cells[0].Text == "Cancelar")
-            {
-                string pedidoId = row.Cells[1].Text;
-                pedido.Cancelar(pedidoId);
-
-            }
+            string pedidoId = dgvPedidos.DataKeys[row.RowIndex].Value.ToString();
+            Pedidos aux = new Pedidos();
+            aux.IDPedido = int.Parse(pedidoId);
+            aux.Plato=new Dominio.Menu();
+            aux.Plato.ID = menuAux.ID;
+            aux.Bebida = new Bebidas();
+            aux.Bebida.ID = bebiAux.ID;
+            aux.Cuenta = menuAux.Precio + bebiAux.Precio;
+            pedido.Modificar(aux);
+            
         }
 
         protected void BtnAgregarPedido_Click(object sender, EventArgs e)
@@ -189,10 +183,9 @@ namespace RestoAPP
             try
             {
                 ListaMenu menu= new ListaMenu();
-                Dominio.Menu reg = menu.listar1(DdlComida.DataValueField);
-                Bebidas aux = new Bebidas();
+                Dominio.Menu reg = menu.listar1(DdlComida.SelectedValue);
                 ListaBebidas bebidas = new ListaBebidas();
-                aux = bebidas.listaBebida(DdlBebida.DataValueField);
+                Bebidas aux = bebidas.listaBebida(DdlBebida.SelectedValue);
 
                 Pedidos pedidos = new Pedidos();
                 pedidos.Bebida = new Bebidas();
@@ -221,7 +214,28 @@ namespace RestoAPP
             }
         }
 
-        
+        protected void dgvPedidos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = dgvPedidos.Rows[e.RowIndex];
+            NegocioPedido pedido = new NegocioPedido();
+            string pedidoId = dgvPedidos.DataKeys[e.RowIndex].Value.ToString();
+            pedido.Cancelar(pedidoId);
+        }
 
+        protected void dgvPedidos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                decimal cuenta = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "Cuenta"));
+                TotalCuentas += cuenta;
+            }
+            else if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                e.Row.Cells[0].ColumnSpan = 6; // Fusionar las celdas para ocupar todo el ancho
+                e.Row.Cells[0].Text = "Total:";
+                e.Row.Cells[0].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[1].Text = TotalCuentas.ToString("0.00"); // Mostrar el total formateado
+            }
+        }
     }
 }

@@ -54,11 +54,11 @@ END
 GO
 --Procedimientos Pedido
 --Procedimientos Pedido nuevo
-create PROCEDURE SP_PedidoMostar(
+ALTER PROCEDURE SP_PedidoMostar(
     @idmesa int
 )
 as BEGIN
-    SELECT IDPedido,IDMesa,P.IDPlato,M.Clase,M.Descripcion as 'Descripcion Comida',M.Precio AS 'Precio Comida',p.IDBebida,b.TipoBebida,B.Descripcion as'Descripcion Bebidas',B.Precio as 'Precio Bebidas',Cuenta, activo from Pedidos P 
+    SELECT IDPedido,IDMesa,P.IDPlato,IDEmpleado,fecha, M.Clase,M.Descripcion as 'Descripcion Comida',M.Precio AS 'Precio Comida',p.IDBebida,b.TipoBebida,B.Descripcion as'Descripcion Bebidas',B.Precio as 'Precio Bebidas',P.Cuenta, activo from Pedidos P 
     INNER JOIN Bebidas B on b.IDBebida=p.IDBebida
     INNER JOIN Menu M ON M.IDPlato=P.IDPlato
     where Activo=0 AND IDMesa=@idmesa
@@ -99,15 +99,16 @@ AS BEGIN
 END
 go
 --Procedimientos Pedido nuevo
-create PROCEDURE SP_PedidoNuevo(
+ALTER PROCEDURE SP_PedidoNuevo(
 @idmesa int,
 @idplato int,
 @idbebida int,
-@cuenta money
+@cuenta money,
+@idempleado INT
 )
 as BEGIN
-    INSERT INTO Pedidos (IDMesa,IDBebida,IDPlato,Cuenta) VALUES
-                        (@idmesa,@idbebida, @idplato, @cuenta)
+    INSERT INTO Pedidos (IDMesa,IDEmpleado,IDBebida,IDPlato,Cuenta) VALUES
+                        (@idmesa,@idempleado,@idbebida, @idplato, @cuenta)
 END
 go
 --Procedimientos BEBIDAS

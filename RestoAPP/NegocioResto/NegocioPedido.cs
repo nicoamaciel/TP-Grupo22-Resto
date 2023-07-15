@@ -10,7 +10,7 @@ namespace NegocioResto
     public class NegocioPedido
     {
 
-        public List<Pedidos> Listar(int id)
+        public List<Pedidos> Listar(string id)
         {
             List<Pedidos> lista = new List<Pedidos>();
             AccesoDatos datos = new AccesoDatos();
@@ -29,19 +29,19 @@ namespace NegocioResto
                     aux.IDPedido = (int)datos.Lector["IDPedido"]; 
                     aux.Estado = (bool)datos.Lector["activo"];
                     aux.fecha = (DateTime)datos.Lector["fecha"];
-                    aux.Cuenta = (int)datos.Lector["Cuenta"];
+                    aux.Cuenta = (decimal)datos.Lector["Cuenta"];
                     aux.IDEmpleado = (int)datos.Lector["IDEmpleado"];
-                    aux.Bebida.ID = (int)datos.Lector["Activo"];
-                    aux.Bebida.Descripcion = (string)datos.Lector["Descripcion"]; 
+
+                    aux.Bebida.ID = (int)datos.Lector["IdBebida"];
+                    aux.Bebida.Descripcion = (string)datos.Lector["Descripcion Bebidas"]; 
                     aux.Bebida.TipoBebida = (decimal)datos.Lector["TipoBebida"];
-                    aux.Bebida.Precio=(decimal)datos.Lector["Precio"];
+                    aux.Bebida.Precio=(decimal)datos.Lector["Precio Bebidas"];
 
                     aux.Plato.ID = (int)datos.Lector["idplato"];
-                    aux.Plato.TipoPlato = (string)datos.Lector["TipoPlato"];
-                    aux.Plato.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Plato.Precio = (decimal)datos.Lector["Precio"];
+                    aux.Plato.Clase = (string)datos.Lector["clase"];
+                    aux.Plato.Descripcion = (string)datos.Lector["Descripcion Comida"];
+                    aux.Plato.Precio = (decimal)datos.Lector["Precio Comida"];
                     
-
                     lista.Add(aux);
 
                 }
@@ -70,6 +70,7 @@ namespace NegocioResto
                 datos.setearParametro("@IDPlato", nuevo.Plato.ID);
                 datos.setearParametro("@IDBebida", nuevo.Bebida.ID);
                 datos.setearParametro("@Cuenta", nuevo.Cuenta);
+                datos.setearParametro("@idempleado",nuevo.IDEmpleado);
                 datos.ejecutarLectura();
             }
             catch (Exception ex)
@@ -89,7 +90,7 @@ namespace NegocioResto
             {
                 AccesoDatos datos = new AccesoDatos();
                 datos.setearProcedimiento("SP_PedidoCancelar");
-                datos.setearParametro("@id", int.Parse(id));
+                datos.setearParametro("@idpedido", id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

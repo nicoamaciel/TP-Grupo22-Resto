@@ -84,7 +84,7 @@ namespace NegocioResto
         }
         public Menu listar1(string id)
         {
-            Menu lista = new Menu();
+            Menu aux = new Menu();
             AccesoDatos datos = new AccesoDatos();
             try
             {
@@ -94,7 +94,6 @@ namespace NegocioResto
 
                 while (datos.Lector.Read())
                 {
-                    Menu aux = new Menu();
                     aux.ID = (int)datos.Lector["IDPlato"];
                     aux.TipoPlato = (string)datos.Lector["TipoPlato"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
@@ -104,7 +103,7 @@ namespace NegocioResto
 
                 }
 
-                return lista;
+                return aux;
             }
             catch (Exception ex)
             {

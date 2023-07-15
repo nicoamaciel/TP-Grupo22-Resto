@@ -81,16 +81,18 @@
         </div>
     </div>
     <hr />
-    <asp:GridView ID="dgvPedidos" runat="server" DataKeyNames="IDPedido" OnSelectedIndexChanged="dgvPedidos_SelectedIndexChanged"
-        CssClass="table table-dark table-brodered" AutoGenerateColumns="false">
+    <asp:GridView ID="dgvPedidos" runat="server" DataKeyNames="IDPedido" OnSelectedIndexChanged="dgvPedidos_SelectedIndexChanged" OnRowDeleting="dgvPedidos_RowDeleting"
+        CssClass="table table-dark table-brodered" AutoGenerateColumns="false" OnRowDataBound="dgvPedidos_RowDataBound">
         <Columns>
             <asp:BoundField HeaderText="ID" DataField="IDPedido" HeaderStyle-CssClass="oculto" ItemStyle-CssClass="oculto" />
             <asp:BoundField HeaderText="Mesa" DataField="IDMesa" HeaderStyle-CssClass="oculto" ItemStyle-CssClass="oculto" />
-            <asp:BoundField HeaderText="Comida" DataField="Menu" />
-            <asp:BoundField HeaderText="Bebida " DataField="Bebida" />
-            <asp:BoundField HeaderText="Cuenta" DataField="Cuenta" />
-            <asp:CommandField HeaderText="Modificar" ShowSelectButton="true" SelectText="✍" />
-            <asp:CommandField HeaderText="Cancelar" ShowSelectButton="true" SelectText="✍" />
+            <asp:BoundField HeaderText="Comida" DataField="Plato.descripcion" />
+            <asp:BoundField HeaderText="Precio" DataField="plato.Precio" />
+            <asp:BoundField HeaderText="Bebida " DataField="Bebida.descripcion" />
+            <asp:BoundField HeaderText="Precio" DataField="bebida.Precio" />
+            <asp:BoundField HeaderText="Total" DataField="Cuenta" />
+            <asp:CommandField HeaderText="Modificar" ShowSelectButton="true" SelectText="✍" ButtonType="Button" />
+            <asp:CommandField HeaderText="Cancelar" ShowDeleteButton="true" SelectText="✍" ButtonType="Button" />
         </Columns>
     </asp:GridView>
 

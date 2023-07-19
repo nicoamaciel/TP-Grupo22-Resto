@@ -104,7 +104,7 @@ namespace NegocioResto
             {
                 AccesoDatos datos = new AccesoDatos();
                 datos.setearProcedimiento("SP_PedidoCancelarTodo");
-                datos.setearParametro("@id", int.Parse(id));
+                datos.setearParametro("@idmesa", int.Parse(id));
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

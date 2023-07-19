@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <hr />
-    <div class="container text-center ">
+     <div class="container text-center ">
         <h2>Pedido Mesa</h2>
         <h5 class="card-title">
             <asp:TextBox runat="server" ID="TxtIDMesa" CssClass="form-control" Enabled="false" />
@@ -35,8 +35,6 @@
                 <asp:Label Text="Criterio" runat="server" />
                 <asp:DropDownList runat="server" ID="ddlCriterio" AutoPostBack="true" CssClass="form-select"></asp:DropDownList>
             </div>
-        </div>
-        <div class="col-3">
             <div class="mb-3">
                 <asp:TextBox runat="server" ID="txtComida" CssClass="form-control" />
             </div>
@@ -67,8 +65,6 @@
                 <asp:Label Text="Criterio" runat="server" />
                 <asp:DropDownList runat="server" AutoPostBack="true" ID="DdlCriterioBebida" CssClass="form-select"></asp:DropDownList>
             </div>
-        </div>
-        <div class="col-3">
             <div class="mb-3">
                 <asp:TextBox runat="server" ID="TxtBebida" CssClass="form-control" />
             </div>
@@ -100,21 +96,39 @@
     <script type="text/javascript">
         function validarComida() {
             var comida = document.getElementById('<%= txtComida.ClientID %>').value;
-            if (comida === "") {
-                alert("El campo de comida no puede estar vacío.");
+            var ddlCamposComida = document.getElementById('<%= ddlCampo.ClientID %>');
+            var selectedOption = ddlCamposComida.options[ddlCamposComida.selectedIndex].value;
+            if (comida === "" && selectedOption === "Precio") {
+                alert("El campo de comida no puede estar vacío cuando el campo seleccionado es 'Precio'.");
                 return false;
+            }
+            if (selectedOption === "Precio") {
+                var comida = document.getElementById('<%= txtComida.ClientID %>').value;
+
+                if (isNaN(parseFloat(comida))) {
+                    alert("El valor seleccionado para el precio debe ser numérico.");
+                    return false;
+                }
+            }
+            return true;
+        }
+        function validarBebida() {
+            var bebida = document.getElementById('<%= TxtBebida.ClientID %>').value;
+            var ddlCamposBebidas = document.getElementById('<%= DdlCamposBebidas.ClientID %>');
+            var selectedOption = ddlCamposBebidas.options[DdlCamposBebidas.selectedIndex].value;
+            if (bebida === "" && selectedOption != "Todos") {
+                alert("El campo de bebida no puede estar vacío.cuando el campo seleccionado es 'Precio'.");
+                return false;
+            }
+            if (selectedOption != "Todos") {
+                if (isNaN(parseFloat(bebida))) {
+                    alert("El valor seleccionado para el precio debe ser numérico.");
+                    return false;
+                }
             }
             return true;
         }
 
-        function validarBebida() {
-            var bebida = document.getElementById('<%= TxtBebida.ClientID %>').value;
-            if (bebida === "") {
-                alert("El campo de bebida no puede estar vacío.");
-                return false;
-            }
-            return true;
-        }
     </script>
 
 </asp:Content>

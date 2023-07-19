@@ -9,9 +9,18 @@ ALTER PROCEDURE SP_MesasMesero(
 @id int
 )
 as BEGIN
-    SELECT M.idmesa,M.Activo,M.Descripcion,TamañoMesa,M.IDMesero,E.Dni,E.Nombre,E.Cargo,E.Apellido FROM Mesa M
+    SELECT M.idmesa,M.Activo,M.Descripcion,TamañoMesa,M.IDMesero,E.Turno,E.Dni,E.Nombre,E.Cargo,E.Apellido FROM Mesa M
 LEFT JOIN Empleados E ON E.IDEmpleado = M.IDMesero AND E.Activo = 0
 WHERE (M.IDMesero = @id OR M.IDMesero IS NULL) AND M.Activo = 0
+END
+go
+create PROCEDURE SP_MesasUnica(
+@id int
+)
+as BEGIN
+    SELECT M.idmesa,M.Activo,M.Descripcion,TamañoMesa,M.IDMesero,E.Turno,E.Dni,E.Nombre,E.Cargo,E.Apellido FROM Mesa M
+LEFT JOIN Empleados E ON E.IDEmpleado = M.IDMesero AND E.Activo = 0
+WHERE M.IdMesa = @id
 END
 go
 --buscar todas las mesas 
@@ -335,9 +344,18 @@ as BEGIN
                 VALUES(@cargo ,@sueldo ,@Turno ,@nombre ,@apellido ,@codigo ,@dni )
 END
 GO
-create PROCEDURE SP_EmpleadosMeseros
+ALTER PROCEDURE SP_EmpleadosMeseros(
+    @Turno INT
+)
 as BEGIN
-    SELECT *FROM Empleados WHERE Cargo='Mesero'
+    IF(@Turno<3)
+        BEGIN
+            SELECT *FROM Empleados WHERE Cargo='Mesero' AND Turno=@Turno
+        END
+    ELSE
+        BEGIN
+            SELECT *FROM Empleados WHERE Cargo='Mesero'
+        END
 END
 
 Select IDPlato,TipoPlato,Descripcion,Clase,UrlImagen,Precio FROM MENU

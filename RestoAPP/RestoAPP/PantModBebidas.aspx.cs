@@ -56,18 +56,26 @@ namespace RestoAPP
             seleccionado.TipoBebida=int.Parse(txtTipoBebida.Text);
             seleccionado.Precio=decimal.Parse(txtPrecio.Text);
             if (txtId.Text!=null)
-            {
-                seleccionado.ID = int.Parse(txtId.Text);
-                    negocio.Modificar(seleccionado);
-            }
-                else
-                {
-                    negocio.Agregar(seleccionado);
+                    {
+                        seleccionado.ID = int.Parse(txtId.Text);
+                        negocio.Modificar(seleccionado);
+                        string script = "alert('Se ah Modificado Correctamente');";
+                        ScriptManager.RegisterStartupScript(this, GetType(), "MensajeEmergente", script, true);
+                        Response.Redirect("/PantallaMenu.aspx");
+
+                    }
+                    else
+                    {
+                        negocio.Agregar(seleccionado);
+                        string script = "alert('Se ah agregado Correctamente');";
+                        ScriptManager.RegisterStartupScript(this, GetType(), "MensajeEmergente", script, true);
+                        Response.Redirect("/PantallaMenu.aspx");
+
+                    }
                 }
-            }
             else
             {
-                    Session.Add("Error", "debe completar los campos de Descripcion,TipoBebida y Precio");
+                    Session.Add("Error", "debe completar los campos de Descripcion,Tipo de Bebida y Precio");
                     Response.Redirect("Error.aspx");
                 }
             }

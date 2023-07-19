@@ -175,7 +175,8 @@ namespace RestoAPP
             aux.Bebida.ID = bebiAux.ID;
             aux.Cuenta = menuAux.Precio + bebiAux.Precio;
             pedido.Modificar(aux);
-            
+            dgvPedidos.DataBind();
+
         }
 
         protected void BtnAgregarPedido_Click(object sender, EventArgs e)
@@ -220,6 +221,7 @@ namespace RestoAPP
             NegocioPedido pedido = new NegocioPedido();
             string pedidoId = dgvPedidos.DataKeys[e.RowIndex].Value.ToString();
             pedido.Cancelar(pedidoId);
+            dgvPedidos.DataBind();
         }
 
         protected void dgvPedidos_RowDataBound(object sender, GridViewRowEventArgs e)

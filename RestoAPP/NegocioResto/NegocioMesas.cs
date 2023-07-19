@@ -87,6 +87,43 @@ namespace NegocioResto
 
             }
         }
+        public Mesa ListarMesa(string IDmesa)
+        {
+            Mesa lista = new Mesa();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("SP_MesasUnica");
+                datos.setearParametro("@id", IDmesa);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    lista.IdMesa = (int)datos.Lector["IDMesa"];
+                    lista.Activo = (bool)datos.Lector["Activo"];
+                    lista.TamañoMesa = (int)datos.Lector["TamañoMesa"];
+                    lista.Descripcion = (string)datos.Lector["Descripcion"];
+                    lista.Empleado = new Empleados();
+                    lista.Empleado.IDEmpleado = (int)datos.Lector["idmesero"];
+                    lista.Empleado.Nombre = (string)datos.Lector["Nombre"];
+                    lista.Empleado.Apellido = (string)datos.Lector["Apellido"];
+                    lista.Empleado.Cargo = (string)datos.Lector["Cargo"];
+                    lista.Empleado.Turno = (int)datos.Lector["turno"];
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
 
         public void Agregar(Mesa nuevo)
         {

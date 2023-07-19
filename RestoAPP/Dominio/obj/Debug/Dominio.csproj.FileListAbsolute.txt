@@ -16,3 +16,9 @@ C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\Dominio\
 C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.dll
 C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.pdb
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\Dominio\bin\Debug\Dominio.dll
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.dll
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.pdb

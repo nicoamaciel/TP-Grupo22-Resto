@@ -243,3 +243,35 @@ input#ContentPlaceHolder1_repRepetidor_BtnCancelarPedido_5 {
 .oculto {
     display: none;
 }
+
+/*Pag reserva*/
+
+div.cssReserva {
+    background: rgba(0,0,0,0.6);
+    width: 90%;
+    max-width: 650px;
+    margin: auto;
+    padding: 5px 35px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 3px;
+}
+
+input#ContentPlaceHolder1_btnAceptar {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+  
+
+button#btnCancelar {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}

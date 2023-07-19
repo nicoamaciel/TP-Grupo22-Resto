@@ -275,3 +275,12 @@ button#btnCancelar {
     text-decoration: none;
     border-radius: 8px;
 }
+
+/*PagMenus*/
+
+div#cajas.row.row-cols-1.row-cols-md-3.g-4 {
+    margin: auto;
+    padding: 5px 35px;
+    margin-top: 20px;
+    margin-left: 60px;
+}

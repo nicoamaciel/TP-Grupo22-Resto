@@ -37,7 +37,7 @@
                             if (((Dominio.Login)Session["Usuario"]).NivelAcceso <= 3)
                             {
                     %>
-                    <div class="card-body">
+                    <div class="botonesMenus">
                         <asp:Button ID="btnModificar" runat="server" CssClass="card-link" Text="Modificar" OnClick="btnModificar_Click" CommandArgument='<%#Eval("ID") %>' />
                         <asp:Button ID="btnBorrar" runat="server" CssClass="card-link" Text="Borrar" OnClick="btnBorrar_Click" CommandArgument='<%#Eval("ID")%>' />
                     </div>

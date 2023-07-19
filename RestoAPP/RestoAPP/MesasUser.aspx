@@ -16,10 +16,10 @@
     </div>
     <%}
 %>
-    <div class="row mb-3">
-        <asp:Button ID="BtnReserva" runat="server" CssClass="btn-" Text="ingrese codigo de reserva" OnClick="BtnReserva_Click"/>
+    <div class="buscarReserva">
+        <asp:Button ID="BtnReserva" runat="server" Text="Buscar reserva" OnClick="BtnReserva_Click"/>
         <asp:TextBox ID="TxtReserva" runat="server" ></asp:TextBox>
-
+        <hr />
     </div>
 
     <div id="cajas" class="container text-center">

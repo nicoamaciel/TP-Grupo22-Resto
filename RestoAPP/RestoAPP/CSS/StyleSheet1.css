@@ -244,6 +244,33 @@ input#ContentPlaceHolder1_repRepetidor_BtnCancelarPedido_5 {
     display: none;
 }
 
+/*Pag mesa botones*/
+
+input#ContentPlaceHolder1_BtnReserva {
+    background-color: #2A733B;
+    width: auto;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_TxtReserva {
+    background-color: #FFF;
+    width: auto;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+div.buscarReserva {
+    width: fit-content;
+    max-width: 650px;
+    margin: auto;
+}
+
+
 /*Pag reserva*/
 
 div.cssReserva {

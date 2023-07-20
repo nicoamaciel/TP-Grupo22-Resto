@@ -26,7 +26,7 @@ namespace RestoAPP
                 else
                 {
                     Dominio.Login login = (Dominio.Login)Session["Usuario"];
-                    if((Page is PantallaEmpleados || Page is PantallaCargaEmpleados || Page is PantRecaudacion || Page is Mod_AgregarMesas) &&!(login.NivelAcceso ==1) ){
+                    if((Page is PantallaEmpleados || Page is PantallaCargaEmpleados || Page is PantRecaudacion) &&!(login.NivelAcceso ==1) ){
                         Session.Add("error", "No tiene el Cargo Necesario para acceder");
                         Response.Redirect("Error.aspx");
                     }

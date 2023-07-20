@@ -71,7 +71,6 @@
     <Content Include="CSS\StyleSheet1.css" />
     <Content Include="Error.aspx" />
     <Content Include="MesasUser.aspx" />
-    <Content Include="Mod-AgregarMesas.aspx" />
     <Content Include="PantallaCargaEmpleados.aspx" />
     <Content Include="PantallaEmpleados.aspx" />
     <Content Include="PantallaMenu.aspx" />
@@ -111,13 +110,6 @@
     </Compile>
     <Compile Include="MesasUser.aspx.designer.cs">
       <DependentUpon>MesasUser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Mod-AgregarMesas.aspx.cs">
-      <DependentUpon>Mod-AgregarMesas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Mod-AgregarMesas.aspx.designer.cs">
-      <DependentUpon>Mod-AgregarMesas.aspx</DependentUpon>
     </Compile>
     <Compile Include="PantallaCargaEmpleados.aspx.cs">
       <DependentUpon>PantallaCargaEmpleados.aspx</DependentUpon>

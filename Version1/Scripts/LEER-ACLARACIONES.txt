@@ -1,0 +1,5 @@
+Seguir pasos de los scrips 1,2,3,4--
+leer uno por uno y no ejecutar todo junto.
+
+-cambiar alguos alter por create. Consultar cualquier duda.
+

@@ -76,22 +76,15 @@ namespace RestoAPP
                 {
                     seleccionado.ID=int.Parse(txtId.Text);
                     negocio.Modificar(seleccionado);
-                    string script = "alert('Se ah Modificado Correctamente');";
-                    ScriptManager.RegisterStartupScript(this, GetType(), "MensajeEmergente", script, true);
-                    Response.Redirect("/PantallaMenu.aspx");
                 }
                 else
                 {
                     negocio.Agregar(seleccionado);
-                    string script = "alert('Se ah agregado Correctamente');";
-                    ScriptManager.RegisterStartupScript(this, GetType(), "MensajeEmergente", script, true);
-                    Response.Redirect("/PantallaMenu.aspx");
                 }
             }
             else
             {
-                string script = "alert('Por favor rellene todos los campos.');";
-                ScriptManager.RegisterStartupScript(this, GetType(), "MensajeEmergente", script, true);
+
             }
         }
 

@@ -1,0 +1,45 @@
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\NegocioResto.dll
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\NegocioResto.pdb
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\Dominio.dll
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\Dominio.pdb
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CopyComplete
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.dll
+C:\Users\User\Desktop\tp final\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.pdb
+C:\Users\Nicolas\Desktop\TP-Grupo22-Resto-main\TP-Grupo22-Resto-main\RestoAPP\NegocioResto\bin\Debug\NegocioResto.dll
+C:\Users\Nicolas\Desktop\TP-Grupo22-Resto-main\TP-Grupo22-Resto-main\RestoAPP\NegocioResto\bin\Debug\NegocioResto.pdb
+C:\Users\Nicolas\Desktop\TP-Grupo22-Resto-main\TP-Grupo22-Resto-main\RestoAPP\NegocioResto\bin\Debug\Dominio.dll
+C:\Users\Nicolas\Desktop\TP-Grupo22-Resto-main\TP-Grupo22-Resto-main\RestoAPP\NegocioResto\bin\Debug\Dominio.pdb
+C:\Users\Nicolas\Desktop\TP-Grupo22-Resto-main\TP-Grupo22-Resto-main\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.AssemblyReference.cache
+C:\Users\Nicolas\Desktop\TP-Grupo22-Resto-main\TP-Grupo22-Resto-main\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CoreCompileInputs.cache
+C:\Users\Nicolas\Desktop\TP-Grupo22-Resto-main\TP-Grupo22-Resto-main\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CopyComplete
+C:\Users\Nicolas\Desktop\TP-Grupo22-Resto-main\TP-Grupo22-Resto-main\RestoAPP\NegocioResto\obj\Debug\NegocioResto.dll
+C:\Users\Nicolas\Desktop\TP-Grupo22-Resto-main\TP-Grupo22-Resto-main\RestoAPP\NegocioResto\obj\Debug\NegocioResto.pdb
+P:\UTN\Progra3\RestoApp\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\NegocioResto.dll
+P:\UTN\Progra3\RestoApp\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\NegocioResto.pdb
+P:\UTN\Progra3\RestoApp\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\Dominio.dll
+P:\UTN\Progra3\RestoApp\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\Dominio.pdb
+P:\UTN\Progra3\RestoApp\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.AssemblyReference.cache
+P:\UTN\Progra3\RestoApp\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CoreCompileInputs.cache
+P:\UTN\Progra3\RestoApp\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CopyComplete
+P:\UTN\Progra3\RestoApp\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.dll
+P:\UTN\Progra3\RestoApp\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.pdb
+C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\NegocioResto.dll
+C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\NegocioResto.pdb
+C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\Dominio.dll
+C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\Dominio.pdb
+C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CopyComplete
+C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.dll
+C:\Users\User\Desktop\tp final\cambios de git\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.pdb
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\NegocioResto.dll
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\NegocioResto.pdb
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\Dominio.dll
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\Dominio.pdb
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.AssemblyReference.cache
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CoreCompileInputs.cache
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CopyComplete
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.dll
+C:\Users\Nicolas\Desktop\edit\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.pdb

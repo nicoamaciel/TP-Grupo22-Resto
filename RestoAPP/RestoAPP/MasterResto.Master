@@ -35,7 +35,7 @@
                             <%if (Session["Usuario"] != null && (((Dominio.Login)Session["Usuario"]).NivelAcceso == 3||((Dominio.Login)Session["Usuario"]).NivelAcceso==1))
                                 {%>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Limpiar mesas</a>
+                                <%--<a class="nav-link active" aria-current="page" href="#">Limpiar mesas</a>--%>
                             </li>
                             <%} %>
                             <%if (Session["Usuario"] != null &&  (((Dominio.Login)Session["Usuario"]).NivelAcceso == 3||((Dominio.Login)Session["Usuario"]).NivelAcceso==1))

@@ -9,27 +9,16 @@
         { %>
     <div class="container text-center">
         <div class="mb-3">
-
-            <label for="ddlEmpleado" class="form-label">Turno:</label>
-            <asp:DropDownList ID="DdlTurno" runat="server" classselect="form-select" AutoPostBack="true" OnSelectedIndexChanged="DdlTurno_SelectedIndexChanged" >
-                <asp:ListItem Text="Ambos Turnos" />
-                <asp:ListItem Text="Mañana/Tarde"/>
-                <asp:ListItem Text="Noche" />
-            </asp:DropDownList>
             <label for="ddlEmpleado" class="form-label">Meseros:</label>
             <asp:DropDownList ID="DdlMesero" runat="server" classselect="form-select"></asp:DropDownList>
             <asp:Button ID="btnBuscar" runat="server" CssClass="btn-primary" OnClick="btnBuscar_Click" Text="Buscar" />
         </div>
-        <div class="mb-3">
-            <label for="btnCambiarMesas" class="form-label">Modificar/Agregar Mesas:</label>
-            <asp:Button ID="btnCambiarMesas" runat="server" CssClass="btn-primary" OnClick="btnCambiarMesas_Click" Text="Cambiar mesas mesero" />
-        </div>
     </div>
     <%}
-    %>
+%>
     <div class="buscarReserva">
-        <asp:Button ID="BtnReserva" runat="server" Text="Buscar reserva" OnClick="BtnReserva_Click" />
-        <asp:TextBox ID="TxtReserva" runat="server"></asp:TextBox>
+        <asp:Button ID="BtnReserva" runat="server" Text="Buscar reserva" OnClick="BtnReserva_Click"/>
+        <asp:TextBox ID="TxtReserva" runat="server" ></asp:TextBox>
         <hr />
     </div>
 

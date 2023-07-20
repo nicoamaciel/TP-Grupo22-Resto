@@ -1,0 +1,313 @@
+﻿html {
+    min-height: 100%;
+    position: relative;
+}
+body {
+    margin: 0;
+    background-color: #9CB4A2;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+div.card.text-center.mb-3 {
+    background-color: #61A772;
+    text-align: center;
+}
+
+footer {
+    background-color: #212529;
+    color: #ffffff;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+/*Botones */
+
+input#ContentPlaceHolder1_btnIngresar {
+    background-color: #24282b;
+    width: 285px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repEmpleados_btnCerrar_0 {
+    background-color: #24282b;
+    width: 285px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repEmpleados_BtnCambiar_0 {
+    background-color: #24282b;
+    width: 285px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnMesa_0 {
+    background-color: #24282b;
+    width: 300px;
+    height:40px;
+    text-align: center;
+    display: inherit;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnMesa_1 {
+    background-color: #24282b;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    display: inherit;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnMesa_2 {
+    background-color: #24282b;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    display: inherit;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnMesa_3 {
+    background-color: #24282b;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    display: inherit;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnMesa_4 {
+    background-color: #24282b;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    display: inherit;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnMesa_5 {
+    background-color: #24282b;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    display: inherit;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnMesa_6 {
+    background-color: #24282b;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    display: inherit;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnPagar_0 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_BtnCancelarPedido_0 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnPagar_1 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_BtnCancelarPedido_1 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnPagar_2 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_BtnCancelarPedido_2 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnPagar_3 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_BtnCancelarPedido_3 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnPagar_4 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_BtnCancelarPedido_4 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_btnPagar_5 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_repRepetidor_BtnCancelarPedido_5 {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.oculto {
+    display: none;
+}
+
+/*Pag mesa botones*/
+
+input#ContentPlaceHolder1_BtnReserva {
+    background-color: #2A733B;
+    width: auto;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_TxtReserva {
+    background-color: #FFF;
+    width: auto;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+div.buscarReserva {
+    width: fit-content;
+    max-width: 650px;
+    margin: auto;
+}
+
+
+/*Pag reserva*/
+
+div.cssReserva {
+    background: rgba(0,0,0,0.6);
+    width: 90%;
+    max-width: 650px;
+    margin: auto;
+    padding: 5px 35px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 3px;
+}
+
+input#ContentPlaceHolder1_btnAceptar {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+  
+
+button#btnCancelar {
+    background-color: #2A733B;
+    width: 100px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+/*PagMenus*/
+
+div#cajas.row.row-cols-1.row-cols-md-3.g-4 {
+    margin: auto;
+    padding: 5px 35px;
+    margin-top: 20px;
+    margin-left: 60px;
+}

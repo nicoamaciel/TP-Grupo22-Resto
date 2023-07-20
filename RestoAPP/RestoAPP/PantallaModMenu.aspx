@@ -7,21 +7,21 @@
     <div class="cssModMenu">
 
         <label for="txtId" class="form-label">Id</label>
-        <asp:TextBox runat="server" ID="txtId" CssClass="form-control" Enabled="false" />
+        <asp:TextBox runat="server" ID="txtId" CssClass="form-control" Enabled="false" Width="300px"/>
 
         <label for="ddlTipo" class="form-label">Tipo de Plato: </label>
-        <asp:DropDownList ID="ddlTipo" CssClass="form-select" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="ddlTipo" CssClass="form-select" runat="server" Width="300px" ></asp:DropDownList>
 
         <label for="txtPrecio" class="form-label">Precio: </label>
-        <asp:TextBox runat="server" ID="txtPrecio" CssClass="form-control" />
+        <asp:TextBox runat="server" ID="txtPrecio" CssClass="form-control" Width="300px"/>
 
 
         <label for="txtDescripcion" class="form-label">Descripcion: </label>
-        <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" />
+        <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" Width="300px"/>
 
 
         <label for="txtClase" class="form-label">Clase: </label>
-        <asp:TextBox runat="server" ID="txtClase" CssClass="form-control" />
+        <asp:TextBox runat="server" ID="txtClase" CssClass="form-control" Width="300px"/>
 
         <br />
         <div class="row">

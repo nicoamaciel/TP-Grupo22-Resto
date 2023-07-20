@@ -46,6 +46,39 @@ namespace NegocioResto
 
             }
         }
+        public List<Reserva> Listar()
+        {
+            List<Reserva> lista = new List<Reserva>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("SP_ReservaMostrarTodo");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Reserva aux = new Reserva();
+                    aux.IDReserva = (int)datos.Lector["IDReserva"];
+                    aux.IDMesa = (int)datos.Lector["IDMesa"];
+                    aux.CodigoReserva = (int)datos.Lector["CodigoReserva"];
+                    aux.HoraReserva = (DateTime)datos.Lector["HoraReserva"];
+                    aux.Comentario = (string)datos.Lector["Comentario"];
+                    aux.CantidadClientes = (int)datos.Lector["CantidadClientes"];
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
 
         public void Agregar(Reserva nuevo)
         {
@@ -53,11 +86,11 @@ namespace NegocioResto
             try
             {
                 datos.setearProcedimiento("SP_ReservaNueva");
-                datos.setearParametro("@TipoPlato", nuevo.IDMesa);
-                datos.setearParametro("@Precio", nuevo.HoraReserva);
-                datos.setearParametro("@UrlImagen", nuevo.CodigoReserva);
-                datos.setearParametro("@Descripcion", nuevo.Comentario);
-                datos.setearParametro("@Clase", nuevo.CantidadClientes);
+                datos.setearParametro("@IDMesa", nuevo.IDMesa);
+                datos.setearParametro("@HoraReserva", nuevo.HoraReserva);
+                datos.setearParametro("@CodigoReserva", nuevo.CodigoReserva);
+                datos.setearParametro("@Comentario", nuevo.Comentario);
+                datos.setearParametro("@CantidadClientes", nuevo.CantidadClientes);
 
                 datos.ejecutarLectura();
             }
@@ -92,11 +125,11 @@ namespace NegocioResto
             try
             {
                 datos.setearProcedimiento("SP_ReservarModificar");
-                datos.setearParametro("@TipoPlato", nuevo.IDMesa);
-                datos.setearParametro("@Precio", nuevo.HoraReserva);
-                datos.setearParametro("@UrlImagen", nuevo.CodigoReserva);
-                datos.setearParametro("@Descripcion", nuevo.Comentario);
-                datos.setearParametro("@Clase", nuevo.CantidadClientes);
+                datos.setearParametro("@IDMesa", nuevo.IDMesa);
+                datos.setearParametro("@HoraReserva", nuevo.HoraReserva);
+                datos.setearParametro("@CodigoReserva", nuevo.CodigoReserva);
+                datos.setearParametro("@Comentario", nuevo.Comentario);
+                datos.setearParametro("@CantidadClientes", nuevo.CantidadClientes);
 
                 datos.ejecutarLectura();
             }

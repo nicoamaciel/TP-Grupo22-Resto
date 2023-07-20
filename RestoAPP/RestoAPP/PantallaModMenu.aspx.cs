@@ -33,58 +33,50 @@ namespace RestoAPP
                     txtImagenUrl.Text = seleccionado.UrlImagen;
                     ddlTipo.Text = Convert.ToString(seleccionado.TipoPlato);
                     txtPrecio.Text = Convert.ToString(seleccionado.Precio);
-                    txtClase.Text= seleccionado.Clase;
                     txtImagenUrl_TextChanged(sender, e);
                 }
+            btnAceptar.OnClientClick = "return validarPrecio();";
+
         }
 
-        protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-            ConfirmaEliminacion=true;
-        }
-
-        protected void btnConfirmaEliminar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (chkConfirmaEliminacion.Checked)
-                {
-                    ListaMenu negocio = new ListaMenu();
-                    negocio.eliminar(txtId.Text);
-                    Response.Redirect("/PantallaMenu.aspx");
-                }
-            }
-            catch (Exception ex)
-            {
-                Session.Add("error", ex.ToString());
-                Response.Redirect("Error.aspx");
-            }
-        }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
             ListaMenu negocio = new ListaMenu();
             Dominio.Menu seleccionado = new Dominio.Menu();
-            if (txtDescripcion.Text != null || txtClase.Text != null || txtPrecio.Text != null)
+            if (txtDescripcion.Text != null || txtPrecio.Text != null)
             {
-                seleccionado.Descripcion = txtDescripcion.Text;
-                seleccionado.UrlImagen = txtImagenUrl.Text;
-                seleccionado.TipoPlato = ddlTipo.Text;
-                seleccionado.Precio = int.Parse(txtPrecio.Text);
-                seleccionado.Clase=txtClase.Text;
-                if (txtId.Text != null)
+                string precio = txtPrecio.Text;
+                if (decimal.TryParse(precio, out decimal valorDecimal))
                 {
-                    seleccionado.ID=int.Parse(txtId.Text);
-                    negocio.Modificar(seleccionado);
+                    seleccionado.Descripcion = txtDescripcion.Text;
+                    seleccionado.UrlImagen = txtImagenUrl.Text;
+                    seleccionado.TipoPlato = ddlTipo.Text;
+                    seleccionado.Precio = valorDecimal;
+                    seleccionado.Clase = DdlClase.Text;
+                    if (txtId.Text != null)
+                    {
+                        seleccionado.ID = int.Parse(txtId.Text);
+                        negocio.Modificar(seleccionado);
+                        Response.Redirect("/PantallaMenu.aspx");
+                    }
+                    else
+                    {
+                        negocio.Agregar(seleccionado);
+                        Response.Redirect("/PantallaMenu.aspx");
+                    }
                 }
                 else
                 {
-                    negocio.Agregar(seleccionado);
+                    string script = "El valor ingresado para el precio no es válido. Por favor, ingrese un número valido.";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "MensajeEmergente", script, true);
                 }
             }
             else
             {
 
+                string script = "alert('Por favor rellene todos los campos.');";
+                ScriptManager.RegisterStartupScript(this, GetType(), "MensajeEmergente", script, true);
             }
         }
 

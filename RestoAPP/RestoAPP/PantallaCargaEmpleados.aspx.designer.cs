@@ -24,6 +24,15 @@ namespace RestoAPP
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
         /// Control txtId.
         /// </summary>
         /// <remarks>
@@ -87,6 +96,15 @@ namespace RestoAPP
         protected global::System.Web.UI.WebControls.TextBox TxtCodigo;
 
         /// <summary>
+        /// Control DdlTurno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlTurno;
+
+        /// <summary>
         /// Control TxtTurno.
         /// </summary>
         /// <remarks>
@@ -96,6 +114,15 @@ namespace RestoAPP
         protected global::System.Web.UI.WebControls.TextBox TxtTurno;
 
         /// <summary>
+        /// Control TxtHorario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtHorario;
+
+        /// <summary>
         /// Control btnAceptar.
         /// </summary>
         /// <remarks>
@@ -103,41 +130,5 @@ namespace RestoAPP
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAceptar;
-
-        /// <summary>
-        /// Control UpdatePanel2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-
-        /// <summary>
-        /// Control btnEliminar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminar;
-
-        /// <summary>
-        /// Control chkConfirmaEliminacion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkConfirmaEliminacion;
-
-        /// <summary>
-        /// Control btnConfirmaEliminar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConfirmaEliminar;
     }
 }

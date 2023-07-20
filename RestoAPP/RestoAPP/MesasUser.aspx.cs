@@ -21,7 +21,7 @@ namespace RestoAPP
                     Dominio.Login login = (Dominio.Login)Session["Usuario"];
                     if(login.NivelAcceso ==1) {
                         NegocioEmpleados aux = new NegocioEmpleados();
-                        DdlMesero.DataSource =aux.listarMeseros();
+                        DdlMesero.DataSource =aux.listarMeseros("3");
                         DdlMesero.DataValueField = "IdEmpleado";
                         DdlMesero.DataTextField = "Nombre";
                         DdlMesero.DataBind();
@@ -72,22 +72,18 @@ namespace RestoAPP
 
         protected void btnPagar_Click(object sender, EventArgs e)
         {
-            if (Session[((Button)sender).CommandArgument] != null)
-            {
                 NegocioPedido pedido = new NegocioPedido();
                 pedido.Pagar(((Button)sender).CommandArgument);
                 Session.Remove(((Button)sender).CommandArgument);
-            }
+            
         }
 
         protected void BtnCancelarPedido_Click(object sender, EventArgs e)
         {
-            if (Session[((Button)sender).CommandArgument] != null)
-            {
-                NegocioPedido pedido = new NegocioPedido();
+            NegocioPedido pedido = new NegocioPedido();
                 pedido.CancelarTodo(((Button)sender).CommandArgument);
                 Session.Remove(((Button)sender).CommandArgument);
-            }
+            
         }
 
         protected void BtnReserva_Click(object sender, EventArgs e)
@@ -104,6 +100,42 @@ namespace RestoAPP
             {
                 string mensaje = "El código de reserva no existe. Caso contrario por favor, revise su horario.";
                 ScriptManager.RegisterStartupScript(this, GetType(), "MensajeEmergente", $"alert('{mensaje}');", true);
+            }
+        }
+
+        protected void btnCambiarMesas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Mod-AgregarMesas.aspx");
+
+        }
+
+        protected void DdlTurno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NegocioEmpleados aux = new NegocioEmpleados();
+            DdlMesero.Items.Clear();
+            if (DdlTurno.Text == "Ambos Turnos")
+            {
+                DdlMesero.DataSource = aux.listarMeseros("3");
+                DdlMesero.DataValueField = "IdEmpleado";
+                DdlMesero.DataTextField = "Nombre";
+                DdlMesero.DataBind();
+            }
+            else
+            {
+                if (DdlTurno.Text == "Mañana / Tarde")
+                {
+                    DdlMesero.DataSource = aux.listarMeseros("1");
+                    DdlMesero.DataValueField = "IdEmpleado";
+                    DdlMesero.DataTextField = "Nombre";
+                    DdlMesero.DataBind();
+                }
+                else
+                {
+                    DdlMesero.DataSource = aux.listarMeseros("2");
+                    DdlMesero.DataValueField = "IdEmpleado";
+                    DdlMesero.DataTextField = "Nombre";
+                    DdlMesero.DataBind();
+                }
             }
         }
     }

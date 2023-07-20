@@ -9,9 +9,18 @@ ALTER PROCEDURE SP_MesasMesero(
 @id int
 )
 as BEGIN
-    SELECT M.idmesa,M.Activo,M.Descripcion,TamañoMesa,M.IDMesero,E.Dni,E.Nombre,E.Cargo,E.Apellido FROM Mesa M
+    SELECT M.idmesa,M.Activo,M.Descripcion,TamañoMesa,M.IDMesero,E.Turno,E.Dni,E.Nombre,E.Cargo,E.Apellido FROM Mesa M
 LEFT JOIN Empleados E ON E.IDEmpleado = M.IDMesero AND E.Activo = 0
 WHERE (M.IDMesero = @id OR M.IDMesero IS NULL) AND M.Activo = 0
+END
+go
+create PROCEDURE SP_MesasUnica(
+@id int
+)
+as BEGIN
+    SELECT M.idmesa,M.Activo,M.Descripcion,TamañoMesa,M.IDMesero,E.Turno,E.Dni,E.Nombre,E.Cargo,E.Apellido FROM Mesa M
+LEFT JOIN Empleados E ON E.IDEmpleado = M.IDMesero AND E.Activo = 0
+WHERE M.IdMesa = @id
 END
 go
 --buscar todas las mesas 
@@ -43,13 +52,14 @@ go
 --Modificar mesa
 create PROCEDURE SP_ModificarMesa(
     @id INT,
+    @idmesa INT,
 	@TamañoMesa int,
 	@Descripcion	Decimal,
 	@IDMesero	int,
     @activo BIT
 )
 as BEGIN
-    update Mesa set TamañoMesa=@TamañoMesa, Descripcion=@Descripcion,IDMesero=@IDMesero,Activo=@activo WHERE IdMesa=@id
+    update Mesa set idmesa=@idmesa,TamañoMesa=@TamañoMesa, Descripcion=@Descripcion,IDMesero=@IDMesero,Activo=@activo WHERE IdMesa=@id
 END
 GO
 --Procedimientos Pedido
@@ -182,7 +192,7 @@ END
 
 --MODIFICAR Reserva
 GO
-create PROCEDURE SP_ReservarModificar(
+ALTER PROCEDURE SP_ReservarModificar(
     @IDMesa int,
 	@HoraReserva datetime,
 	@CodigoReserva int,
@@ -203,7 +213,11 @@ as BEGIN
  select *from [Reserva] WHERE IDMesa=@idmesa AND HoraReserva=@hora
 END
 GO
-
+create PROCEDURE SP_ReservaMostrarTodo
+as BEGIN
+ select *from Reserva
+END
+GO
 ----Procedimientos Login
 create PROCEDURE SP_LoginModificar(
     @id int,
@@ -335,9 +349,18 @@ as BEGIN
                 VALUES(@cargo ,@sueldo ,@Turno ,@nombre ,@apellido ,@codigo ,@dni )
 END
 GO
-create PROCEDURE SP_EmpleadosMeseros
+ALTER PROCEDURE SP_EmpleadosMeseros(
+    @Turno INT
+)
 as BEGIN
-    SELECT *FROM Empleados WHERE Cargo='Mesero'
+    IF(@Turno<3)
+        BEGIN
+            SELECT *FROM Empleados WHERE Cargo='Mesero' AND Turno=@Turno
+        END
+    ELSE
+        BEGIN
+            SELECT *FROM Empleados WHERE Cargo='Mesero'
+        END
 END
 
 Select IDPlato,TipoPlato,Descripcion,Clase,UrlImagen,Precio FROM MENU

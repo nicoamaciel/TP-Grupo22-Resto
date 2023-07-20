@@ -25,23 +25,9 @@ namespace RestoAPP
                 txtTipoBebida.Text = Convert.ToString(seleccionado.TipoBebida);
                 txtPrecio.Text = Convert.ToString(seleccionado.Precio);
                 txtImagenUrl_TextChanged(sender, e);
+            }
+            btnAceptar.OnClientClick = "return validarPrecio();";
 
-            }
-        }
-        protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ListaBebidas negocio = new ListaBebidas();
-                negocio.eliminar(txtId.Text);
-                Response.Redirect("/PantallaMenu.aspx");
-                
-            }
-            catch (Exception ex)
-            {
-                Session.Add("error", ex.ToString());
-                Response.Redirect("Error.aspx");
-            }
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -57,17 +43,20 @@ namespace RestoAPP
             seleccionado.Precio=decimal.Parse(txtPrecio.Text);
             if (txtId.Text!=null)
             {
-                seleccionado.ID = int.Parse(txtId.Text);
-                    negocio.Modificar(seleccionado);
-            }
-                else
-                {
-                    negocio.Agregar(seleccionado);
+                        seleccionado.ID = int.Parse(txtId.Text);
+                        negocio.Modificar(seleccionado);
+                        Response.Redirect("/PantallaMenu.aspx");
+                    }
+                    else
+                    {
+                        negocio.Agregar(seleccionado);
+                        Response.Redirect("/PantallaMenu.aspx");
+
+                    }
                 }
-            }
             else
             {
-                    Session.Add("Error", "debe completar los campos de Descripcion,TipoBebida y Precio");
+                    Session.Add("Error", "por favor completar todos los campos ");
                     Response.Redirect("Error.aspx");
                 }
             }

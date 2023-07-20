@@ -33,5 +33,13 @@ namespace RestoAPP
         {
             Response.Redirect("PantallaCargaEmpleados.aspx");
         }
+
+        protected void dgvEmpleados_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            NegocioEmpleados negocioEmpleados = new NegocioEmpleados();
+            string id = dgvEmpleados.DataKeys[e.RowIndex].Value.ToString();
+            negocioEmpleados.eliminar(id);
+            dgvEmpleados.DataBind();
+        }
     }
 }

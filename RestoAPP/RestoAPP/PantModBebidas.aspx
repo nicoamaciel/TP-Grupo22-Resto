@@ -40,16 +40,20 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
-    <div class="row">
-        <div class="col-6">
-            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                <ContentTemplate>
-                    <div class="mb-3">
-                        <asp:Button Text="Eliminar" ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger" runat="server" />
-                    </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+    <script type="text/javascript">
+        function validarPrecio() {
+            var Cantidad = document.getElementById('<%= txtPrecio.ClientID %>').value;
+            if (bebida === "") {
+                alert("El Precio no puede estar vacío o ser 0.");
+                return false;
+            }
+            if (isNaN(parseFloat(Cantidad)) && parseFloat(Cantidad) > 0) {
+                alert("El valor seleccionado para el precio debe ser numérico o mayor a 0.");
+                return false;
+            }
 
-        </div>
-    </div>
+            return true;
+        }
+
+    </script>
 </asp:Content>

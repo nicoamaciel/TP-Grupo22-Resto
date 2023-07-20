@@ -90,14 +90,15 @@ namespace NegocioResto
 
             }
         }
-        public List<Empleados> listarMeseros()
+        public List<Empleados> listarMeseros(string turno)
         {
             List<Empleados> lista = new List<Empleados>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                
+
                 datos.setearProcedimiento("SP_EmpleadosMeseros");
+                datos.setearParametro("@Turno", turno);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())

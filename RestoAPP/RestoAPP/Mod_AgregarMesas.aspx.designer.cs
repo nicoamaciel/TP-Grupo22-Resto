@@ -11,7 +11,7 @@ namespace RestoAPP
 {
 
 
-    public partial class PantallaMenu
+    public partial class Mod_AgregarMesas
     {
 
         /// <summary>
@@ -24,66 +24,57 @@ namespace RestoAPP
         protected global::System.Web.UI.ScriptManager ScriptManager;
 
         /// <summary>
-        /// Control Button1.
+        /// Control BtnAgregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button BtnAgregar;
 
         /// <summary>
-        /// Control Button3.
+        /// Control TxtTamaño.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.TextBox TxtTamaño;
 
         /// <summary>
-        /// Control Button4.
+        /// Control TxtDescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.TextBox TxtDescripcion;
 
         /// <summary>
-        /// Control Button5.
+        /// Control DdlTurnos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button5;
+        protected global::System.Web.UI.WebControls.DropDownList DdlTurnos;
 
         /// <summary>
-        /// Control BtnAgregarMenu.
+        /// Control DdlMesero.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAgregarMenu;
+        protected global::System.Web.UI.WebControls.DropDownList DdlMesero;
 
         /// <summary>
-        /// Control BtnAgregarBebida.
+        /// Control DgvMesas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAgregarBebida;
-
-        /// <summary>
-        /// Control repRepetidor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repRepetidor;
+        protected global::System.Web.UI.WebControls.GridView DgvMesas;
     }
 }

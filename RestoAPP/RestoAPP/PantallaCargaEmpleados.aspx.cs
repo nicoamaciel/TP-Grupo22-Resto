@@ -72,7 +72,7 @@ namespace RestoAPP
             nuevo.sueldo=decimal.Parse(txtSueldo.Text);
             nuevo.Codigo=TxtCodigo.Text;
             nuevo.Cargo = ddlCargo.SelectedValue;
-            if (txtId.Text != null)
+            if (txtId.Text != "")
             {
                 nuevo.IDEmpleado = int.Parse(txtId.Text);
                 empleados.Modificar(nuevo);
@@ -83,20 +83,18 @@ namespace RestoAPP
             }
             
         }
-
-
-        protected void btnEliminar_Click(object sender, EventArgs e)
+        protected void DdlTurno_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (txtId.Text != null)
+            if (DdlTurno.Text == "Mañana / Tarde")
             {
-                NegocioEmpleados negocio = new NegocioEmpleados();
-                negocio.eliminar(txtId.Text);
+                TxtTurno.Text = "1";
+                TxtHorario.Text = "8:00 a 16:00";
             }
-        }
-
-        protected void btnConfirmaEliminar_Click(object sender, EventArgs e)
-        {
-
+            else
+            {
+                TxtTurno.Text = "2";
+                TxtHorario.Text = "16:00 a 23:00";
+            }
         }
     }
 }

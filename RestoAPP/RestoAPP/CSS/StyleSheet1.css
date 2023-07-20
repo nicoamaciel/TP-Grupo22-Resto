@@ -584,4 +584,49 @@ input#ContentPlaceHolder1_btnBuscarBebida {
     text-decoration: none;
     border-radius: 8px;
 }
-/*especial*/
+/*Modificar menu*/
+
+
+body .cssModMenu {
+    background: rgba(0,0,0,0.6);
+    width: 90%;
+    max-width: 650px;
+    margin: auto;
+    padding: 5px 35px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 3px;
+    text-align: left
+}
+
+/*Boton modificar*/
+
+input#ContentPlaceHolder1_btnAceptar {
+    background-color: #2A733B;
+    width:200px;
+    margin-right: 250px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_btnCancelar {
+    background-color: grey;
+    width: 200px;
+    margin-right: 250px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+input#ContentPlaceHolder1_btnEliminar {
+    background-color: maroon;
+    margin-right: 250px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-left: 900px;
+}

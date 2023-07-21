@@ -13,7 +13,7 @@
                 <div class="mb-3">
                     <label for="ddlEmpleado" class="form-label">Turno:</label>
                     <asp:DropDownList ID="DdlTurno" runat="server" classselect="form-select" AutoPostBack="true" OnSelectedIndexChanged="DdlTurno_SelectedIndexChanged">
-                        <asp:ListItem Text="Ambos Turnos" />
+                        <asp:ListItem Text="Mostrar Ambos Turnos" />
                         <asp:ListItem Text="Mañana/Tarde" />
                         <asp:ListItem Text="Noche" />
                     </asp:DropDownList>

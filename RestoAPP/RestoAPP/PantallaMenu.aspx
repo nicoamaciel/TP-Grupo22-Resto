@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
 
-
+    <hr />
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <div class="container text-center ">
@@ -22,7 +22,7 @@
                 </div>
                 <%if (Session["Usuario"] != null)
                     {
-                        if (((Dominio.Login)Session["Usuario"]).NivelAcceso <= 3)
+                        if (((Dominio.Login)Session["Usuario"]).NivelAcceso < 3)
                         {
                 %>
                 <div>
@@ -68,4 +68,5 @@
         </ContentTemplate>
 
     </asp:UpdatePanel>
+    <hr />
 </asp:Content>

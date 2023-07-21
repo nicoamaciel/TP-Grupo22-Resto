@@ -39,12 +39,10 @@
                     </div>
                     <div class="mb-3">
                         <label for="DdlTurno" class="form-label">Turno: </label>
-                        <asp:DropDownList ID="DdlTurno" runat="server" OnSelectedIndexChanged="DdlTurno_SelectedIndexChanged">
+                        <asp:DropDownList ID="DdlTurno" runat="server" >
                             <asp:ListItem Text="Mañana/Tarde" />
                             <asp:ListItem Text="Noche" />
                         </asp:DropDownList>
-                        <asp:TextBox ID="TxtTurno" runat="server" Enabled="false" CssClass="oculto"></asp:TextBox>
-                        <asp:TextBox ID="TxtHorario" runat="server" Enabled="false"></asp:TextBox>
                     </div>
 
                     <div class="mb-3">

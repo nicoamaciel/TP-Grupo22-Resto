@@ -36,7 +36,7 @@
                             <asp:DropDownList runat="server" ID="ddlCriterio" AutoPostBack="true" CssClass="form-select" Width="200px"></asp:DropDownList>
                             <br />
                             <asp:Label Text="Ingrese cantidad: " ID="lblCampo" runat="server" Width="200px" />
-                            <asp:TextBox runat="server" ID="txtComida" CssClass="form-control" Width="200px" TextMode="Number" />
+                            <asp:TextBox runat="server" ID="txtComida" CssClass="form-control" Width="200px"  />
                             <br />
                             <asp:Button ID="BtnFiltrarComida" runat="server" Text="Filtrar Menu" OnClick="BtnFiltrarComida_Click" Width="200px" />
                             <hr />
@@ -60,7 +60,7 @@
                             <asp:DropDownList runat="server" AutoPostBack="true" ID="DdlCriterioBebida" CssClass="form-select" Width="200px"></asp:DropDownList>
                             <br />
                             <asp:Label Text="Ingrese cantidad:" ID="Label1" runat="server" Width="200px" />
-                            <asp:TextBox runat="server" ID="TxtBebida" CssClass="form-control" Width="200px" TextMode="Number" />
+                            <asp:TextBox runat="server" ID="TxtBebida" CssClass="form-control" Width="200px" />
                             <br />
                             <asp:Button ID="btnBuscarBebida" runat="server" Text="Filtrar Bebidas" OnClick="btnBuscarBebida_Click" Width="200px" />
                             <hr />

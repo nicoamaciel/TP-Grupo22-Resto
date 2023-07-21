@@ -34,7 +34,7 @@ namespace RestoAPP
         {
             NegocioEmpleados aux = new NegocioEmpleados();
             DdlMesero.Items.Clear();
-            if (DdlTurnos.Text == "Ambos Turnos")
+            if (DdlTurnos.Text =="Mostrar Ambos Turnos")
             {
                 DdlMesero.DataSource = aux.listarMeseros("3");
                 DdlMesero.DataValueField = "IdEmpleado";
@@ -94,8 +94,8 @@ namespace RestoAPP
 
             GridViewRow row = DgvMesas.SelectedRow;
             Mesa mesa = NegMesa.ListarMesa(MesaId);
-            mesa.TamañoMesa = int.Parse((fila.FindControl("txtTamño") as TextBox).Text.ToUpper());
-            mesa.Descripcion = (fila.FindControl("txtTamño") as TextBox).Text.ToUpper();
+            mesa.TamañoMesa = int.Parse((fila.FindControl("TxtTamañoDVG") as TextBox).Text.ToUpper());
+            mesa.Descripcion = (fila.FindControl("TxtDescripcion") as TextBox).Text.ToUpper();
             mesa.Activo = (fila.FindControl("chkEstado") as CheckBox).Checked;
             mesa.Empleado = new Empleados();
             mesa.Empleado.IDEmpleado = int.Parse(DdlMesero.SelectedValue);

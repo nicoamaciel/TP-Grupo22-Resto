@@ -15,7 +15,7 @@
                     <asp:BoundField HeaderText="Cargo " DataField="Cargo" />
                     <asp:BoundField HeaderText="Turno" DataField="Turno" />
                     <asp:CheckBoxField HeaderText="Activo" DataField="Activo" />
-                    <asp:CommandField ButtonType="Link" ShowSelectButton="true" ShowDeleteButton="true" SelectText="✍" />
+                    <asp:CommandField ButtonType="Link" ShowSelectButton="true" ShowDeleteButton="true" SelectText="Modificar" />
                 </Columns>
             </asp:GridView>
             <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />

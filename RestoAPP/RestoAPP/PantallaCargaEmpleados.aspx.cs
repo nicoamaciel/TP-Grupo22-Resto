@@ -44,7 +44,7 @@ namespace RestoAPP
                     txtNombre.Text = seleccionado.Nombre;
                     txtApellido.Text = seleccionado.Apellido;
                     txtDNI.Text = Convert.ToString(seleccionado.Dni);
-                    TxtTurno.Text = Convert.ToString(seleccionado.Turno);
+                    DdlTurno.Text = Convert.ToString(seleccionado.Turno);
                     txtSueldo.Text = Convert.ToString(seleccionado.sueldo);
                     TxtCodigo.Text = seleccionado.Codigo;
                     ddlCargo.SelectedValue = seleccionado.Cargo;
@@ -68,7 +68,15 @@ namespace RestoAPP
             nuevo.Nombre=txtNombre.Text ;
             nuevo.Apellido =txtApellido.Text;
             nuevo.Dni=int.Parse(txtDNI.Text) ;
-            nuevo.Turno=int.Parse(TxtTurno.Text)  ;
+            if (DdlTurno.Text == "Mañana / Tarde")
+            {
+                nuevo.Turno = 1;
+            }
+            else
+            {
+                nuevo.Turno = 2;
+            }
+            
             nuevo.sueldo=decimal.Parse(txtSueldo.Text);
             nuevo.Codigo=TxtCodigo.Text;
             nuevo.Cargo = ddlCargo.SelectedValue;
@@ -82,19 +90,6 @@ namespace RestoAPP
                 empleados.Agregar(nuevo);
             }
             
-        }
-        protected void DdlTurno_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (DdlTurno.Text == "Mañana / Tarde")
-            {
-                TxtTurno.Text = "1";
-                TxtHorario.Text = "8:00 a 16:00";
-            }
-            else
-            {
-                TxtTurno.Text = "2";
-                TxtHorario.Text = "16:00 a 23:00";
-            }
         }
     }
 }

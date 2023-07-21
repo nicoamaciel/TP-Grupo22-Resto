@@ -103,17 +103,11 @@ namespace RestoAPP
             }
         }
 
-        protected void btnCambiarMesas_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Mod-AgregarMesas.aspx");
-
-        }
-
         protected void DdlTurno_SelectedIndexChanged(object sender, EventArgs e)
         {
             NegocioEmpleados aux = new NegocioEmpleados();
             DdlMesero.Items.Clear();
-            if (DdlTurno.Text == "Ambos Turnos")
+            if (DdlTurno.Text == "Mostrar Ambos Turnos")
             {
                 DdlMesero.DataSource = aux.listarMeseros("3");
                 DdlMesero.DataValueField = "IdEmpleado";
@@ -122,7 +116,7 @@ namespace RestoAPP
             }
             else
             {
-                if (DdlTurno.Text == "Mañana / Tarde")
+                if (DdlTurno.Text == "Mañana/Tarde")
                 {
                     DdlMesero.DataSource = aux.listarMeseros("1");
                     DdlMesero.DataValueField = "IdEmpleado";
@@ -137,6 +131,11 @@ namespace RestoAPP
                     DdlMesero.DataBind();
                 }
             }
+        }
+
+        protected void btnCambiarMesas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Mod_AgregarMesas.aspx");
         }
     }
 }

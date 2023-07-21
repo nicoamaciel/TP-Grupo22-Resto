@@ -31,6 +31,7 @@ namespace NegocioResto
                     aux.Empleado.Nombre = (string)datos.Lector["Nombre"];
                     aux.Empleado.Apellido = (string)datos.Lector["Apellido"];
                     aux.Empleado.Cargo = (string)datos.Lector["Cargo"];
+                    aux.Empleado.Turno = (int)datos.Lector["turno"];
                     lista.Add(aux);
 
                 }
@@ -70,6 +71,7 @@ namespace NegocioResto
                     aux.Empleado.Dni = (int)datos.Lector["dni"];
                     aux.TamañoMesa = (int)datos.Lector["TamañoMesa"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Empleado.Turno = (int)datos.Lector["Turno"];
                     lista.Add(aux);
 
                 }
@@ -167,11 +169,11 @@ namespace NegocioResto
             try
             {
                 datos.setearProcedimiento("SP_ModificarMesa");
-                datos.setearParametro("@Id", nuevo.IdMesa);
+                datos.setearParametro("@IdMesa", nuevo.IdMesa);
                 datos.setearParametro("@TamañoMesa", nuevo.TamañoMesa);
                 datos.setearParametro("@Descripcion", nuevo.Descripcion);
                 datos.setearParametro("@IDMesero", nuevo.Empleado.IDEmpleado);
-                datos.setearParametro("@IDMesero", nuevo.Activo);
+                datos.setearParametro("@Activo", nuevo.Activo);
                 datos.ejecutarLectura();
             }
             catch (Exception ex)

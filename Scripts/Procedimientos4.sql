@@ -24,16 +24,16 @@ WHERE M.IdMesa = @id
 END
 go
 --buscar todas las mesas 
-create PROCEDURE SP_MesasAdmin
+ALTER PROCEDURE SP_MesasAdmin
 as BEGIN
-    SELECT idmesa,M.Activo,M.Descripcion,TamañoMesa,E.Dni,E.Nombre,E.Apellido,E.Cargo,e.Activo 'EN servicio' from Mesa M
+    SELECT idmesa,M.Activo,M.Descripcion,TamañoMesa,E.Dni,E.Nombre,E.Apellido,E.Cargo,e.Turno,e.Activo 'EN servicio' from Mesa M
     INNER JOIN Empleados E ON e.IDEmpleado=M.IDMesero
 END
 GO
 --crear mesas
 create PROCEDURE SP_MesasNueva(
 	@TamañoMesa int,
-    @Descripcion VARCHAR,
+    @Descripcion VARCHAR(100),
     @IDMesero INT
 )
 as BEGIN
@@ -50,16 +50,15 @@ as BEGIN
 END
 go
 --Modificar mesa
-create PROCEDURE SP_ModificarMesa(
-    @id INT,
-    @idmesa INT,
+alter PROCEDURE SP_ModificarMesa(
+    @IdMesa INT,
 	@TamañoMesa int,
-	@Descripcion	Decimal,
+	@Descripcion	VARCHAR(100),
 	@IDMesero	int,
     @activo BIT
 )
 as BEGIN
-    update Mesa set idmesa=@idmesa,TamañoMesa=@TamañoMesa, Descripcion=@Descripcion,IDMesero=@IDMesero,Activo=@activo WHERE IdMesa=@id
+    update Mesa set TamañoMesa=@TamañoMesa, Descripcion=@Descripcion,IDMesero=@IDMesero,Activo=@activo WHERE IdMesa=@idmesa
 END
 GO
 --Procedimientos Pedido
@@ -334,8 +333,7 @@ as BEGIN
 END
 GO
 --NUEVO EMPLEADO
-create PROCEDURE SP_EmpleadosNuevo(
-    @id INT,
+ALTER PROCEDURE SP_EmpleadosNuevo(
     @cargo varchar(150),
     @sueldo money,
     @Turno INT,

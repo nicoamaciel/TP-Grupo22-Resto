@@ -1,13 +1,15 @@
-﻿html {
+﻿﻿html {
     min-height: 100%;
     position: relative;
 }
+
 body {
     margin: 0;
     background-color: #9CB4A2;
     color: #ffffff;
     margin-bottom: 40px;
 }
+
 div.card.text-center.mb-3 {
     background-color: #61A772;
     text-align: center;
@@ -58,7 +60,7 @@ input#ContentPlaceHolder1_repEmpleados_BtnCambiar_0 {
 input#ContentPlaceHolder1_repRepetidor_btnMesa_0 {
     background-color: #24282b;
     width: 300px;
-    height:40px;
+    height: 40px;
     text-align: center;
     display: inherit;
     text-decoration: none;
@@ -292,7 +294,7 @@ input#ContentPlaceHolder1_btnAceptar {
     text-decoration: none;
     border-radius: 8px;
 }
-  
+
 
 button#btnCancelar {
     background-color: #2A733B;
@@ -536,7 +538,7 @@ input#ContentPlaceHolder1_TxtIDMesa {
     max-width: 650px;
     margin: auto;
     background-color: #2A733B;
-    text-align:center;
+    text-align: center;
 }
 
 body .cssPedirPlato {
@@ -603,7 +605,7 @@ body .cssModMenu {
 
 input#ContentPlaceHolder1_btnAceptar {
     background-color: #2A733B;
-    width:200px;
+    width: 200px;
     margin-right: 250px;
     text-align: center;
     color: #FFF;

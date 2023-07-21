@@ -12,23 +12,23 @@
                 <asp:Button ID="BtnAgregar" runat="server" Text="Aregar Mesa" OnClick="BtnAgregar_Click" />
                 <div class="mb-3">
                     <label for="TxtTamaño" class="form-label" runat="server">Tamaño de la Mesa</label>
-                    <asp:TextBox ID="TxtTamaño" runat="server" CssClass="form-Control" TextMode="Number"></asp:TextBox>
+                    <asp:TextBox ID="TxtTamaño" runat="server" CssClass="form-Control" TextMode="Number" Width="200px"></asp:TextBox>
                 </div>
                 <div class="mb-3">
-                    <label for="TxtDescripcion" class="form-label">Descripcion</label>
-                    <asp:TextBox ID="TxtDescripcion" runat="server" CssClass="form-Control"></asp:TextBox>
+                    <label for="TxtDescripcion" class="form-label" Width="200px">Descripcion</label>
+                    <asp:TextBox ID="TxtDescripcion" runat="server" CssClass="form-Control" Width="200px"></asp:TextBox>
                 </div>
                 <div>
                     <label for="DdlTurnos" class="form-label">Turnos</label>
-                    <asp:DropDownList ID="DdlTurnos" runat="server" OnSelectedIndexChanged="DdlTurnos_SelectedIndexChanged" AutoPostBack="true">
-                        <asp:ListItem Text="Ambos Turnos" />
+                    <asp:DropDownList ID="DdlTurnos" runat="server" OnSelectedIndexChanged="DdlTurnos_SelectedIndexChanged" AutoPostBack="true" Width="200px">
+                        <asp:ListItem Text="Mostrar Ambos Turnos" />
                         <asp:ListItem Text="8 a 16:00" />
                         <asp:ListItem Text="16:00 a 23:00" />
                     </asp:DropDownList>
                 </div>
                 <div class="card">
-                    <label for="DdlMesero" class="form-label">Meseros Disponibles</label>
-                    <asp:DropDownList ID="DdlMesero" runat="server" CssClass="form-select" AutoPostBack="true"></asp:DropDownList>
+                    <label for="DdlMesero" class="form-label" Width="200px">Meseros Disponibles</label>
+                    <asp:DropDownList ID="DdlMesero" runat="server" CssClass="form-select" AutoPostBack="true" Width="200px"></asp:DropDownList>
                 </div>
             </div>
         </ContentTemplate>
@@ -58,7 +58,7 @@
                             <asp:Label ID="LblIDMesa" runat="server" Text='<%#Bind("Descripcion")%>' /></label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="TxtTamaño" runat="server" Text='<%#Bind("Descripcion")%>'></asp:TextBox>
+                            <asp:TextBox ID="TxtDescripcion" runat="server" Text='<%#Bind("Descripcion")%>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
 

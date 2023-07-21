@@ -25,6 +25,7 @@
         <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" Width="300px" />
 
 
+        <br />
         <label for="DdlClase" class="form-label">Clase: </label>
         <asp:DropDownList ID="DdlClase" runat="server" Width="300px">
             <asp:ListItem Text="Entrada" />
@@ -40,7 +41,7 @@
     </div>
     <hr />
 
-
+    <div="row">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
 
@@ -52,7 +53,7 @@
                 runat="server" ID="imgMenu" Width="60%" />
         </ContentTemplate>
     </asp:UpdatePanel>
-
+    </div>
     <script type="text/javascript">
         function validarPrecio() {
             var Cantidad = document.getElementById('<%= txtPrecio.ClientID %>').value;

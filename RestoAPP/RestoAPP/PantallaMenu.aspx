@@ -20,20 +20,20 @@
                     <asp:Button ID="Button4" class="btn btn-outline-success" OnClick="Button4_Click" runat="server" Text="Postre" />
                     <asp:Button ID="Button5" class="btn btn-outline-success" OnClick="Button5_Click" runat="server" Text="Bebidas" />
                 </div>
-                <%if (Session["Usuario"] != null)
-                    {
-                        if (((Dominio.Login)Session["Usuario"]).NivelAcceso < 3)
-                        {
-                %>
-                <div>
-                    <asp:Button ID="BtnAgregarMenu" runat="server" Text="AgregarMenu" PostBackUrl="/PantallaModMenu.aspx" />
-                </div>
-                <div>
-                    <asp:Button ID="BtnAgregarBebida" runat="server" Text="AgregarBebida" PostBackUrl="/PantModBebidas.aspx" />
-                </div>
-                <%}
-                    }%>
             </div>
+            <%if (Session["Usuario"] != null)
+                {
+                    if (((Dominio.Login)Session["Usuario"]).NivelAcceso < 3)
+                    {
+            %>
+            <div class="container text-center">
+                <div class="btn-group " role="group" aria-label="Basic outlined example">
+                    <asp:Button ID="BtnAgregarMenu" class="btn btn-outline-success" runat="server" Text="AgregarMenu" PostBackUrl="/PantallaModMenu.aspx" />
+                    <asp:Button ID="BtnAgregarBebida" class="btn btn-outline-success" runat="server" Text="AgregarBebida" PostBackUrl="/PantModBebidas.aspx" />
+                </div>
+            </div>
+            <%}
+                }%>
 
 
             <hr />

@@ -6,27 +6,28 @@
     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
     <div class="row ">
-        <div class="col-6 vstack gap-2 col-md-5 mx-auto">
-            <div class="mb-3">
+        <div class="CssPanModBebidas">
+            
                 <label for="txtId" class="form-label">Id</label>
-                <asp:TextBox runat="server" ID="txtId" CssClass="form-control" Enabled="false" />
-            </div>
-            <div class="mb-3">
+                <asp:TextBox runat="server" ID="txtId" CssClass="form-control" Enabled="false" Width="300px" />
+            
+            
                 <label for="txtPrecio" class="form-label">Precio: </label>
-                <asp:TextBox runat="server" ID="txtPrecio" CssClass="form-control" />
-            </div>
-            <div class="mb-3">
+                <asp:TextBox runat="server" ID="txtPrecio" CssClass="form-control" Width="300px" />
+           
+            
                 <label for="txtDescripcion" class="form-label">Descripcion: </label>
-                <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" />
-            </div>
-            <div class="mb-3">
+                <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" Width="300px" />
+           
+            
                 <label for="txtTipoBebida" class="form-label">Tipo Bebida: </label>
-                <asp:TextBox runat="server" ID="txtTipoBebida" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="txtTipoBebida" CssClass="form-control" Width="300px" />
+                 <br />
+                <asp:Button Text="Aceptar" ID="btnAceptar"  OnClick="btnAceptar_Click" runat="server" />
+                <asp:Button Text="Cancelar" ID="btnCancelar" runat="server" />    
+                
             </div>
-            <div class="mb-3">
-                <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
-                <a href="/PantallaMenu.aspx">Cancelar</a>
-            </div>
+            
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>

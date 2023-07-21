@@ -20,7 +20,6 @@ footer {
     color: #ffffff;
     text-align: center;
     position: absolute;
-    bottom: 0;
     width: 100%;
     height: 60px;
 }
@@ -631,4 +630,59 @@ input#ContentPlaceHolder1_btnEliminar {
     text-decoration: none;
     border-radius: 8px;
     margin-left: 900px;
+}
+
+/*Boton modificar/agregar*/
+
+input#ContentPlaceHolder1_btnCambiarMesas {
+    background-color: grey;
+    width: 200px;
+    margin-right: 250px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+/*Pagina mod AgregarMesa*/
+
+.cssModAgregarMesa {
+    background: rgba(0,0,0,0.6);
+    width: 90%;
+    max-width: 650px;
+    margin: auto;
+    padding: 5px 35px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 3px;
+    text-align: left
+}
+
+/*btnAgregarModMenu*/
+
+input#ContentPlaceHolder1_BtnAgregar {
+    background-color: #2A733B;
+    width: 250px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+a {
+    color: green;
+}
+
+
+/*modBebibas*/
+.CssPanModBebidas {
+    background: rgba(0,0,0,0.6);
+    width: 90%;
+    max-width: 650px;
+    margin: auto;
+    padding: 5px 35px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 3px;
+    text-align: left
 }

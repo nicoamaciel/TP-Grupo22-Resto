@@ -8,32 +8,40 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <hr />
-            <div class="card text-center">
-                <div class="mb-3">
+            <div class="cssModAgregarMesa">
+                       
+                    <div ="row">
+
                     <label for="TxtTamaño" class="form-label" runat="server">Tamaño de la Mesa</label>
-                    <asp:TextBox ID="TxtTamaño" runat="server" CssClass="form-Control" TextMode="Number" Width="200px"></asp:TextBox>
-                </div>
-                <div class="mb-3">
+                    <asp:TextBox ID="TxtTamaño" runat="server" CssClass="form-Control" TextMode="Number" Width="300px"></asp:TextBox>
+    
+                    </div>
+                
+                    <div ="row">
                     <label for="TxtDescripcion" class="form-label" width="200px">Descripcion</label>
-                    <asp:TextBox ID="TxtDescripcion" runat="server" CssClass="form-Control" Width="200px"></asp:TextBox>
-                </div>
-                <div>
+                    <asp:TextBox ID="TxtDescripcion" runat="server" CssClass="form-Control" Width="380px"></asp:TextBox>
+                    </div>
+                
+                    <div ="row">
                     <label for="DdlTurnos" class="form-label">Turnos</label>
-                    <asp:DropDownList ID="DdlTurnos" runat="server" OnSelectedIndexChanged="DdlTurnos_SelectedIndexChanged" AutoPostBack="true" Width="200px">
+                    <asp:DropDownList ID="DdlTurnos" runat="server" OnSelectedIndexChanged="DdlTurnos_SelectedIndexChanged" AutoPostBack="true" Width="400px">
                         <asp:ListItem Text="Mostrar Ambos Turnos" />
                         <asp:ListItem Text="8 a 16:00" />
                         <asp:ListItem Text="16:00 a 23:00" />
                     </asp:DropDownList>
-                </div>
-                <div>
-                    <% if (edit==true) { %>
+                    </div>
+                
+                    <% if (edit == true)
+                        { %>
                     <asp:Label ID="Label1" runat="server" Text="Elija el mesero para la Mesa Existente"></asp:Label>
                     <br />
                     <%} %>
                     <label for="DdlMesero" class="form-label" width="200px">Meseros Disponibles</label>
-                    <asp:DropDownList ID="DdlMesero" runat="server" CssClass="form-select" AutoPostBack="true" Width="200px"></asp:DropDownList>
-                </div>
-                <asp:Button ID="BtnAgregar" runat="server" Text="Aregar Mesa" OnClick="BtnAgregar_Click" />
+                    <div="row">
+                    <asp:DropDownList ID="DdlMesero" runat="server"  CssClass="form-select" AutoPostBack="true" Width="300px"></asp:DropDownList>
+                    <hr />
+                    <asp:Button ID="BtnAgregar" runat="server" Text="Aregar Mesa" OnClick="BtnAgregar_Click" />
+                    </div>
 
             </div>
         </ContentTemplate>
@@ -43,7 +51,7 @@
 
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-            <asp:GridView ID="DgvMesas" runat="server" DataKeyNames="IDMesa" CssClass="table table-Blue table-brodered" AutoGenerateColumns="false"
+            <asp:GridView ID="DgvMesas" runat="server" DataKeyNames="IDMesa" CssClass="table table-dark table-brodered" AutoGenerateColumns="false"
                 OnRowDeleting="DgvMesas_RowDeleting"
                 OnRowEditing="DgvMesas_RowEditing"
                 OnRowUpdating="DgvMesas_RowUpdating"

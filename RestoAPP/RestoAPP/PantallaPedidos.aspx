@@ -14,7 +14,7 @@
                 </div>
                 <div class="btn-group " role="group" aria-label="Basic outlined example">
 
-                    <asp:Button ID="Button2" class="btn btn-outline-primary" OnClick="BtnAgregarPedido_Click" runat="server" Text="Agregar Pedido" />
+                    <%--<asp:Button ID="Button2" class="btn btn-outline-primary" OnClick="BtnAgregarPedido_Click" runat="server" Text="Agregar Pedido" />--%>
                 </div>
             </div>
             <hr />

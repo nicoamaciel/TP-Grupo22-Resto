@@ -28,3 +28,9 @@ C:\Users\User\Desktop\tp final\version Final\RestoAPP\Dominio\obj\Debug\Dominio.
 C:\Users\User\Desktop\tp final\version Final\RestoAPP\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\tp final\version Final\RestoAPP\Dominio\obj\Debug\Dominio.dll
 C:\Users\User\Desktop\tp final\version Final\RestoAPP\Dominio\obj\Debug\Dominio.pdb
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\Dominio\bin\Debug\Dominio.dll
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.dll
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\Dominio\obj\Debug\Dominio.pdb

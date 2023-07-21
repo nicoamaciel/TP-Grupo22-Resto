@@ -52,3 +52,12 @@ C:\Users\User\Desktop\tp final\version Final\RestoAPP\NegocioResto\obj\Debug\Neg
 C:\Users\User\Desktop\tp final\version Final\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CopyComplete
 C:\Users\User\Desktop\tp final\version Final\RestoAPP\NegocioResto\obj\Debug\NegocioResto.dll
 C:\Users\User\Desktop\tp final\version Final\RestoAPP\NegocioResto\obj\Debug\NegocioResto.pdb
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\NegocioResto.dll
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\NegocioResto.pdb
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\Dominio.dll
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\NegocioResto\bin\Debug\Dominio.pdb
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.AssemblyReference.cache
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CoreCompileInputs.cache
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.csproj.CopyComplete
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.dll
+C:\Users\Nicolas\Desktop\German\TP-Grupo22-Resto\RestoAPP\NegocioResto\obj\Debug\NegocioResto.pdb

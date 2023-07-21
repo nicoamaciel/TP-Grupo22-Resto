@@ -24,15 +24,6 @@ namespace RestoAPP
         protected global::System.Web.UI.ScriptManager ScriptManager;
 
         /// <summary>
-        /// Control BtnAgregar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAgregar;
-
-        /// <summary>
         /// Control TxtTamaño.
         /// </summary>
         /// <remarks>
@@ -60,6 +51,15 @@ namespace RestoAPP
         protected global::System.Web.UI.WebControls.DropDownList DdlTurnos;
 
         /// <summary>
+        /// Control Label1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
         /// Control DdlMesero.
         /// </summary>
         /// <remarks>
@@ -67,6 +67,15 @@ namespace RestoAPP
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DdlMesero;
+
+        /// <summary>
+        /// Control BtnAgregar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAgregar;
 
         /// <summary>
         /// Control DgvMesas.

@@ -5,6 +5,8 @@ EXEC SP_MenuMostrarClase 'Entrada';
 EXEC SP_MesasMesero 3
 go
 --buscar las meseas del mesero
+SP_MesasMesero @ID=7
+GO
 ALTER PROCEDURE SP_MesasMesero(
 @id int
 )
@@ -26,8 +28,8 @@ go
 --buscar todas las mesas 
 ALTER PROCEDURE SP_MesasAdmin
 as BEGIN
-    SELECT idmesa,M.Activo,M.Descripcion,TamañoMesa,E.Dni,E.Nombre,E.Apellido,E.Cargo,e.Turno,e.Activo 'EN servicio' from Mesa M
-    INNER JOIN Empleados E ON e.IDEmpleado=M.IDMesero
+    SELECT idmesa,M.Activo,M.Descripcion,TamañoMesa,IDEmpleado,E.Dni,E.Nombre,E.Apellido,E.Cargo,e.Turno,e.Activo,m.Activo 'EN servicio' from Mesa M
+    left JOIN Empleados E ON e.IDEmpleado=M.IDMesero
 END
 GO
 --crear mesas

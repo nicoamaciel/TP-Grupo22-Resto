@@ -12,10 +12,12 @@ namespace RestoAPP
     public partial class Mod_AgregarMesas : System.Web.UI.Page
     {
         NegocioMesas NegMesa = new NegocioMesas();
+        public bool edit { get;set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                edit = false;
                 NegocioEmpleados aux = new NegocioEmpleados();
                 DdlMesero.DataSource = aux.listarMeseros("3");
                 DdlMesero.DataValueField = "IdEmpleado";
@@ -79,11 +81,13 @@ namespace RestoAPP
         protected void DgvMesas_RowEditing(object sender, GridViewEditEventArgs e)
         {
             DgvMesas.EditIndex = e.NewEditIndex;
+            edit = true;
             CargarGrilla();
         }
         protected void DgvMesas_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             DgvMesas.EditIndex = -1;
+            edit = false;
             CargarGrilla();
         }
 
@@ -101,6 +105,7 @@ namespace RestoAPP
             mesa.Empleado.IDEmpleado = int.Parse(DdlMesero.SelectedValue);
             NegMesa.Modificar(mesa);
             DgvMesas.EditIndex = -1;
+            edit = false;
             CargarGrilla();
         }
     }

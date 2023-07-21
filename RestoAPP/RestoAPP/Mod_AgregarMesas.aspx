@@ -9,13 +9,12 @@
         <ContentTemplate>
             <hr />
             <div class="card text-center">
-                <asp:Button ID="BtnAgregar" runat="server" Text="Aregar Mesa" OnClick="BtnAgregar_Click" />
                 <div class="mb-3">
                     <label for="TxtTamaño" class="form-label" runat="server">Tamaño de la Mesa</label>
                     <asp:TextBox ID="TxtTamaño" runat="server" CssClass="form-Control" TextMode="Number" Width="200px"></asp:TextBox>
                 </div>
                 <div class="mb-3">
-                    <label for="TxtDescripcion" class="form-label" Width="200px">Descripcion</label>
+                    <label for="TxtDescripcion" class="form-label" width="200px">Descripcion</label>
                     <asp:TextBox ID="TxtDescripcion" runat="server" CssClass="form-Control" Width="200px"></asp:TextBox>
                 </div>
                 <div>
@@ -26,10 +25,16 @@
                         <asp:ListItem Text="16:00 a 23:00" />
                     </asp:DropDownList>
                 </div>
-                <div class="card">
-                    <label for="DdlMesero" class="form-label" Width="200px">Meseros Disponibles</label>
+                <div>
+                    <% if (edit==true) { %>
+                    <asp:Label ID="Label1" runat="server" Text="Elija el mesero para la Mesa Existente"></asp:Label>
+                    <br />
+                    <%} %>
+                    <label for="DdlMesero" class="form-label" width="200px">Meseros Disponibles</label>
                     <asp:DropDownList ID="DdlMesero" runat="server" CssClass="form-select" AutoPostBack="true" Width="200px"></asp:DropDownList>
                 </div>
+                <asp:Button ID="BtnAgregar" runat="server" Text="Aregar Mesa" OnClick="BtnAgregar_Click" />
+
             </div>
         </ContentTemplate>
 

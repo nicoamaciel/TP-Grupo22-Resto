@@ -41,24 +41,23 @@ namespace RestoAPP
             seleccionado.UrlImagen=txtImagenUrl.Text ;
             seleccionado.TipoBebida=int.Parse(txtTipoBebida.Text);
             seleccionado.Precio=decimal.Parse(txtPrecio.Text);
-            if (txtId.Text!=null)
-            {
+                    if (txtId.Text!=null)
+                    {
                         seleccionado.ID = int.Parse(txtId.Text);
                         negocio.Modificar(seleccionado);
-                        Response.Redirect("/PantallaMenu.aspx");
                     }
                     else
                     {
                         negocio.Agregar(seleccionado);
-                        Response.Redirect("/PantallaMenu.aspx");
 
                     }
                 }
-            else
-            {
-                    Session.Add("Error", "por favor completar todos los campos ");
+                else
+                {
+                    Session.Add("Error", "por favor completar todos los campos ");                  
                     Response.Redirect("Error.aspx");
                 }
+                Response.Redirect("/PantallaMenu.aspx");
             }
             catch (Exception ex)
             {

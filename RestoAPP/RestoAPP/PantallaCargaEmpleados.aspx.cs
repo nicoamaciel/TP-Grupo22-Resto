@@ -89,7 +89,7 @@ namespace RestoAPP
             {
                 empleados.Agregar(nuevo);
             }
-            
+            Response.Redirect("PantallaEmpleados.aspx");
         }
     }
 }

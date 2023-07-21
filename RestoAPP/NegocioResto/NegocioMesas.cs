@@ -26,12 +26,20 @@ namespace NegocioResto
                     aux.Activo = (bool)datos.Lector["Activo"];
                     aux.TamañoMesa = (int)datos.Lector["TamañoMesa"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Empleado = new Empleados();
-                    aux.Empleado.IDEmpleado = (int)datos.Lector["idmesero"];
-                    aux.Empleado.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Empleado.Apellido = (string)datos.Lector["Apellido"];
-                    aux.Empleado.Cargo = (string)datos.Lector["Cargo"];
-                    aux.Empleado.Turno = (int)datos.Lector["turno"];
+                    if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("idempleado")))
+                    {
+                        aux.Empleado = new Empleados();
+                        aux.Empleado.IDEmpleado = (int)datos.Lector["idempleado"];
+                        aux.Empleado.Nombre = (string)datos.Lector["Nombre"];
+                        aux.Empleado.Apellido = (string)datos.Lector["Apellido"];
+                        aux.Empleado.Cargo = (string)datos.Lector["Cargo"];
+                        aux.Empleado.Turno = (int)datos.Lector["turno"];
+                    }
+                    else
+                    {
+                        // If no "Empleados" data is present, set it to an empty instance
+                        aux.Empleado = new Empleados();
+                    }
                     lista.Add(aux);
 
                 }
@@ -63,15 +71,24 @@ namespace NegocioResto
                 {
                     Mesa aux = new Mesa();
                     aux.IdMesa = (int)datos.Lector["IDMesa"];
-                    aux.Activo = (bool)datos.Lector["Activo"];
-                    aux.Empleado = new Empleados();
-                    aux.Empleado.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Empleado.Apellido = (string)datos.Lector["Apellido"];
-                    aux.Empleado.Cargo = (string)datos.Lector["Cargo"];
-                    aux.Empleado.Dni = (int)datos.Lector["dni"];
+                    aux.Activo = (bool)datos.Lector["EN servicio"];
                     aux.TamañoMesa = (int)datos.Lector["TamañoMesa"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Empleado.Turno = (int)datos.Lector["Turno"];
+                    
+                    if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("idempleado")))
+                    {
+                        aux.Empleado = new Empleados();
+                        aux.Empleado.IDEmpleado = (int)datos.Lector["idempleado"];
+                        aux.Empleado.Nombre = (string)datos.Lector["Nombre"];
+                        aux.Empleado.Apellido = (string)datos.Lector["Apellido"];
+                        aux.Empleado.Cargo = (string)datos.Lector["Cargo"];
+                        aux.Empleado.Turno = (int)datos.Lector["turno"];
+                    }
+                    else
+                    {
+                        // If no "Empleados" data is present, set it to an empty instance
+                        aux.Empleado = new Empleados();
+                    }
                     lista.Add(aux);
 
                 }
